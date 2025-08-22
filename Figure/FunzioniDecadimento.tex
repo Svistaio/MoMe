@@ -1,0 +1,188 @@
+\begin{tikzpicture}[
+    declare function={
+        f(\x)=exp(-\x/2);
+        g(\x)=1/(1+\x/10);
+        h(\x)=1/(1+\x/40);
+    },
+]
+    \newcommand\legendSize{8}
+    \newcommand\tickSize{8} % Dimensioni delle tacche
+
+    \pgfmathsetmacro\numMarker{10}
+    \pgfmathsetmacro\sizeMarker{1.5}
+    \pgfmathsetmacro\lineWidth{.75pt}
+    
+    \pgfmathsetmacro\domainXL{60}
+    \pgfmathsetmacro\domainYL{1.2}
+    \pgfmathsetmacro\dashed{.9}
+    \pgfmathsetmacro\yScale{0.5}
+
+    %\begingroup Stili
+    \pgfplotsset{
+        plotOpt/.style={
+            axis lines=middle,
+            xmin=0, xmax=\domainXL,
+            ymin=0, ymax=\domainYL,
+            xlabel=$t$,
+            xlabel style={yshift=-.5mm},
+            xtick distance=10,
+            xticklabel style={
+                font=\dimTesto{\tickSize},
+                anchor=north,
+                inner sep=0pt,
+            },
+            ylabel=$f(t)$,
+            yticklabel style={
+                font=\dimTesto{\tickSize},
+                anchor=east,
+                inner sep=0pt,
+            },
+            ytick distance=0.25,
+            y post scale=\yScale,
+            xmajorgrids,
+            ymajorgrids,
+            grid style={dashed},
+            axis x line*=bottom,
+            axis y line*=left,
+        },
+        legendStyle/.style={
+            legend cell align=left,
+            align=left,
+            legend pos=north east,
+            % at={(1,.6)},
+            % anchor=east,
+            % xshift=-.25cm,
+            font=\dimTesto{\legendSize},
+            % fill=none,
+            % draw=none,
+        },
+        markOption/.style={
+            mark options={solid,magenta},
+            mark repeat=\numMarker,
+            mark size=\sizeMarker pt,
+            mark phase=\numMarker
+        },
+        markX/.style={markOption,mark=x},
+        markO/.style={markOption,mark=o},
+        mark+/.style={markOption,mark=+},
+        lineOptI/.style={
+            domain=0:\domainXL*\dashed,
+            samples=100,
+            smooth,
+            line width=\lineWidth pt,
+        },
+        lineStyleFfI/.style={lineOptI,color=red,markX},
+        lineStyleFgI/.style={lineOptI,color=blue,markO},
+        lineStyleFhI/.style={lineOptI,color=green,mark+},
+        lineOptF/.style={
+            domain={\domainXL*\dashed-0.01}:\domainXL,
+            samples=10,
+            dashed,
+            line width=\lineWidth pt
+        },
+        lineStyleFfF/.style={lineOptF,color=red},
+        lineStyleFgF/.style={lineOptF,color=blue},
+        lineStyleFhF/.style={lineOptF,color=green},
+    }
+    %\endgroup
+
+    \begin{axis}[plotOpt,legend style=legendStyle]
+        \addplot[lineStyleFfI] {f(x)};
+        \addlegendentry{$f_d^l(t)$}
+        \addplot[lineStyleFgI] {g(x)};
+        \addlegendentry{$f_d^m(t)$}                    
+        \addplot[lineStyleFhI] {h(x)};
+        \addlegendentry{$f_d^h(t)$}
+
+        \addplot[lineStyleFfF] {f(x)};
+        \addplot[lineStyleFgF] {g(x)};
+        \addplot[lineStyleFhF] {h(x)};
+
+        \draw[dashed] (0,1) -- (1,1);
+
+        % node[above] at ({0.2*\domainXL},{f(0.2*\domainXL)}) {$f_d^l(t)$};
+        % node[above] at ({0.2*\domainXL},{f(0.2*\domainXL)}) {$f_d^l(t)$};
+        % node[above] at ({0.5*\domainXL},{g(0.5*\domainXL)}) {$f_d^m(t)$};
+        % node[above] at ({0.5*\domainXL},{g(0.5*\domainXL)}) {$f_d^m(t)$};
+        % node[above] at ({0.75*\domainXL},{h(0.75*\domainXL)}) {$f_d^h(t)$};
+        % node[above] at ({0.75*\domainXL},{h(0.75*\domainXL)}) {$f_d^h(t)$};
+    \end{axis}
+\end{tikzpicture}
+
+
+% Vecchia versione
+% \pgfmathsetmacro\xScale{0.1}
+% \pgfmathsetmacro\yScale{2}
+% \begin{tikzpicture}[xscale=\xScale,
+%                     yscale=\yScale,
+%                     declare function={
+%                         f(\x)=exp(-\x/2);
+%                         g(\x)=1/(1+\x/10);
+%                         h(\x)=1/(1+\x/40);
+%                         },
+%                     every node/.style={font=\fontsize{8}{9.6}\selectfont}]
+
+%     \pgfmathsetmacro\dashed{.9}
+%     \pgfmathsetmacro\DomainXL{70}
+%     \pgfmathsetmacro\DomainYL{1.2}
+
+%     % Axes
+%     \draw[->] (-{.2/\xScale},0) -- (\DomainXL,0)
+%         node[above] {$t$};
+%     \draw[->] (0,-{.2/\yScale}) -- (0,\DomainYL)
+%         node[right] {$f(t)$};
+%     \draw[dashed] (0,1) -- (\DomainXL,1);
+%     \node[left] at (0,1) {$1$};
+
+%     \pgfmathsetmacro\DomainXL{\DomainXL*.98}
+
+%     % First Decay function
+%     \draw[thick,
+%             domain=0:{\DomainXL*\dashed},
+%             smooth,
+%             variable=\x
+%         ] 
+%     plot ({\x},{f(\x)});
+%     \draw[thick,
+%             domain={\DomainXL*\dashed-0.001}:\DomainXL,
+%             smooth,
+%             variable=\x,
+%             dashed
+%         ]
+%     plot ({\x},{f(\x)});
+%     \node[above]
+%         at ({\DomainXL*0.2},{f(\DomainXL*0.2)})
+%         {$f^l_d(t)$};
+
+%     % Second Decay function
+%     \draw[thick,
+%             domain=0:{\DomainXL*\dashed},
+%             smooth,
+%             variable=\x] 
+%     plot ({\x},{g(\x)});
+%     \draw[thick,
+%             domain={\DomainXL*\dashed-0.001}:\DomainXL,
+%             smooth,
+%             variable=\x,
+%             dashed]
+%     plot ({\x},{g(\x)});
+%     \node[above]
+%         at ({\DomainXL*0.5},{g(\DomainXL*0.5)})
+%         {$f^m_d(t)$};
+
+%     % Third Decay function
+%     \draw[thick,
+%             domain=0:{\DomainXL*\dashed},
+%             smooth,
+%             variable=\x] 
+%     plot ({\x},{h(\x)});
+%     \draw[thick,
+%             domain={\DomainXL*\dashed-0.001}:\DomainXL,
+%             smooth,
+%             variable=\x,
+%             dashed]
+%     plot ({\x},{h(\x)});
+%     \node[above]
+%         at ({\DomainXL*0.75},{h(\DomainXL*0.75)})
+%         {$f^h_d(t)$};
+% \end{tikzpicture}

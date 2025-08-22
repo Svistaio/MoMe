@@ -1,0 +1,27 @@
+    %%% Ridefinizione di \@maketitle
+\makeatletter % Serve solo per non far frignare LaTeX per il simbolo «@»
+\def\@maketitle{
+\newpage
+
+% la macro «\null» aggiunge solo una scatola vuota orizzontale ed è responsabile dello spazio esagerato bianco prima di \maketitle, per cui commentarlo elimina il problema estetico.
+% Cosí agendo lo spazio verticale prima dello spazio è interamente determinato dall'impaginazione del documento, perciò se si vuole aggiungere spazio bisogna farlo col pacchetto geometry
+% Ho anche notato che senza «\null» il comando «\vskip» non ha alcun effetto
+% \null
+% \vskip 2em
+
+\begin{center}
+    \let\footnote\thanks
+    {\LARGE\@title\par}
+    \vskip 1em
+    {\large 
+        \lineskip .5em
+        \begin{tabular}[t]{c}
+            \@author 
+        \end{tabular}\par}%
+    % \vskip 0em
+    % {\large \@date }
+\end{center}%
+% \par
+\vskip -1em
+}
+\makeatother % Serve solo per non far frignare LaTeX per il simbolo «@»

@@ -1,0 +1,111 @@
+\newcommand{\derT}[3][d]{\frac{\mathrm{#1}#2}{\mathrm{#1}#3}} % Derivata totale
+\newcommand{\derTiL}[3][d]{\mathrm{#1}#2/\mathrm{#1}#3}       % Derivata totale in linea
+\newcommand{\derP}[2]{\frac{\partial#1}{\partial#2}}	      % Derivata parziale
+
+\DeclareMathOperator\VolOp{Vol}
+\newcommand{\Vol}[1]{\VolOp\left(#1\right)}
+
+\newcommand\de{\mathrm{d}}
+\DeclareMathOperator\diag{diag}
+\DeclareMathOperator\trace{tr}
+
+\newcommand{\SpazMate}[3]{% Spaz[iatura] Mate[matica]
+    \thinmuskip=#1mu\relax
+    \medmuskip=#2mu\relax
+    \thickmuskip=#3mu\relax
+}
+\SpazMate{1}{2}{3} % Seleceting math spacing
+
+\newcommand\DeltaD{\Delta^{\mathbf D}}
+
+\newcommand\RPlus{\mathbb R^+}
+\newcommand\RPlusStar{\mathbb R_*^+}
+\newcommand\NPlus{\mathbb N^+}
+
+
+\newcommand\FKdiscrete{\teqref{eqFKDiscrete}{[FK]$_d$}}
+\newcommand\HDdiscrete{\teqref{eqHDDiscrete}{[HD]$_d$}}
+\newcommand\SMOdiscrete{\teqref{eqSMODiscrete}{[SMO]$_d$}}
+
+\newcommand\FKcontinuous{\teqref{eqFKContinuous}{[FK]$_c$}}
+\newcommand\HDcontinuous{\teqref{eqHDContinuous}{[HD]$_c$}}
+\newcommand\SMOcontinuous{\teqref{eqSMOContinuous}{[SMO]$_c$}}
+
+\newcommand{\TotM}{M_{\text{tot}}}
+\newcommand{\TotP}{P_{\text{tot}}}
+\newcommand\bOne{\boldsymbol1}
+
+\newcommand\mInf{m_\infty}
+\newcommand\MInf{M_\infty}
+\newcommand\PInf{P_\infty}
+
+\newcommand\Mass{\text{M}}
+% \newcommand\Year{\text{a}}
+\DeclareSIUnit\year{a}
+% \newcommand\Molarity{\text{M}}
+\DeclareSIUnit\molarity{M}
+
+\newcommand\selezionaLingua[2]{%
+  \iflanguage{italian}{#1}% Se la lingua corrente è l'inglese usa #1
+  {% Altrimenti se la lingua è in italiano usa #2
+    \iflanguage{british}{#2}%
+    {%
+      Linguaggio non considerato % Se non è né italiano né inglese restituisce inglese
+    }%
+  }%
+}
+
+\newcommand\didascalia[1]{%
+    \captionsetup{aboveskip=-.2cm}
+    \addcontentsline{lof}{figure}{\protect\numberline{\thefigure}#1}%
+    \caption*{\figurename~\thefigure: #1}
+}
+
+\newcommand\sottoDidascalia[1]{%
+    \refstepcounter{subfigure}%
+    (\thesubfigure) #1%
+}
+
+\newcommand\dimTesto[1]{%
+    \pgfmathparse{#1*1.2}%
+    \fontsize{#1 pt}{\pgfmathresult pt}\selectfont%
+}
+
+\makeatletter
+\newcommand{\includetikzgroupplotfigure}
+    {\@ifstar{\includetikzgroupplotfigure@star}
+    {\includetikzgroupplotfigure@nostar}}
+
+\newcommand{\includetikzgroupplotfigure@nostar}[5]{%
+    \begin{figure}[#1]%
+        \centering%
+        \refstepcounter{figure}%
+        \resizebox{#2}{!}{#3}%
+        \didascalia{#4}%
+        \label{#5}%
+    \end{figure}%
+}
+
+\newcommand{\includetikzgroupplotfigure@star}[6]{%
+    \begin{figure*}[#1]%
+        \vspace{#2}%
+        \centering%
+        \refstepcounter{figure}%
+        \resizebox{#3}{!}{#4}%
+        \didascalia{#5}%
+        \label{#6}%
+    \end{figure*}%
+}
+\makeatother
+
+\newcommand\ie{\textit{i.e.}}
+
+\newcommand\Brain{\mathcal B}
+\newcommand\STCyl{\mathcal Q} % Space-time cylinder
+
+\newcommand\vColla[2]{\vspace{#1 plus #2 minus #2}}
+\newcommand\hColla[2]{\hspace{#1 plus #2 minus #2}}
+
+\newcommand\HadProd{\smash{\vcenter{\hbox{\scalebox{0.7}{$\odot$}}}}}
+
+\newcommand\HeII{\mathrm{He}_2}

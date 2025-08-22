@@ -1,0 +1,205 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+
+% this code was later modified by Valerio Taralli
+
+\begin{tikzpicture}
+
+    \pgfmathsetmacro\fSize{20.74}
+    \pgfmathsetmacro\baseline{\fSize*1.2}
+    \newcommand\tSize{\fontsize{\fSize pt}{\baseline pt}\selectfont}
+    
+    \pgfmathsetmacro\fSizeTitle{24.88}
+    \pgfmathsetmacro\baseline{\fSizeTitle*1.2}
+    \newcommand\tSizeTitle{\fontsize{\fSizeTitle pt}{\baseline pt}\selectfont}
+
+    \pgfmathsetmacro\widthIm{15} %13.82776
+    \pgfmathsetmacro\sepIm{1.2}
+    \pgfmathsetmacro\distance{{\widthIm+\sepIm}}
+
+    \begin{axis}[%
+            width=\widthIm cm, %5.444in
+            axis equal image, % Sceglie l'altezza automaticamente preservando il rapporto d'aspetto
+            % height=5.602in,
+            at={(0*\distance cm,0.294in)},
+            scale only axis,
+            point meta min=-9.81637255470408,
+            point meta max=37.7906395265799,
+            axis on top,
+            xmin=0.5,
+            xmax=83.5,
+            ymin=0.5,
+            ymax=83.5,
+            axis background/.style={fill=white},
+            title style={font=\bfseries\tSizeTitle},
+            tick label style={font=\tSize},
+            label style={font=\tSize},
+            title={L},
+            colormap/jet,
+            colorbar,
+            ]
+        \addplot [forget plot] graphics [xmin=0.5, xmax=83.5, ymin=0.5, ymax=83.5] {../Figure/Matrici-1.png};
+    \end{axis}
+
+    \begin{axis}[%
+            width=\widthIm cm, %5.444in
+            axis equal image, % Sceglie l'altezza automaticamente preservando il rapporto d'aspetto
+            % height=5.602in,
+            at={(1*\distance cm,0.294in)},
+            scale only axis,
+            point meta min=0,
+            point meta max=37.7906395265799,
+            axis on top,
+            xmin=0.5,
+            xmax=83.5,
+            ymin=0.5,
+            ymax=83.5,
+            axis background/.style={fill=white},
+            title style={font=\bfseries\tSizeTitle},
+            tick label style={font=\tSize},
+            label style={font=\tSize},
+            title={D},
+            colormap/jet,
+            colorbar,
+            ]
+        \addplot [forget plot] graphics [xmin=0.5, xmax=83.5, ymin=0.5, ymax=83.5] {../Figure/Matrici-2.png};
+    \end{axis}
+
+    \begin{axis}[%
+            width=\widthIm cm, %5.444in
+            axis equal image, % Sceglie l'altezza automaticamente preservando il rapporto d'aspetto
+            % height=5.602in,
+            at={(2*\distance cm,0.294in)},
+            scale only axis,
+            point meta min=0,
+            point meta max=9.81637255470408,
+            axis on top,
+            xmin=0.5,
+            xmax=83.5,
+            ymin=0.5,
+            ymax=83.5,
+            axis background/.style={fill=white},
+            title style={font=\bfseries\tSizeTitle},
+            tick label style={font=\tSize},
+            label style={font=\tSize},
+            title={A},
+            colormap/jet,
+            colorbar,
+            ]
+        \addplot [forget plot] graphics [xmin=0.5, xmax=83.5, ymin=0.5, ymax=83.5] {../Figure/Matrici-3.png};
+    \end{axis}
+\end{tikzpicture}%
+
+
+% Alternativa abbandonata al codice precedente, in cui si ragiona mediante
+% «\subfigure», poiché è piú difficile gestire gli spazi tra le figure
+% \begin{figure*}[bt]
+%     \newcommand\lungSF{.31\textwidth}
+%     % \newcommand\dimIm{.5\linewidth}
+
+%     \pgfmathsetmacro\fSize{20.74}
+%     \pgfmathsetmacro\baseline{\fSize*1.2}
+%     \newcommand\tSize{\fontsize{\fSize pt}{\baseline pt}\selectfont}
+    
+%     \pgfmathsetmacro\fSizeTitle{24.88}
+%     \pgfmathsetmacro\baseline{\fSizeTitle*1.2}
+%     \newcommand\tSizeTitle{\fontsize{\fSizeTitle pt}{\baseline pt}\selectfont}
+
+%     \makebox[.98\textwidth][c]{%
+%         \begin{subfigure}[b]{\lungSF}
+%             \centering
+%             \resizebox{!}{\linewidth}{%
+%             \begin{tikzpicture}
+%                 \begin{axis}[%
+%                         width=5.444in,
+%                         height=5.602in,
+%                         scale only axis,
+%                         point meta min=-0.214746064164897,
+%                         point meta max=0.826719957436668,
+%                         axis on top,
+%                         xmin=0.5,
+%                         xmax=83.5,
+%                         ymin=0.5,
+%                         ymax=83.5,
+%                         axis background/.style={fill=white},
+%                         title style={font=\bfseries\tSizeTitle},
+%                         tick label style={font=\tSize},
+%                         label style={font=\tSize},
+%                         title={L},
+%                         colormap/jet,
+%                         colorbar,
+%                         ]
+%                     \addplot [forget plot] graphics [xmin=0.5, xmax=83.5, ymin=0.5, ymax=83.5] {../Riferimenti/Matrici-1.png};
+%                 \end{axis}
+%             \end{tikzpicture}}%
+%             % \caption{}
+%             % \label{fig}
+%         \end{subfigure}
+%         \hfill
+%         \begin{subfigure}[b]{\lungSF}
+%             \centering
+%             \resizebox{!}{\linewidth}{%
+%             \begin{tikzpicture}
+%                 \begin{axis}[%
+%                         width=5.444in,
+%                         height=5.602in,
+%                         scale only axis,
+%                         point meta min=0,
+%                         point meta max=0.826719957436668,
+%                         axis on top,
+%                         xmin=0.5,
+%                         xmax=83.5,
+%                         ymin=0.5,
+%                         ymax=83.5,
+%                         axis background/.style={fill=white},
+%                         title style={font=\bfseries\tSizeTitle},
+%                         tick label style={font=\tSize},
+%                         label style={font=\tSize},
+%                         title={D},
+%                         colormap/jet,
+%                         colorbar,
+%                         ]
+%                     \addplot [forget plot] graphics [xmin=0.5, xmax=83.5, ymin=0.5, ymax=83.5] {../Riferimenti/Matrici-2.png};
+%                 \end{axis}
+%             \end{tikzpicture}}%
+%             % \caption{}
+%             % \label{fig}
+%         \end{subfigure}
+%         \hfill
+%         \begin{subfigure}[b]{\lungSF}
+%             \centering
+%             \resizebox{!}{\linewidth}{%
+%             \begin{tikzpicture}
+%                 \begin{axis}[%
+%                         width=5.444in,
+%                         height=5.602in,
+%                         scale only axis,
+%                         point meta min=0,
+%                         point meta max=0.214746064164897,
+%                         axis on top,
+%                         xmin=0.5,
+%                         xmax=83.5,
+%                         ymin=0.5,
+%                         ymax=83.5,
+%                         axis background/.style={fill=white},
+%                         title style={font=\bfseries\tSizeTitle},
+%                         tick label style={font=\tSize},
+%                         label style={font=\tSize},
+%                         title={A},
+%                         colormap/jet,
+%                         colorbar,
+%                         ]
+%                     \addplot [forget plot] graphics [xmin=0.5, xmax=83.5, ymin=0.5, ymax=83.5] {../Riferimenti/Matrici-3.png};
+%                 \end{axis}
+%             \end{tikzpicture}}%
+%             % \caption{}
+%             % \label{fig}
+%         \end{subfigure}
+%     }
+%     \caption{Matrices used the spatial discretization.}
+%     \label{figMatrici}
+% \end{figure*}

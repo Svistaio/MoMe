@@ -1,0 +1,17 @@
+Ho dovuto faticare molto per trovare un modello 3D [1] della superficie corticale del cervello da sovraporre al grafo celebrale. È vero però che era solo una questione estetica perfettamente saltabile che volevo comunque avere.
+
+In ogni caso sono riuscito a trovare i dati necessari dal programma «TVB (The Virtual Brain)» [2] grazie al video [3]; tuttavia v'è un'altra fonte [4] che non uso ma che vale la pena archiviare nella filza «Altra_Superficie_Corticale.mat»: se mai fosse necessaria bisogna usare in MATLAB il comando «load(Altra_Superficie_Corticale.mat)» per caricare la struttura contenente i dati come in [1] ma per i due emisferi separati.
+
+Infine è interessante notare che rispetto all'articolo di riferimento «Goriely 2019 I {29-11-2024}» nel modello 3D non è presente il tronco encefalico; eppure, siccome si usa solo per questioni estetiche, si può evitare di cercarne un altro: quello che ho è sufficiente [5].
+
+---
+
+[1] Ossia uno formato da due filze di testo: la prima contenente per ogni riga le tre coordinate per ogni vertice, mentre la seconda contenente per ogni triangolo/poligono gl'indici dei vertici che lo compongono [preferibilmente in senso antiorario].
+
+[2] Si scarica qui (https://www.thevirtualbrain.org/tvb/zwei/brainsimulator-software) mentre il sito principale è qua (https://www.thevirtualbrain.org/tvb/zwei).
+
+[3] Il sito in particolare è https://training.incf.org/lesson/generate-your-own-3d-brain-model-outside-virtual-brain mentre su YouTube è in https://www.youtube.com/watch?v=ileSEQln33U; in ogni caso è interessante come parli di come rappresentare le simulazioni nel cervello «in altri programmi» ma per farlo, oltre ad altri dati non di mio interesse, sono presenti anche quelli in [1].
+
+[4] Guarda https://edden-gerber.github.io/vis_toolbox/ oppure https://www.mathworks.com/matlabcentral/fileexchange/71634-anatomical-data-visualization-toolfbox-for-fmri-ecog/.
+
+[5] Diventerebbe fondamentale se la mia simulazione ne dipendesse, ma visto che si basa sulla rete celebrale tale informazione è del tutto irrilevante.

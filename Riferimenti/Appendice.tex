@@ -1,0 +1,772 @@
+    \appendix
+    \numberwithin{equation}{section}
+    \renewcommand\theequation{\thesection\arabic{equation}}
+    \setcounter{equation}{0}
+
+    % \begin{multicols}{2}
+
+    \part*{Appendix}
+    \addcontentsline{toc}{part}{Appendix} % Adds "Appendix" to the TOC
+
+        \section{HD model}\label{apxHDModel}
+
+            \subsection{\texorpdfstring{\FKcontinuous{}}{[FK]\_c} derivation from \texorpdfstring{\HDcontinuous{}}{[HD]\_c}}\label{apxFKFromHD}
+
+                Assuming that in \HDcontinuous{} the healthy protein is both stationary, $\derTiL{c_h}t=0$, and homogeneous, $\DeltaD c_h=0$, then one has
+                %
+                \begin{equation}
+                    0=\gamma-\mu_hc_h-\kappa c_hc_m,
+                    \label{eqNullReactionch}
+                \end{equation}
+                %
+                which, for instance, might happen if $c_h\gg c_hc_m$, that is $c_m\ll1$, so that the reaction term negligible with respect to the clearance one.
+
+                Isolating $c_h$, one has 
+                %
+                \begin{equation*} 
+                    c_h=
+                    \frac\gamma{\mu_h+\kappa c_m}=
+                    \frac\gamma{\mu_h}\frac1{1+\frac\kappa{\mu_h}c_m}
+                    \overset{(*)}{=}
+                    \frac\gamma{\mu_h}\left(1-\frac\kappa{\mu_h}c_m\right),
+                    \label{eqchTaylorExpanded}
+                \end{equation*}
+                %
+                where in $(*)$ it was assumed $\kappa/\mu_h=\varepsilon\ll1$ which justifies the use of Taylor expansions. \cite{AnalisiICanutoTabacco2014}
+
+                Now, using \eqref{eqchTaylorExpanded} in the $c_m$ equation, it holds
+                %
+                \begin{align}
+                    \derT{c_m}t&=\DeltaD c_m-\mu_mc_m
+                    +\kappa c_m\frac\gamma{\mu_h}
+                    \left(1-\frac\kappa{\mu_h}c_m\right)
+                    \nonumber\\
+                    &=\DeltaD c_m+c_m\left[
+                    \frac{\kappa\gamma-\mu_m\mu_h}{\mu_h}
+                    -\gamma\frac{\kappa^2}{\mu^2_h}c_m\right]
+                    \label{eqcmReformulated}\\
+                    &=\DeltaD c_m+
+                    \frac{\kappa\gamma-\mu_m\mu_h}{\mu_h}c_m\left[
+                    1-\frac{\gamma\kappa^2}
+                    {(\kappa\gamma-\mu_m\mu_h)\mu_h}c_m\right].
+                    \nonumber
+                \end{align}
+                %
+                Finally, by setting
+                %
+                \begin{equation}
+                    \alpha\equiv\frac{\kappa\gamma-\mu_m\mu_h}{\mu_h}
+                    \quad\text{and}\quad
+                    c_m^{\max}\equiv\frac{(\kappa\gamma-\mu_m\mu_h)\mu_h}
+                    {\gamma\kappa^2},
+                    \label{eqFKFromHDParameters}
+                \end{equation}
+                %
+                and making the concentration dimensionless with respect to $c^{\max}_m$, \textit{i.e.} $c_m=c_m^{\max}c$, the FK model is finally obtained:
+                %
+                \begin{equation}
+                    \derT ct=\DeltaD c+\alpha c(1-c).
+                    \label{eqFKFromHD}
+                \end{equation}
+
+            \subsection{Asymptotic \texorpdfstring{\HDcontinuous{}}{[HD]\_c} calculations}\label{apxAsymptoticHDCalcs}
+
+                The Jacobian of \eqref{eqHDEP} is
+                %
+                \begin{equation}
+                    J(\mathbf c)\equiv J(c_h,c_m)=
+                    \begin{pmatrix}
+                        -\mu_h-\kappa c_m^\infty&-\kappa c_h^\infty\\
+                        \kappa c_m^\infty&-\mu_m+\kappa c_h^\infty
+                    \end{pmatrix}.
+                    \label{eqHDEPJacobian}
+                \end{equation}
+                %
+                Evaluating it in $\mathbf c_1$ gives, setting $J_1\equiv J(\mathbf c_1)$,
+                %
+                \begin{equation}
+                    J_1=
+                    \begin{pmatrix}
+                        -\mu_h&-\kappa\frac\gamma{\mu_h}\\
+                        0&-\mu_m+\kappa\frac\gamma{\mu_h}
+                    \end{pmatrix},
+                    \label{eqHDc1Jacobian}
+                \end{equation}
+                %
+                with trace and determinant
+                %
+                \begin{equation}
+                    \left\{
+                    \begin{aligned}
+                        \trace(J_1)&=-\mu_h-\mu_m+\kappa\frac\gamma{\mu_h},\\[5pt]
+                        \det(J_1)&=\mu_h\mu_m-\kappa\gamma.
+                    \end{aligned}
+                    \right.
+                    \label{eqHDc1TraceDet}
+                \end{equation}
+                %
+                From these results, it's clear that if $\det(J_1)<0$ then $\mathbf c_1$ is definitely unstable, while if $\det(J_1)>0$ the trace is negative,
+                %
+                \begin{equation*}
+                    \mu_h\trace(J_1)=-\mu^2_h-\det(J_1)<0
+                    \overset{\mu_h>0}{\;\implies\;}\trace(J_1)<0,
+                \end{equation*}
+                %
+                meaning the point is LAS.
+
+                Instead, evaluating \eqref{eqHDEPJacobian} in $\mathbf c_2$ one has, setting $J_2\equiv J(\mathbf c_2)$,
+                \begin{equation}
+                    J_1=
+                    \begin{pmatrix}
+                        -\frac{\kappa\gamma}{\mu_h}&-\mu_m\\
+                        \frac{\kappa\gamma-\mu_h\mu_m}{\mu_m}&0
+                    \end{pmatrix},
+                    \label{eqHDc2Jacobian}
+                \end{equation}
+                %
+                with trace and determinant
+                %
+                \begin{equation}
+                    \left\{
+                    \begin{aligned}
+                        \trace(J_2)&=-\frac{\kappa\gamma}{\mu_h}<0,\\[5pt]
+                        \det(J_2)&=\kappa\gamma-\mu_h\mu_m=-\det(J_1).
+                    \end{aligned}
+                    \right.
+                    \label{eqHDc2TraceDet}
+                \end{equation}
+                %
+                Since $\trace(J_2)$, $\mathbf c_2$ stability is determined entirely by its deteriminant: if $\det(J_2)>0$ then [it exists and] it's LAS, otherwise [it doesn't exists and] it's unstable. Moreover, from $\det(J_2)=-\det(J_1)$ we can deduce it's behaviour is opposita that of $\mathbf c_1$: if one is LAS the other is unstable and \textit{vice versa}.
+
+                Lastly if $\kappa\gamma=\mu_h\mu_m$ then $\mathbf c_1=\mathbf c_2$ and $\det(J_i)=0$, $i=1,2$, meaning it's a critical EP \cite{NLDCStrogatz2024} whose nature is more difficult to study; indeed the Jacobian is in this case of no use since one eigenvalue is null. However, as we are interested only in cases in which $c_m^\infty>0$, the study of this very specific case is omitted.
+
+        \section{SMO model}\label{apxSMOModel}
+
+            \subsection{Nondimensionalization}\label{apxContinuousModelsNondimensionalization}
+
+                The FK and HD models are studied without introducing further nondimensionalization; thus the FK one is semidimensional as the parameters are dimensional, but the concentration is not, while the HD one is fully dimensional.
+
+                \cite{Goriely2019} consider a version \SMOcontinuous{} which is dimensionless.
+
+                On the contrary the SMO model is nondimensionalized following the logic in § 3.3 on p. 6 of \cite{Goriely2019}; therefore, given $m_0$ the initial [non-zero] healthy monomer concentration the dimensionless parameters are
+                %
+                \begin{equation}
+                    \newcommand\hspcC{\qquad}
+                    \begin{alignedat}{4}
+                        \tilde a&=\frac aa=1,&\hspcC
+                        \tilde f&=\frac f{am_0},&\hspcC
+                        \tilde\gamma&=\frac\gamma{am^2_0},\\
+                        \tilde\mu&=\frac\mu{am_0},&\hspcC
+                        \tilde\kappa&=\frac\kappa a,&\hspcC
+                        \tilde{\mathbf D}&=\frac{\mathbf D}{am_0},
+                    \end{alignedat}
+                    \label{eqSMOParametersDimensionless}
+                \end{equation}
+                %
+                while the dimensionless concentrations and time are
+                %
+                \begin{equation}
+                    \tilde c_i=\frac{c_i}{m_0}
+                    \quad\text{and}\quad
+                    \tilde t=(am_0)t.
+                    \label{eqSMOVariableDimensionless}
+                \end{equation}
+                %
+                Thanks to \cref{eqSMOParametersDimensionless,eqSMOVariableDimensionless}, \SMOcontinuous{} becomes, dropping the tildes,
+                %
+                \begin{equation}
+                    \hspace{-.16cm plus .1cm minus .1cm}
+                    \SpazMate{1}{1}{1}
+                    \left\{\begin{alignedat}{2}
+                        &\hspace{-.2cm plus .1cm minus .1cm}
+                        \left.\begin{aligned}
+                            \derT{c_1}t=&\DeltaD c_1
+                            % \nabla\cdot(\mathbf D\cdot\nabla c_1)
+                            +\gamma-\mu c_1-2\boldsymbol\kappa c_1^2-
+                            c_1\!\!\sum_{j=2}^{L-1}c_j,\\[\vspcESMO]
+                            \derT{c_2}t=&\DeltaD c_2
+                            % \nabla\cdot(\mathbf D\cdot\nabla c_1)
+                            -\mu c_2+\boldsymbol\kappa c_1^2-c_1c_2+
+                            f\!\!\sum_{j=2}^{L-3}c_{2+j},\\[\vspcESMO]
+                            \derT{c_i}t=&\DeltaD c_i
+                            % \nabla\cdot(\mathbf D\cdot\nabla c_i)
+                            -\mu c_i+c_1c_{i-1}-c_1c_i\\[\vspcRSMO]&
+                            -\frac{(i-3)}2fc_i+
+                            f\!\!\!\sum_{j=2}^{L-i-1}c_{i+j},
+                            \;\;2<i<L\\[\vspcESMO]
+                            \derT{c_L}t=&\DeltaD c_L-\mu c_L+c_1c_{L-1}.
+                            % \nabla\cdot(\mathbf D\cdot\nabla c_n)
+                        \end{aligned}\right\}
+                        &&\text{in }\STCyl,\\
+                        &\text{BC: }c_i=0,\;\;\; 1\le i\le L,
+                        &&\text{on }\partial\STCyl_x,\\
+                        &\text{IC: }c_1=c_{1,0},\;\; c_i=0,\;\;\;1<i\le L,
+                        &&\text{on }\partial\STCyl_t,
+                    \end{alignedat}\right.
+                    \label{eqSMOContinuousDinmensionless}
+                \end{equation}
+                %
+                % From this point onward the dimension of the model will be implied, so, for instance, in § \ref{secCharacteristicTimes} it's not necessary to distinguish between dimensional or dimensionless times as it can be understood from the model itself.
+
+            \subsection{Euler contracted methods}\label{apxEulerContractedMethods}
+
+                For \eqref{eqSMOContinuousDinmensionless} usually the dimensionless duration $T$ is much greater than $\Delta t$ leading to an excessive number of time steps $N\gg1$ slowing down the simulation.
+                
+                One possible way to avoid such a fate, and to process the same results in a much faster way, is to contract the time duration; take $\varepsilon\ll1$ such that 
+                %
+                \begin{equation*}
+                    t^c=t\varepsilon,\quad
+                    T^c\equiv\varepsilon T\ll T,
+                    \quad\text{and}\quad
+                    N^c\equiv T^c/\Delta t\ll N,
+                \end{equation*}
+                %
+                then \eqref{eqGenericSystemODE}, given
+                %
+                \begin{equation*}
+                    \derT{}t=\varepsilon\derT{}{t^c},
+                \end{equation*}
+                %
+                becomes
+                %
+                \begin{equation}
+                    \varepsilon\derT{\mathbf c}{t^c}=
+                    \mathbf F\left(\mathbf c(t^c/\varepsilon),
+                    t^c/\varepsilon;\mathbf L,\mathcal P\right).
+                    \label{eqGenericSystemODEContracted}
+                \end{equation}
+                %
+                Applying the same logic resulting in \eqref{eqUpdateRuleEE}, one has the contracted explicit Euler method with update rule
+                %
+                \begin{equation}
+                    \mathbf c(t^c_{n+1})=\mathbf c(t^c_n)
+                    +\frac{\Delta t}\varepsilon
+                    \mathbf F\left(\mathbf c(t^c_n/\varepsilon),
+                    t^c_n/\varepsilon;\mathbf L,\mathcal P\right),
+                    \label{eqUpdateRuleEEContracted}
+                \end{equation}
+                %
+                where $t^c_n=t_n\varepsilon$. The only difference with \eqref{eqUpdateRuleEE} is the expanded time step $\Delta t^c\equiv\Delta t/\varepsilon\gg\Delta t$ which requires, as the explicit Euler method is \textit{not} unconditionally stable, $\Delta t$ sufficiently for the method to be stable.
+
+                Because the number unknowns is small in \FKdiscrete{} and \HDdiscrete{}, $n$ and $2n$ respectively, we have chosen to use \eqref{eqUpdateRuleEI} for a smaller step size. Conversely for \SMOdiscrete{}, due to the large number of $nN$ unknowns, we have opted for \eqref{eqUpdateRuleEEContracted} by choosing $\varepsilon$ in the following manner: fix $N^c\ll N$ then
+                %
+                \begin{equation*}
+                    \varepsilon\equiv\frac {T^c}T=N^c\frac {\Delta t}T.
+                \end{equation*}
+                %
+                Finally, note that another alternative to time contraction is using an adaptive time step size, in which $\Delta t$ is chosen at each iteration based on the estimated error from the previous step[s]. \cite{PPSCWeinzierl2021}
+
+            \subsection{Positivity asymptotic constraints}\label{apxSMOPositivityAsmptoticConstraint}
+
+                The asymptotic values in \eqref{eqPInfValue} and \eqref{eqMInfValue} imply some constraints between the \SMOcontinuous{} parameters by imposing their positivity.
+
+                Consider \eqref{eqMInfValue}, then one has
+                %
+                \begin{equation}
+                    \MInf=\frac\gamma\mu-\mInf>0
+                    \;\implies\;
+                    \mInf<\frac\gamma\mu,
+                    \label{eqMInfPosConstraint}
+                \end{equation}
+                %
+                while \eqref{eqPInfValue} is more involved with
+                %
+                \begin{equation}
+                    \begin{aligned}
+                        \PInf&=\frac{\gamma-\mu\mInf-2\kappa v\mInf^2}{a\mInf}>0\\
+                        &\overset{a\mInf>0}{\;\implies\;}
+                        \gamma-\mu\mInf-2\kappa v\mInf^2>0\\
+                        &\overset{\phantom{a\mInf>0}}{\;\implies\;}
+                        2\kappa v\mInf^2+\mu\mInf-\gamma<0,
+                    \end{aligned}
+                    \label{eqPInfPosConstraint}
+                \end{equation}
+                %
+                whose solution is $\mInf^-<\mInf<\mInf^+$, with
+                %
+                \begin{equation}
+                    \mInf^\pm=
+                    \frac{-\mu\pm\sqrt{\mu^2+8\gamma\kappa v}}{4\kappa v},
+                    \label{eqPInfParabolaSol}
+                \end{equation}
+                %
+                which reduces to $\mInf<\mInf^+$ as $\mInf^-<0$ and $\mInf>0$.
+
+                Both \eqref{eqMInfPosConstraint} and \eqref{eqPInfPosConstraint} could be used to prove the only coherent root in \eqref{eqmInfEstimateEquation} is the smallest real one; however, this is only possible if its analytical solutions are known meaning, due to their complexity (§ \ref{secAsymptoticAnalysisSMO}), this is not a viable strategy. Nonetheless these constraints help weed out potential $\mInf$ which is still useful.
+
+
+            \subsection{System of Moments}\label{apxSystemOfMoments}
+
+                The only equations that need to be proven in system \eqref{eqContinuousMomentEquations} are \cref{eqPContinuousMomentEquation,eqMContinuousMomentEquation}, since \eqref{eqmContinuousMomentEquation} is already obvious.
+
+                In \eqref{eqPContinuousMomentEquation} the only unclear identity is
+                %
+                \begin{equation}
+                    f\left[\vphantom{\sum_{i,j=2}^\infty}\right.%\ 
+                    \underbrace{\sum_{i,j=2}^\infty c_{i+j}}_{(\text{IP})}
+                    -\frac12\underbrace{\sum_{i=3}^\infty(i-3)c_i}_{(\text{IIP})}
+                    \left.\vphantom{\sum_{i,j=2}^\infty}\right]=\frac f2(M-3P+c_2)
+                    \label{eqSysMomDerUnclearIdentityP}
+                \end{equation}
+                %
+                where the sum goes to infinity because, as explained in § \ref{secAsymptoticAnalysisSMO}, assumption \ref{hypSMOModelMaxLength} is disregarded.
+
+                By rearranging the (I) in \eqref{eqSysMomDerUnclearIdentityP} it holds $(\text{IP})=(\text{IIP})$. Indeed, consider $n=i+j$ even, then the $(i,j)$ asymmetric pair are $n/2-1$ while there is one symmetric pair $(n/2,n/2)$; remembering that $i$ and $j$ start at $2$, the total number of pairs for $n\ge4$ are
+                $$
+                \overbrace{2(n/2-1-2+1)}^{\text{asym. pairs}}
+                +\overbrace1^{\text{sym. pair}}
+                =n-3.
+                $$
+                On the contrary, given $n=i+j$ odd, one has only asymmetric pairs which are unique up until $n/2$, but since $n/2$ is rational the real upper limit is $(n-1)/2$; thus, the total number of pairs are
+                $$
+                \overbrace{2[(n-1)/2-2+1]}^{\text{asym. pairs}}=n-3.
+                $$
+                Therefore, the total number of pairs is $n-3$ regardless the type of integer considered; this can be even visually proved using the following array:
+                %
+                \newcommand\lineOverlap[5]{
+                    % #1: initial row index
+                    % #2: initial column index
+                    % #3: final row index
+                    % #4: final column index
+                    %
+                    % Anticlockwise rectangle
+                    \pgfmathsetmacro\wBase{.4} % Rectangle base width
+                    %
+                    % Row indexes
+                    \pgfmathsetmacro\riNWC{#1} % North-west corner
+                    \pgfmathsetmacro\riSWC{#1+\wBase} % South-west corner
+                    \pgfmathsetmacro\riSEC{#3} % South-est corner
+                    \pgfmathsetmacro\riNEC{#3-\wBase} % North-est corner
+                    %
+                    % Column index
+                    \pgfmathsetmacro\ciNWC{#2-\wBase} % North-west corner
+                    \pgfmathsetmacro\ciSWC{#2} % South-west corner
+                    \pgfmathsetmacro\ciSEC{#4+\wBase} % South-est corner
+                    \pgfmathsetmacro\ciNEC{#4} % North-est corner        
+                    %
+                    %
+                    \tikz\fill[
+                        overlay,
+                        remember picture,
+                        #5,
+                        fill opacity=0.5,
+                        rounded corners=7pt,
+                    ]
+                        (\riNWC-|\ciNWC) -- 
+                        (\riSWC-|\ciSWC) -- 
+                        (\riSEC-|\ciSEC) -- 
+                        (\riNEC-|\ciNEC) -- cycle;
+                }
+                %
+                \begin{equation}
+                    \newcommand\halfHeight{.2cm}
+                    \newcommand\wCol{.4cm}
+                    \newcommand\hRow\halfHeight
+                    %
+                    \setlength\extrarowheight\halfHeight
+                    % \setlength\arraycolsep{0cm} % Separazione tra colonne
+                    \newcommand\shortP{10pt}
+                    %
+                    \begin{NiceArray}{
+                        @{\hskip\arraycolsep}
+                        wc{\wCol}|wc{\wCol}wc{\wCol}
+                        wc{\wCol}wc{\wCol}c
+                        @{\hskip\arraycolsep}
+                    }
+                    \CodeBefore
+                        \lineOverlap{2.5}{2.5}{2.5}{2.5}{black!15!white}
+                        \lineOverlap{3.5}{2.5}{2.5}{3.5}{blue!15!white}
+                        \lineOverlap{4.5}{2.5}{2.5}{4.5}{red!15!white}
+                        \lineOverlap{5.5}{2.5}{2.5}{5.5}{green!15!white}
+                        % \chessboardcolors{red!15}{blue!15}
+                    \Body
+                        \diagbox ij&2&3&4&5 &\Cdots[shorten-start=\shortP]\\[\hRow]
+                        \hline
+                                  2&4&5&6&7 &\Cdots[shorten-start=\shortP]\\[\hRow]
+                                  3&5&6&7&8 &\Cdots[shorten-start=\shortP]\\[\hRow]
+                                  4&6&7&8&9 &\Cdots[shorten-start=\shortP]\\[\hRow]
+                                  5&7&8&9&10&\Cdots[shorten-start=8pt]  \\[\hRow]
+                        \Vdots[shorten-start=\shortP]&\Vdots[shorten-start=\shortP]&
+                        \Vdots[shorten-start=\shortP]&\Vdots[shorten-start=\shortP]&
+                        \Vdots[shorten-start=\shortP]&\phantom{11}
+                    \CodeAfter
+                        \line[shorten-start=8pt]{5-5}{6-6}
+                    \end{NiceArray}.
+                    \label{eqSysMomDerRearrangingTableP}
+                \end{equation}
+                %
+                Hence (I) becomes
+                %
+                \begin{equation*}
+                    (\text{IP})=\sum_{n=4}^\infty(n-3)c_n,
+                \end{equation*}
+                %
+                while the sum $(\text{IP})+(\text{IIP})$ reduces to
+                %
+                \begin{equation}
+                    \sum_{i=4}^\infty(i-3)c_i=
+                    \sum_{i=4}^\infty ic_i-3\sum_{i=4}^\infty c_i=
+                    M-3P+c_2,
+                    \label{eqSysMomDer}
+                \end{equation}
+                %
+                where $c_2$ and $c_3$ where summed and subtracted accordingly, proving \eqref{eqSysMomDerUnclearIdentityP}.
+
+                \hfill\blacksquare
+
+                In \eqref{eqMContinuousMomentEquation} the only unclear identity is
+                %
+                \begin{equation}
+                    f\left[\vphantom{\sum_{i,j=2}^\infty}\right.%\ 
+                    \underbrace{\sum_{i=2}^\infty i\sum_{j=2}^\infty c_{i+j}}_{(\text{IM})}
+                    -\frac12\underbrace{\sum_{i=3}^\infty i(i-3)c_i}_{(\text{IIM})}
+                    \left.\vphantom{\sum_{i,j=2}^\infty}\right]=0.
+                    \label{eqSysMomDerUnclearIdentityM}
+                \end{equation}
+                %
+                Thanks to distributive property (IM) can be rewritten as
+                $$
+                    (\text{IM})=\sum_{i=2}^\infty\sum_{j=2}^\infty  ic_{i+j},
+                $$
+                from which it's clear the counting done in \eqref{eqSysMomDerRearrangingTableP} is still valid with a caveat: not all $c_{i+j}$ with the same $i+j$ are equal, but they are weighted by $i$, \ie{}:
+                $$
+                (\text{IM})=
+                \sum_{n=4}^\infty\sum_{i=2}^{n-2}  ic_n=
+                \sum_{n=4}^\infty c_n\sum_{i=2}^{n-2}i=
+                \sum_{n=4}^\infty c_n\left(\sum_{i=1}^{n-2}i-1\right),
+                $$
+                where the upper limit of the second sum w.r.t. $i$ comes from the fact that each pair has to be summed starting with $(i,j)=(2,n-2)$ and ending with $(i,j)=(n-2,2)$; a visual representation of what has been said can be found in the following array:
+                %
+                \renewcommand\lineOverlap[5]{
+                    % #1: initial row index
+                    % #2: initial column index
+                    % #3: final row index
+                    % #4: final column index
+                    %
+                    % Anticlockwise rectangle
+                    \pgfmathsetmacro\wBase{.3} % Rectangle base width
+                    %
+                    % Row indexes
+                    \pgfmathsetmacro\riNWC{#1+\wBase} % North-west corner
+                    \pgfmathsetmacro\riSWC{#1+\wBase} % South-west corner
+                    \pgfmathsetmacro\riSEC{#3-\wBase} % South-est corner
+                    \pgfmathsetmacro\riNEC{#3-\wBase} % North-est corner
+                    %
+                    % Column index
+                    \pgfmathsetmacro\ciNWC{#2-\wBase} % North-west corner
+                    \pgfmathsetmacro\ciSWC{#2+\wBase} % South-west corner
+                    \pgfmathsetmacro\ciSEC{#4+\wBase} % South-est corner
+                    \pgfmathsetmacro\ciNEC{#4-\wBase} % North-est corner        
+                    %
+                    %
+                    \tikz\fill[%
+                        overlay,
+                        remember picture,
+                        #5,
+                        fill opacity=0.5,
+                        rounded corners=7pt,
+                    ]%
+                        (\riNWC-|\ciNWC) -- 
+                        (\riSWC-|\ciSWC) -- 
+                        (\riSEC-|\ciSEC) -- 
+                        (\riNEC-|\ciNEC) -- cycle;
+                }
+                %
+                \begin{equation}
+                    \newcommand\halfHeight{.2cm}
+                    \newcommand\wCol{.4cm}
+                    \newcommand\hRow\halfHeight
+                    %
+                    \setlength\extrarowheight\halfHeight
+                    % \setlength\arraycolsep{0cm} % Separazione tra colonne
+                    \newcommand\shortP{6pt}
+                    %
+                    \begin{NiceArray}{
+                        @{\hskip\arraycolsep}
+                        wc{\wCol}|wc{\wCol}wc{\wCol}
+                        wc{\wCol}wc{\wCol}c
+                        @{\hskip\arraycolsep}
+                    }
+                    \CodeBefore
+                        \lineOverlap{2.5}{2.5}{2.5}{2.5}{black!15!white}
+                        \lineOverlap{3.5}{3.5}{2.5}{3.5}{blue!15!white}
+                        \lineOverlap{4.5}{4.5}{2.5}{4.5}{red!15!white}
+                        \lineOverlap{5.5}{5.5}{2.5}{5.5}{green!15!white}
+                        % \chessboardcolors{red!15}{blue!15}
+                    \Body
+                        \diagbox jn&4&5&6&7&\Cdots[shorten-start=\shortP]\\[\hRow]
+                        \hline
+                                2&2&3&4&5&\Cdots[shorten-start=\shortP]\\[\hRow]
+                                3& &2&3&4&\Cdots[shorten-start=\shortP]\\[\hRow]
+                                4& & &2&3&\Cdots[shorten-start=\shortP]\\[\hRow]
+                                5& & & &2&\Cdots[shorten-start=\shortP]\\[\hRow]
+                                \Vdots[shorten-start=10pt]
+                                &&&&&\phantom{2}\\[\hRow]
+                    \CodeAfter
+                        \line[shorten-start=\shortP]{5-5}{6-6}
+                    \end{NiceArray}.
+                    \label{eqSysMomDerRearrangingTableM}
+                \end{equation}
+                %
+                By remembering the identity $\sum_{i=1}^ni=[(n+1)n]/2$, (IM) becomes
+                %
+                \begin{equation*}
+                    \SpazMate{1}{1}{1}
+                    \begin{aligned}
+                        (\text{IM})&=\sum_{n=4}^\infty c_n\left(\frac{(n-1)(n-2)}2-1\right)
+                        =\sum_{n=4}^\infty c_n\left(\frac{n^2-3n+2}2-1\right)\\
+                        &=\frac12\sum_{n=4}^\infty n(n-3)c_n
+                        =\frac12\sum_{n=3}^\infty n(n-3)c_n=(\text{IIM}),
+                    \end{aligned}
+                \end{equation*}
+                %
+                proving \eqref{eqSysMomDerUnclearIdentityM}.
+
+                \hfill\blacksquare
+
+
+            \subsection{Asymptotic size distribution}\label{apxAsymptoticSizeDistribution}
+
+                Assume to know the asymptotic values of $\PInf$ and $\mInf$ in \cref{eqmInfEstimateEquation,eqPInfValue} and modify the equations $i>2$ in \SMOcontinuous{} to
+                %
+                \begin{equation}
+                    \SpazMate{1}{1}{1}
+                    \derT{c_i}t=
+                    -\mu c_i+ac_1(c_{i-1}-c_i)
+                    -\frac{(i-3)}2fc_i
+                    +f\sum_{j=1}^\infty c_{i+j},
+                    \label{eqAsymSDDerModifiedithSMO}
+                \end{equation}
+                %
+                where
+
+                \begin{itemize}[%
+                    topsep=7.5pt,     % Spazio superiore tra testo e lista
+                    itemsep=-2pt,	  % Spazio tra gli elementi («item») della lista
+                    leftmargin=20pt,  % Spazio tra la lista e il bordo destro del testo
+                    rightmargin=0pt,  % Spazio tra la lista e il bordo sinistro del testo
+                    % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
+                    %itemindent=!,
+                    % labelindent=30pt, 	% Spazio tra il margine sinistro e l'etichetta della lista
+                    %labelwidth=!,
+                    %labelsep=!
+                ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
+                    \item the summation starts at $1$ and not $2$, \ie{} \ref{hypSMOModelFragmentation} is modified to allow fragmentation of polymers into monomers,
+                    \item \ref{hypSMOModelMaxLength} is ignored to have $L\to\infty$ and
+                    \item the system is homogeneous in space.
+                \end{itemize}
+
+                By subtracting the $(i+1)$-th and $i$-th \eqref{eqAsymSDDerModifiedithSMO} equations, one finds
+                %
+                \begin{equation}
+                    \SpazMate{1}{1}{1}
+                    \begin{aligned}
+                        \derT{}t(c_{i+1}-c_i)=
+                        &-\left[\mu+\frac f2(i-2)\right](c_{i+1}-c_i)\\
+                        &+am(c_{i+1}-2c_i+c_{i-1})\\
+                        &-fc_{i+1}-\frac f2c_i,
+                    \end{aligned}
+                    \label{eqAsymSDDerDifference}
+                \end{equation}
+                %
+                with $c_1\equiv m$, as done in \eqref{eqContinuousMomentEquations}. Define $$c(s,t):\RPlus\times\RPlus\to\RPlus$$ such that $c(i,t)=c_i(t)$ for $i\in\NPlus$, then using its discretization with a unit step, that is
+                %
+                \begin{equation*}
+                    \SpazMate{1}{1}{1}
+                    \derP cs\approx c_{i+1}-c_i,\;\;\;
+                    \derP{^2c}{s^2}\approx c_{i+1}-2c_i+c_{i-1},\;\;\;
+                    c_{i+1}\approx\derP cs+c,
+                    % \begin{aligned}
+                    %     \derP cs&\approx c_{i+1}-c_i,\\
+                    %     \derP{^2c}{s^2}&\approx c_{i+1}-2c_i+c_{i-1},\\
+                    %     c_{i+1}&\approx\derP cs+c,
+                    % \end{aligned}
+                    \label{eqDiscretizationCntSizeDistribution}
+                \end{equation*}
+                %
+                and\footnotemark{} $c\approx c_i$, \eqref{eqAsymSDDerDifference} becomes
+                %
+                \footnotetext{This last approximation is not contradictory because the discretization considers $c_i$ as the reference point: the previous first two approximations are its forward and central difference formulas, while the last one is the Taylor expansion centered in $s=i$ at a fixed $t$, confirming $c\approx c_i$.}
+                %
+                \begin{equation}
+                    \derP{^2c}{s\partial t}=
+                    -\left(\mu+\frac f2s\right)\derP cs
+                    -am\derP{^2c}{s^2}-3\frac f2c,
+                    \label{eqAsymSDDerDiscretized}
+                \end{equation}
+                %
+                whose steady state form is given by
+                %
+                \begin{equation}
+                    a\mInf\derP{^2c}{s^2}
+                    +\left(\mu+\frac f2s\right)\derP cs+3\frac f2c=0.
+                    \label{eqAsymSDDerSteadyState}
+                \end{equation}
+                %
+                Setting now
+                %
+                \begin{equation}
+                    \nu_1=\frac\mu{a\mInf}
+                    \quad\text{and}\quad
+                    \nu_2=\frac1{a\mInf}\frac f2,
+                    \label{eqAsymSDDerParameters}
+                \end{equation}
+                %
+                and changing variable \cite[(B13) on p. 3473]{KPGPoschel2003} from $s$ to
+                %
+                \begin{equation}
+                    u=\frac{\nu_1+\nu_2s}{\sqrt{\nu_2}},
+                    \label{eqAsymSDDerVariableChange}
+                \end{equation}
+                %
+                one can transform \eqref{eqAsymSDDerSteadyState} into
+                %
+                \begin{equation}
+                    \derP{^2c}{u^2}+u\derP cu+3c=0.
+                    \label{eqAsymSDDerSteadyStateVariableChange}
+                \end{equation}
+                %
+                Assume now $c$ has form
+                %
+                \begin{equation}
+                    c^\infty(u)=w(u)\exp\left[-\frac{u^2}4\right],
+                    \label{eqAsymSDDerSolAnsatzChangedVariable}
+                \end{equation}
+                %
+                for some function $w(u)$, then substituting this ansatz in \eqref{eqAsymSDDerSteadyStateVariableChange} leads to \cite[(B15) on p. 3473]{KPGPoschel2003}
+                %
+                \begin{equation}
+                    \derP{^2w}{u^2}+\left(2+\frac12-\frac{u^2}4\right)w=0,
+                    \label{eqAsymSDDerWParabolicCylinderEquation}
+                \end{equation}
+                %
+                namely the parabolic cylinder equation with index $\nu=2$ \cite[(3.5.11) at p. 96]{AMMOrszag1978} with solution
+                %
+                \begin{equation}
+                    w(u)=N\HeII(u)\exp\left[-\frac{u^2}4\right],
+                    \label{eqAsymSDDerWParabolicCylinderEquationSol}
+                \end{equation}
+                %
+                where N is a constant and $\HeII(u)=u^2-1$ is the second Hermite polynomial \cite[p. 99]{AMMOrszag1978}. Expanding \cref{eqAsymSDDerParameters,eqAsymSDDerVariableChange,eqAsymSDDerWParabolicCylinderEquationSol} into \eqref{eqAsymSDDerSolAnsatzChangedVariable} gives \cite[(76) on p. 11]{Goriely2019}
+                %
+                \begin{equation*}
+                    \SpazMate{1}{1}{1}
+                    \begin{aligned}
+                        c^\infty(s)&=N
+                        \left[\frac{(2\mu+sf)^2-2af\mInf}{2af\mInf}\right]
+                        \exp\left[-\frac{(2\mu+sf)^2}{4af\mInf}\right],\\
+                        &\equiv K
+                        \left[(2\mu+sf)^2-2af\mInf\right]
+                        \exp\left[-\frac{(2\mu+sf)^2}{4af\mInf}\right],\\
+                    \end{aligned}
+                    \label{eqAsymSDDerSolAnsatz}
+                \end{equation*}
+                %
+                where $K\equiv N/(2af\mInf)$ and can be found by considering the continuous version of
+                %
+                \begin{equation}
+                    \PInf=\sum_{l=2}^\infty c^\infty_l
+                    \;\;\implies\;\;
+                    \PInf=\int_2^\infty c^\infty\ \de s.
+                    \label{eqAsymSDDerContinuousConditionSumToPInf}
+                \end{equation}
+                %
+                Before integrating it's useful to change integration variable to $z=2\mu+sf$ with
+                $$
+                    \int_2^\infty c^\infty\ \de s
+                    \;\;\implies\;\;
+                    \frac1f\int_{2\mu+2f}^\infty c^\infty\ \de z,
+                $$
+                then
+                %
+                \begin{align*}
+                    \PInf=\frac Kf
+                    &\left(\vphantom{\int_{2\mu+2f}^\infty}\right.
+                    \overbrace{\int_{2\mu+2f}^\infty z^2
+                    \exp\left[-\frac{z^2}{4af\mInf}\right]\ \de z}^{(\text{I})}\\
+                    &\quad\underbrace{-2af\mInf\int_{2\mu+2f}^\infty
+                    \exp\left[-\frac{z^2}{4af\mInf}\right]}_{(\text{II})}
+                    \left.\vphantom{\int_{2\mu+2f}^\infty}\right),
+                \end{align*}
+                %
+                where (I) can be integrated by parts
+                %
+                \begin{align*}
+                    (\text{I})=&-2af\mInf\left[z\exp\left(-\frac{z^2}{4af\mInf}\right)\right]_{2\mu+2f}^\infty\\
+                    &+2af\mInf\int_{2\mu+2f}^\infty\exp\left[-\frac{z^2}{4af\mInf}\right],
+                \end{align*}
+                %
+                whose last term cancels out with (II), leaving
+                %
+                \begin{align*}
+                    \PInf&=\frac {K2a\cancel f\mInf}{\cancel f}
+                    \left[z\exp\left(-\frac{z^2}{4af\mInf}\right)\right]^{2\mu+2f}_\infty\\
+                    &=K4a\mInf(\mu+f)\exp\left[-\frac{(\mu+f)^2}{af\mInf}\right],
+                \end{align*}
+                %
+                which gives \cite[(77) on p. 11]{Goriely2019}
+                %
+                \begin{equation}
+                    K=\frac{\PInf\exp\left[\frac{(f+\mu)^2}{af\mInf}\right]}{4a\mInf(f+\mu)}.
+                    \label{eqAsymSDDerNormalizationConstant}
+                \end{equation}
+                %
+                By using \cref{eqAsymSDDerWParabolicCylinderEquationSol,eqAsymSDDerNormalizationConstant} in \eqref{eqAsymSDDerSolAnsatzChangedVariable}, the asymptotic distribution \eqref{eqAsymptoticSizeDistribution} is derived.
+
+                \hfill\blacksquare
+
+                Finally, \eqref{eqAsymptotic} is obtained simply by finding the critical point of \eqref{eqAsymSDDerSolAnsatzChangedVariable} through derivation w.r.t. $s$.
+
+
+
+        % \section{Budapest connectome}\label{apxBudapestConnectome}
+
+        %     It's possible to build the Laplacian using the the Budapest Reference Connectome \cite{BRCI,BRCII,BRCIII}, whose website provides parameterizable consensus brain graph, with the possibility of choosing some parameters.
+            
+        %     The available graph is specified to be obtained by unifying the connectomes of 477 people into the considered reference brain graph, which can be downloaded and visualized using this site. More specifically the connectome allows to choose and modify different parameters, in order to obtain the best model for the current study, in addition to the version of the program. In particular:
+            
+        %     \begin{enumerate}[label=(\roman*)] % Usa numeri romani
+        %         \item Minimum edge confidence: controlled by a parameter $p$ that is the percentage of the edges selected in the graph;
+                
+        %         \item Minimum edge weight: only those edges are included in the graph, whose mean or median weight is at least the value specified;
+                
+        %         \item Weight calculation mode: can be chosen either mean or median;
+                
+        %         \item Weight functions:
+                
+        %             \begin{enumerate}[label=\alph*)]
+        %                 \item Electrical connectivity: for each edge, the number of fibers is divided by the average fiber length, defining the edge;
+                        
+        %                 \item Fiber count: the number of fibers found between the two nodes, correspondig two ROIs;
+                        
+        %                 \item Fiber length: The average length of fibers, connecting the two ROIs that correspond to the vertices of the edge;
+                        
+        %                 \item Fractional anisotropy: The average of the fractional a\-ni\-so\-tro\-pies of the fiber tracts.
+        %             \end{enumerate}
+                    
+        %         \item Number of fibers launched: this number can be chosen between 20 thousand, 200 thousand and one million.
+        %     \end{enumerate}
+            
+        %     However, the graph downloadable from the Budapest Reference Connectome website contains 1015 nodes, so it's necessary to reduced it to 83 nodes. Infact, the connectome data seems to be already organized forseeing this reduction.
+            
+        %     The data structure is showed below in Table 1.
+
+        %     \begin{table}[htb]
+        %         \centering
+        %         \begin{tabular}{p{3.5cm}|p{5cm}}
+        %             Label & Description\\\hline
+        %             id node 1 & The numerical ID of the first vertex of the edge \\
+        %             id node 2 & The numerical ID of the second vertex of the edge \\
+        %             name node 1 & The anatomical name of node 1 \\
+        %             name node 2 & The anatomical name of node 2 \\
+        %             parent id node 1 & The ID of the parent region of node 1 on the 83-region atlas \\
+        %             parent id node 2 & The ID of the parent region of node 2 on the 83-region atlas \\
+        %             parent name node 1 & The name of the parent region of node 1 on the 83-region atlas \\
+        %             parent name node2 & The name of the parent region of node 2 on the 83-region atlas \\
+        %             minimum edge confidence & The number of the graphs in which the edge is contained \\
+        %             median & The median of the weights of the same edge in different graphs \\
+        %             average & The average of the weights of the same edge in different graphs \\
+        %         \end{tabular}
+        %         \caption{Table of the data structure of the downloaded connectome}
+        %         \label{tabDataStructure}
+        %     \end{table}

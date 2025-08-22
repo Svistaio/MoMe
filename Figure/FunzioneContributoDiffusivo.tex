@@ -1,0 +1,163 @@
+\begin{tikzpicture}[declare function={f(\x)=(9/20)*log10(\x+1)+1;}]
+
+    \pgfmathsetmacro\widthPlot{10}
+    \pgfmathsetmacro\heightPlot{10}
+
+    \pgfmathsetmacro\domX{6}
+    \pgfmathsetmacro\domY{1.5*f(10)}
+
+    \newcommand\tickSize{8} % Dimensioni delle tacche
+    \newcommand\nodeSize{9}
+    \pgfmathsetmacro\lineWidth{.75pt}
+    
+    \pgfmathsetmacro\thresholdDashed{.95}
+    \pgfmathsetmacro\yScale{\domY/\domX}
+
+    \def\bracesHeight{7pt}
+    \pgfmathsetmacro\tipPos{.4}
+
+    %\begingroup Stili
+    \tikzset{
+        bracesStyle/.style={
+            thick,
+            decorate,
+            decoration={
+                calligraphic brace,
+                mirror,
+                amplitude=\bracesHeight,
+                raise=0pt,
+            },
+        },
+        dashedLine/.style={
+            thick,
+            dashed,
+            yshift=-{.5*\bracesHeight},
+        },
+        textNodeFont/.style={font=\dimTesto{\nodeSize}},
+        textTickFont/.style={font=\dimTesto{\nodeSize}},
+        textNodeBraces/.style={textNodeFont,below=8pt},
+        textSloped/.style={
+            textNodeFont,
+            pos=0.75,
+            sloped,
+            above,
+            xshift=10pt,
+        },
+    }
+    \pgfplotsset{
+        plotOpt/.style={
+            width=\widthPlot cm,
+            height=\heightPlot cm,
+            clip=false,
+            axis lines=middle,
+            scale only axis,
+            axis x line=center,
+            axis y line=center,
+            xmin=-.2,xmax=\domX,
+            ymin=-.2,ymax=\domY,
+            xlabel=$\tau_d/\tau_g$,ylabel=$f(\tau_d/\tau_g)$,
+            xtick={1},ytick={1},
+            xlabel style={inner ysep=1pt},
+            ylabel style={inner xsep=1pt},
+            xticklabel style={
+                textTickFont,
+                inner ysep=1pt,
+            },
+            yticklabel style={
+                textTickFont,
+                inner xsep=1pt,
+            },
+            y post scale=\yScale,
+            % axis x line*=bottom,
+            % axis y line*=left,
+            % xmajorgrids,
+            % ymajorgrids,
+            % grid style={dashed},
+        },
+        lineStyleI/.style={
+            domain=0:\domX*\thresholdDashed,
+            samples=100,
+            smooth,
+            line width=\lineWidth pt,
+        },
+        lineStyleF/.style={
+            domain={\domX*\thresholdDashed-0.01}:\domX,
+            samples=10,
+            dashed,
+            line width=\lineWidth pt
+        },
+    }
+    %\endgroup
+
+    \begin{axis}[plotOpt]
+        \addplot[lineStyleI] {f(x)} node[textSloped] {[slow] logarithmic growth};
+        \addplot[lineStyleF] {f(x)};
+
+        \draw[dashed] (0,1) -- (\domX,1);
+        \draw[dashed] (1,0) -- (1,{f(1)});
+
+        % Add braces and labels for x-axis segments
+        \draw[bracesStyle] (0,0) -- (1,0)
+            node[textNodeBraces,midway] {high diffusion};
+
+        \begin{scope}
+            \clip(1,0) rectangle ({\thresholdDashed*\domX},-.45);
+            \draw[bracesStyle,decoration={aspect=\tipPos}] (1,0) -- (\domX,0)
+                node[textNodeBraces,pos=\tipPos] {low diffusion};
+        \end{scope}
+        \draw[dashedLine] ({\thresholdDashed*\domX},0) -- (\domX,0);
+
+        \node[below left,textTickFont,inner sep=3.2pt] at (axis cs:0,0) {$0$};
+    \end{axis}
+\end{tikzpicture}
+
+% Vecchio modo, prima che scoprissi «pgfplots», in cui si definita tutto a mano
+
+% \begin{tikzpicture}[declare function={f(\x)=(9/20)*log10(\x+1)+1;},
+%                     every node/.style={font=\fontsize{8}{9.6}\selectfont}]
+%     % Axes
+%     \draw[->] (-0.2,0) -- (6,0) node[above] {$\tau_d$};
+%     \draw[->] (0,-0.2) -- (0,2.5) node[right] {$f(\tau_d)$};
+    
+%     % Logarithmic curve
+%     \pgfmathsetmacro{\dashed}{.9}
+%     \draw[thick,domain=0:{6*\dashed},smooth,variable=\x] 
+%     plot ({\x},{f(\x)});
+%     \draw[thick,domain={6*\dashed-0.001}:6,smooth,variable=\x,dashed]
+%     plot ({\x},{f(\x)});
+    
+%     % Constant (low diffusion) line
+%     \draw[dashed] (0,1) -- (6,1);
+%     \node[left] at (0,1) {$1$};
+    
+%     % Mark x = 1
+%     \pgfmathsetmacro{\x}{1}
+%     \draw[dashed] (1,0) -- ({\x},{f(\x)});
+%     \node[below] at (1,0) {$1$};
+    
+%     \pgfmathsetmacro{\x}{5.5}
+%     \node[align=center] at
+%         ({\x-1.1},{f(\x)+0.3})
+%         {[slow] logarithmic growth};
+    
+%     \pgfmathsetmacro{\bracesHeight}{7pt}
+%     % Add braces and labels for x-axis segments
+%     \draw[thick,decorate,decoration={calligraphic brace,amplitude=\bracesHeight,mirror,raise=0pt}]
+%         (0,0) -- (1,0) node[below=8pt,midway] {high diffusion};
+
+%     \pgfmathsetmacro{\tipPos}{.4}
+%     \begin{scope}
+%         \clip(1,0) rectangle (5.5,-.7);
+%         \draw[thick,
+%             decorate,
+%             decoration={calligraphic brace,
+%                         amplitude=\bracesHeight,
+%                         mirror,
+%                         raise=0pt,
+%                         aspect=\tipPos}
+%             ]
+%         (1,0) -- (7,0) node[below=8pt,pos=\tipPos] {low diffusion};
+%     \end{scope}
+%     \pgfmathsetmacro{\bracesHeight}{-{\bracesHeight/2}}
+%     \draw[thick,dashed,yshift=\bracesHeight] (5.4,0) -- (6,0);  
+% \end{tikzpicture}

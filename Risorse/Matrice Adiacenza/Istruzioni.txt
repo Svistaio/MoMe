@@ -1,0 +1,9 @@
+Per poter avviare la filza Python «Estrai_Matrice_Adiacenza» è necessario prima estrarre «repeated_10_scale_33.7z».
+
+In tal modo si ricavano tutt'i connettomi (ossia di matrici d'adiacenze) dei pazienti, salvati in tante filze «graphml» [1], i cui relativi nomi sono scritti all'interno della filza di testo «Nomi_Filze_Connettomi.txt».
+
+In ogni caso è irrilevante visto che il connettoma medio (ovvero la matrice d'adicenza media) cosí ricavata produce la medesima propagazione antioraria della laplaciana scaricata dall'articolo.
+
+---
+
+[1] I dati sono stati presi dal sito https://braingraph.org/download-pit-group-connectomes/ e in particolare dalla riga «86 nodes set, 1064 brains, 1 000 000 streamlines, 10x repeated & averaged (18 MB)», ossia https://braingraph.org/download-pit-group-connectomes/#:~:text=86%20nodes%20set%2C%201064%20brains%2C%201%20000%20000%20streamlines%2C%2010x%20repeated%20%26%20averaged.
