@@ -81,17 +81,18 @@
 
         These systematic invasion patterns of protein aggregates are the basis of the prion-like hypothesis for AD:
 
-        \begin{enumerate}[label=H\arabic*,  % Cambia l'etichetta degli elementi («item») (quella scritta si traduce in 1., 2. ecc.)
-                        topsep=7.5pt,       % Spazio superiore tra testo e lista
-                        itemsep=-1pt,	    % Spazio tra gli elementi («item») della lista
-                        leftmargin=30pt,    % Spazio tra la lista e il bordo destro del testo
-                        rightmargin=20pt,	% Spazio tra la lista e il bordo sinistro del testo
-                        % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
-                        %itemindent=!,
-                        labelindent=30pt] 	% Spazio tra il margine sinistro e l'etichetta della lista
-                        %labelwidth=!,
-                        %labelsep=!]
-                        % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem» 
+        \begin{enumerate}[
+            label=H\arabic*,  % Cambia l'etichetta degli elementi («item») (quella scritta si traduce in 1., 2. ecc.)
+            topsep=7.5pt,     % Spazio superiore tra testo e lista
+            itemsep=-1pt,     % Spazio tra gli elementi («item») della lista
+            leftmargin=30pt,  % Spazio tra la lista e il bordo destro del testo
+            rightmargin=20pt, % Spazio tra la lista e il bordo sinistro del testo
+            %itemindent=!,
+            labelindent=30pt, % Spazio tra il margine sinistro e l'etichetta della lista
+            %labelwidth=!,
+            %labelsep=!
+            % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
+        ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem» 
             \item AD is caused by misfolded proteins;\label{hypPrionHypothesisMisfolded}
             \item misfolded proteins act as a toxic template on which regular $\tau$ proteins can be bound and converted to misfolded ones;\label{hypPrionHypothesisTemplate}
             \item misfolded proteins can form aggregates of increasing size, which may also fragment into smaller aggregates;\label{hypPrionHypothesisAggregate}
@@ -370,13 +371,15 @@
                     %labelsep=!,
                 ]
                     \item the adjacency matrix $\mathbf A$ whose entries $$a_{ij}\in\mathbb R^+\text{, with }1\le i,j\le V,$$ indicate the edge weight connecting the $i$-th no\-de to the $j$-th one: if $a_{ij}=0$ it means the two nodes are unconnected;
-                    \item the degree matrix $$\mathbf D=\diag(\mathbf A\bOne),$$ where $\bOne$ is the unitary vector in $\mathbb R^V$: it's a diagonal matrix whose en\-tries $$d_{ii}\in\RPlus\text{, with }1\le i\le V,$$ are the sum of the rows of $\mathbf A$.
+                    \item the degree matrix $$\mathbf D\equiv\diag(\mathbf A\bOne),$$ where $\bOne$ is the unitary vector in $\mathbb R^V$: it's a diagonal matrix whose en\-tries $$d_{ii}\in\RPlus\text{, with }1\le i\le V,$$ are the sum of the rows of $\mathbf A$.
                 \end{itemize}
             
                 The difference of the latter with the former is defined as the Laplacian matrix:
                 %
                 \begin{equation}
-                    \mathbf L=\rho(\mathbf D-\mathbf A)=\rho\boldsymbol{\mathcal L},
+                    \mathbf L\equiv
+                    \rho(\mathbf D-\mathbf A)=
+                    \rho\boldsymbol{\mathcal L},
                     \label{eqLaplacianMatrix}
                 \end{equation}
                 %
@@ -570,7 +573,7 @@
                         \implies
                         c=c(0)e^{\alpha t}
                         \implies
-                        \tau_g^{\text{FK}}=\alpha^{-1}.
+                        \tau_g^{\text{FK}}\equiv\alpha^{-1}.
                         \label{eqTauGFK}
                     \end{equation}
                     
@@ -602,7 +605,7 @@
                     while the second one has the same structure of \eqref{eqTauGFK}; hence it's clear the growth characteristic time is
                     %
                     \begin{equation}
-                        \tau_g^{\text{HD}}=
+                        \tau_g^{\text{HD}}\equiv
                         \max\{\mu_h^{-1},\mu_m^{-1}\}=
                         \min\{\mu_h,\mu_m\}^{-1}.
                         \label{eqTauGHD}
@@ -684,7 +687,7 @@
                     whose solution is $\hat{\mathbf c}(t)=e^{t\mathbf A}\hat{\mathbf c}(0)$ \cite{ODEArnold1992} where $e^{t\mathbf A}$ is the matrix exponential; thus the growth characteristic time is
                     %
                     \begin{equation}
-                        \tau_g^{\text{SMO}}=
+                        \tau_g^{\text{SMO}}\equiv
                         \max\{\mu^{-1},\vert\lambda^{\text{min}}_{\mathbf A}\vert^{-1}\}=
                         \min\{\mu,\vert\lambda^{\text{min}}_{\mathbf A}\vert\}^{-1},
                         \label{eqTauGSMO}
@@ -707,10 +710,10 @@
                     labelindent=10pt, % Spazio tra il margine sinistro e l'etichetta della lista
                     labelwidth=!,
                     labelsep=5pt,
-                    ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
-                    \item[$\tau_d\ll\tau_g$:] The dynamic is dominated by diffusion (Fig. \ref{figTimeScaledllg}) and it's thus uniform in space, \ie{} $$\DeltaD c=0\;\;\forall x\in\mathbb R^3\;\;\text{or}\;\;\mathbf L\mathbf c=0\;\;\text{(see § \ref{secSpatialDiscretization})},$$ so the network behaves like a single node.
-                    \item[$\tau_d\approx\tau_g$:] The dynamic is non-trivial (Fig. \ref{figTimeScaledppg}), more specifically both diffusion and growth are concurrent phenomena showing biologically sound results.
-                    \item[$\tau_d\gg\tau_g$:] The dynamic is dominated by growth (Fig. \ref{figTimeScaledggg}) leading to a hiccup evolution in which groups of vertices are infected at different times.
+                ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
+                    \item[$\tau_d\ll\tau_g$:] the dynamic is dominated by diffusion (Fig. \ref{figTimeScaledllg}) and it's thus uniform in space, \ie{} $$\DeltaD c=0\;\;\forall x\in\mathbb R^3\;\;\text{or}\;\;\mathbf L\mathbf c=0\;\;\text{(see § \ref{secSpatialDiscretization})},$$ so the network behaves like a single node.
+                    \item[$\tau_d\approx\tau_g$:] the dynamic is non-trivial (Fig. \ref{figTimeScaledppg}), more specifically both diffusion and growth are concurrent phenomena showing biologically sound results.
+                    \item[$\tau_d\gg\tau_g$:] the dynamic is dominated by growth (Fig. \ref{figTimeScaledggg}) leading to a hiccup evolution in which groups of vertices are infected at different times.
                 \end{description}
 
                 \includetikzgroupplotfigure*{t}{0pt}{\textwidth}
@@ -763,11 +766,11 @@
                         notes/para=true,
                         notes/style=\textit{\arabic{#1}},
                     ]
-                        \CodeBefore
-                            % \chessboardcolors{red!15}{blue!15}
-                            % \chessboardcolors{black!15!white}{}
-                            \rowcolors{1}{black!5!white}{black!15!white}
-                        \Body
+                    \CodeBefore
+                        % \chessboardcolors{red!15}{blue!15}
+                        % \chessboardcolors{black!15!white}{}
+                        \rowcolors{1}{black!5!white}{black!15!white}
+                    \Body
                         &{$\rho$}&{$\tau_d$ [\unit{\year}]\tabularnote{\yearNote}}
                         &{$\tau_g$ [\unit{\year}]\tabularnote{\yearNote}}
                         &{$T_c$ [\unit{\year}]\tabularnote{\yearNote}%
@@ -1260,7 +1263,7 @@
 %%%
 
 
-    \section{Results and comparisons}\label{secResultsComparisons}
+    \section{Complications and results}\label{secResultsComparisons}
 
         In this section we first introduce complications to the base models seen in § \ref{secKineticModels}, then parameters are set and finally the results are discussed comparing the base models with and without complications.
 

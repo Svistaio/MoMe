@@ -24,11 +24,19 @@
 
 
 \newcommand\FKdiscrete{\teqref{eqFKDiscrete}{[FK]$_d$}}
-\newcommand\HDdiscrete{\teqref{eqHDDiscrete}{[HD]$_d$}}
+\controllaClasse{% Classe «article»    
+    \newcommand\HDdiscrete{\teqref{eqHDDiscrete}{[HD]$_d$}}
+}{% Classe «beamer»
+    \newcommand\HDdiscrete{\teqref{eqHDDiscrete}{[ED]$_d$}}
+}%
 \newcommand\SMOdiscrete{\teqref{eqSMODiscrete}{[SMO]$_d$}}
 
 \newcommand\FKcontinuous{\teqref{eqFKContinuous}{[FK]$_c$}}
-\newcommand\HDcontinuous{\teqref{eqHDContinuous}{[HD]$_c$}}
+\controllaClasse{% Classe «article»    
+    \newcommand\HDcontinuous{\teqref{eqHDContinuous}{[HD]$_c$}}
+}{% Classe «beamer»
+    \newcommand\HDcontinuous{\teqref{eqHDContinuous}{[ED]$_c$}}
+}%
 \newcommand\SMOcontinuous{\teqref{eqSMOContinuous}{[SMO]$_c$}}
 
 \newcommand{\TotM}{M_{\text{tot}}}
