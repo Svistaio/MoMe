@@ -1,9 +1,10 @@
-\newcommand{\derT}[3][d]{\frac{\mathrm{#1}#2}{\mathrm{#1}#3}} % Derivata totale
-\newcommand{\derTiL}[3][d]{\mathrm{#1}#2/\mathrm{#1}#3}       % Derivata totale in linea
-\newcommand{\derP}[2]{\frac{\partial#1}{\partial#2}}	      % Derivata parziale
+
+\newcommand\derT[3][d]{\frac{\mathrm{#1}#2}{\mathrm{#1}#3}} % Derivata totale
+\newcommand\derTiL[3][d]{\mathrm{#1}#2/\mathrm{#1}#3}       % Derivata totale in linea
+\newcommand\derP[2]{\frac{\partial#1}{\partial#2}}	      % Derivata parziale
 
 \DeclareMathOperator\VolOp{Vol}
-\newcommand{\Vol}[1]{\VolOp\left(#1\right)}
+\newcommand\Vol[1]{\VolOp\left(#1\right)}
 
 \newcommand\de{\mathrm{d}}
 \DeclareMathOperator\diag{diag}
@@ -22,7 +23,6 @@
 \newcommand\RPlusStar{\mathbb R_*^+}
 \newcommand\NPlus{\mathbb N^+}
 
-
 \newcommand\FKdiscrete{\teqref{eqFKDiscrete}{[FK]$_d$}}
 \controllaClasse{% Classe «article»    
     \newcommand\HDdiscrete{\teqref{eqHDDiscrete}{[HD]$_d$}}
@@ -39,8 +39,8 @@
 }%
 \newcommand\SMOcontinuous{\teqref{eqSMOContinuous}{[SMO]$_c$}}
 
-\newcommand{\TotM}{M_{\text{tot}}}
-\newcommand{\TotP}{P_{\text{tot}}}
+\newcommand\TotM{M_{\text{tot}}}
+\newcommand\TotP{P_{\text{tot}}}
 \newcommand\bOne{\boldsymbol1}
 
 \newcommand\mInf{m_\infty}
@@ -111,9 +111,12 @@
 \newcommand\Brain{\mathcal B}
 \newcommand\STCyl{\mathcal Q} % Space-time cylinder
 
-\newcommand\vColla[2]{\vspace{#1 plus #2 minus #2}}
-\newcommand\hColla[2]{\hspace{#1 plus #2 minus #2}}
+\newcommand\vColla[3]{\vspace{#1#3 plus #2#3 minus #2#3}}
+\newcommand\hColla[3]{\hspace{#1#3 plus #2#3 minus #2#3}}
 
+% Hadamard product symbol
 \newcommand\HadProd{\smash{\vcenter{\hbox{\scalebox{0.7}{$\odot$}}}}}
 
 \newcommand\HeII{\mathrm{He}_2}
+
+\newcommand\mcl[1]{\mathcal #1}

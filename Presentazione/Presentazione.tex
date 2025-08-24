@@ -1,9 +1,9 @@
 % !TEX program = lualatex
 % LTeX: language=it
 
-%%% 
+%%%
 %%% Usare il compositore «LuaLaTeX»
-%%% 
+%%%
 
 \documentclass[11pt]{beamer}
 
@@ -29,11 +29,11 @@
     }%
 
     \maketitle
-    
+
     %%%
     %%% Premessa
     %%%
-    	
+
     % Parte saltata perché non essenziale alla presentazione
     % Si può dire a voce nella diapo iniziale col titolo
 
@@ -55,20 +55,20 @@
     % \end{frame}
 
 
-    
+
     %%%
     %%% 1° Parte - Introduzione
     %%%
-    
+
     \part{Introduzione}
     \begin{frame}\partpage\end{frame}
 
 
     \section{Fenomenologia}
-    
+
         \subsection{Ipotesi prioniche}
-        
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}                        
+
+            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
                 Alla base dei modelli neurodegenerativi per la malattia di Alzheimer (\textit{AD}) studiati in questo articolo è le ipotesi prioniche:
 
                 \begin{enumerate}[
@@ -82,14 +82,14 @@
                     %labelwidth=!,
                     %labelsep=!
                     % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
-                ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem» 
+                ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
                     \item\label{hypPrionHypothesisMisfolded} l'\textit{AD} è causata dalle proteine $\tau$ malripiegate;
                     \item\label{hypPrionHypothesisTemplate} le proteine malripiegate inducono quelle sane a malripiegarsi;
                     \item\label{hypPrionHypothesisAggregate} le proteine malripiegate possono formare aggregati di varie dimensioni, i quali possono anche frammentarsi in piú piccoli aggregati;
                     \item\label{hypPrionHypothesisAxons} le proteine malripiegate e i suoi aggregati propagano primariamente all'interno del cervello tramite la rete neurale formata dagli assoni.
                 \end{enumerate}
             \end{frame}
-    
+
 
 
     %%%
@@ -104,7 +104,7 @@
     % Se dovessero chiederla dillo a voce riferendoti alla relazione
 
     % \section{Premessa}
-        
+
     %     \subsection{Notazione}
 
     %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
@@ -115,15 +115,16 @@
 
 
     \section{Modelli continui}
-    
-        \subsection{Eterodimero (ED)}
+
+        \subsection{Eterodimero\texorpdfstring{}{ (FK)} e Fisher-Kolmogorov\texorpdfstring{}{ (ED)}}
 
             \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Presenta forma (\cref{hypPrionHypothesisMisfolded,hypPrionHypothesisTemplate}):
+                Presentano forma (\cref{hypPrionHypothesisMisfolded,hypPrionHypothesisTemplate}):
                 %
                 \begin{equation}
+                    \refstepcounter{equation}
                     \newcommand\vspcR{2pt}
-                    \text{[HD]$_c$}\tag*{}
+                    \text{[HD]$_c$}
                     \left\{\begin{alignedat}{2}
                         &\left.\begin{alignedat}{2}
                             \derT{c_h}t&=
@@ -139,20 +140,22 @@
                         &\text{BC: }c_h=c_m=0,
                         &&\text{ su }\partial\STCyl_x,\\[\vspcR]
                         &\text{IC: }c_h=c_{h,0},\;\; c_m=c_{m,0}\neq0
-                        &&\text{ su }\partial\STCyl_t.
-                    \end{alignedat}\right.
+                        &&\text{ su }\partial\STCyl_t,
+                    \end{alignedat}\right.\notag%\tag*{}
                     \label{eqHDContinuous}
-                    \vColla{.3cm}{.2cm}
                 \end{equation}
-            \end{frame}
-
-        \subsection{Fisher-Kolmogorov (FK)}
-        
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Presenta forma (\cref{hypPrionHypothesisMisfolded,hypPrionHypothesisTemplate,hypPrionHypothesisAggregate}):
+        %     \end{frame}
+        %
+        % \subsection{Fisher-Kolmogorov}
+        %
+        %     \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+                % Presenta forma (\cref{hypPrionHypothesisMisfolded,hypPrionHypothesisTemplate,hypPrionHypothesisAggregate}):
+                ove $\DeltaD f\equiv\nabla\cdot(\mathbf D\cdot\nabla f)$, e
                 %
                 \begin{equation}
                     \newcommand\vSpcR{2pt}
+                    \refstepcounter{equation}
+                    \label{eqFKContinuous}
                     \text{[FK]$_c$}
                     \left\{
                     \begin{alignedat}{2}
@@ -162,16 +165,15 @@
                         &\text{BC: }c=0
                         &&\text{ su }\partial\STCyl_x,\\[\vSpcR]
                         &\text{IC: }c=c_0\neq0
-                        &&\text{ su }\partial\STCyl_t,
+                        &&\text{ su }\partial\STCyl_t.
                     \end{alignedat}
-                    \right.\tag*{}
-                    \label{eqFKContinuous}
+                    \right.\notag%\tag*{}
                 \end{equation}
                 %
-                e può essere ricavato dall'ED.
+                Si osserva che l'\FKcontinuous{} si può ricavare dall\HDcontinuous{}.
             \end{frame}
 
-        \subsection{Smoluchowski (SMO)}
+        \subsection{Smoluchowski\texorpdfstring{}{ (SMO)}}
 
             % Parte saltata perché non essenziale alla presentazione
             % Se dovessero chiederla fai riferimento alla relazione
@@ -191,7 +193,9 @@
                 %
                 \begin{equation}
                     \SpazMate{1}{1}{1}
-                    \vcenter{\hbox{\rotatebox{90}{\hspace{7pt}[SMO]$_c$}}}\tag*{}
+                    \refstepcounter{equation}
+                    \label{eqSMOContinuous}
+                    \vcenter{\hbox{\rotatebox{90}{\hspace{7pt}[SMO]$_c$}}}
                     \left\{\begin{alignedat}{2}
                         &\hspace{-.2cm plus .1cm minus .1cm}
                         \left.\begin{aligned}
@@ -217,9 +221,7 @@
                         &&\text{su }\partial\STCyl_x,\\
                         &\text{IC: }c_1=c_{1,0},\;\; c_i=0,\;\;\;1<i\le L,
                         &&\text{su }\partial\STCyl_t,
-                    \end{alignedat}\right.
-                    \label{eqSMOContinuous}
-                    \vColla{.3cm}{.2cm}
+                    \end{alignedat}\right.\notag%\tag*{}
                 \end{equation}
                 %
                 ove $\boldsymbol\kappa(\mathbf x)\equiv\kappa\mathbb1_{\mathcal K}(\mathbf x)$ con $\kappa\in\RPlus$ and $\mathcal K\subseteq\Brain$.
@@ -247,7 +249,7 @@
                     \item la matrice d'adiacenza $\mathbf A$ i cui elementi indicano il peso dell'assone $(i,j)$-esimo;
                     \item la matrice dei gradi $\mathbf D=\diag(\mathbf A\bOne),$ ove $\bOne\in\mathbb R^V$.
                 \end{itemize}
-            
+
                 La loro differenza definisce la matrice laplaciana:
                 %
                 \begin{equation*}
@@ -262,8 +264,10 @@
                 Si scelgie $V=83$ nodi corrispondenti alle 83 regioni d'interesse (\textit{ROI}) nel cervello, nelle quali si assume che la concentrazione media sia omogenea in spazio.
 
                 \FKcontinuous{} diventa dunque
-                %                
+                %
                 \begin{equation}
+                    \refstepcounter{equation}
+                    \label{eqFKDiscrete}
                     \text{[FK]$_d$}
                     \left\{
                     \begin{alignedat}{2}
@@ -272,13 +276,14 @@
                         \text{IC:}&\;\;\mathbf c=\mathbf c_0=c_0\mathbf q\neq\boldsymbol0
                         &&\text{ in }\partial\mathcal T_-;
                     \end{alignedat}
-                    \right.\tag*{}
-                    \label{eqFKDiscrete}
+                    \right.\notag%\tag*{}
                 \end{equation}
-            % \end{frame}
+                % \end{frame}
                 \HDcontinuous{} invece
-            % \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+                % \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
                 \begin{equation}
+                    \refstepcounter{equation}
+                    \label{eqHDDiscrete}
                     \text{[HD]$_d$}\left\{
                     \begin{alignedat}{2}
                         &\left.\begin{alignedat}{2}
@@ -292,8 +297,7 @@
                         \mathbf c_m=c_{m,0}\mathbf q\neq\boldsymbol0
                         &&\text{ in }\partial\mathcal T_-;
                     \end{alignedat}
-                    \right.\tag*{}
-                    \label{eqHDDiscrete}
+                    \right.\notag%\tag*{}
                 \end{equation}
             \end{frame}
 
@@ -302,6 +306,8 @@
                 %
                 \begin{equation}
                     \SpazMate{1}{1}{1}
+                    \refstepcounter{equation}
+                    \label{eqSMODiscrete}
                     \vcenter{\hbox{\rotatebox{90}{\hspace{7.5pt}[SMO]$_d$}}}
                     \left\{
                     \begin{alignedat}{2}
@@ -323,15 +329,14 @@
                             \;\;\;2<i<L\\[\vspcESMO]
                             \derT{\mathbf c_n}t=&-\mathbf L\mathbf c_n
                             -\mu\mathbf c_L+a\mathbf c_1\HadProd\mathbf c_{L-1}.
-                        \end{aligned}\hColla{-.1cm}{.05cm}\right\}
+                        \end{aligned}\hColla{-.1}{.05}{cm}\right\}
                         &&\text{in }\mathcal T,\\
                         &\text{IC:}\;\;
                         \mathbf c_1=c_{1,0}\boldsymbol1,\;\;
                         \mathbf c_i=\boldsymbol0,\;\;\;\forall i>2
                         &&\text{in }\partial\mathcal T_-,
                     \end{alignedat}
-                    \right.\tag*{}
-                    \label{eqSMODiscrete}
+                    \right.\notag%\tag*{}
                 \end{equation}
                 %
                 ove $\boldsymbol\kappa=\kappa\mathbf q$.
@@ -360,7 +365,7 @@
                 \end{itemize}
 
                 Ambo sono caratterizzati da scale temporali, ossia scale lungo la quale il fenomeno è osservato in modo significativo.
-                
+
                 Le loro definizioni sono
                 %
                 \begin{equation*}
@@ -378,6 +383,7 @@
             \end{frame}
 
             \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+                \vfill
                 \setlength\topsep{0cm}%
                 \setlength\partopsep{0cm}%
                 \setlength\parskip{0pt}%
@@ -408,9 +414,9 @@
                                 % labelwidth=!,
                                 % labelsep=5pt,
                             ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
-                                \item[$\tau_d\ll\tau_g$:] La dinamica è dominata dalla diffusione ed è quindi uniforme in spazio.
-                                \item[$\tau_d\approx\tau_g$:] La dinamica è non triviale e i due fenomeni di diffusione e crescita sono simultanei.
-                                \item[$\tau_d\gg\tau_g$:] La dinamica è dominata dalla crescita portando a un'evoluzione a singhiozzo.
+                                \item[$\tau_d\ll\tau_g$:] la dinamica è dominata dalla diffusione ed è quindi uniforme in spazio.
+                                \item[$\tau_d\approx\tau_g$:] la dinamica è non triviale e i due fenomeni di diffusione e crescita sono simultanei.
+                                \item[$\tau_d\gg\tau_g$:] la dinamica è dominata dalla crescita portando a un'evoluzione a singhiozzo.
                             \end{description}
                         \end{column}
                         \begin{column}{\dimColonnaII\paperwidth}
@@ -449,7 +455,7 @@
                     \end{columns}
                 \end{minipage}}
                 %
-                \setlength\topsep{.5cm}%
+                \vColla{0.4}{0.3}{cm}%
                 \begin{figure}[h!]
                     \centering
                     \makebox[\textwidth][c]{%
@@ -460,7 +466,7 @@
                     % \label{figTimeScales}
                 \end{figure}
             \end{frame}
-       
+
         \subsection{Discretizzazione temporale}
 
             \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
@@ -530,40 +536,189 @@
     \part{\texorpdfstring{Complicazioni\\\&\\Risultati}{Complicazioni \& Risultati}}
     \begin{frame}\partpage\end{frame}
 
-    
+
     \section{Complicazioni}
 
         \subsection{\texorpdfstring{$\mathbf L$}{L} dinamica}
 
             \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Logica
-            \end{frame}
-        
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Classificazione lati
-            \end{frame}
+                Per modellare l'invecchiamento del cervello si può rendere la $\mathbf L$ dipendente dal tempo scegliendo [arbitrariamente] di far decadere i lati a seconda del loro rispettivo valore in $\mathbf A$.
 
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Funzioni di decadimento
+                A prescindere dall'evoluzione scelta, una volta definita la $\mathbf A(t)$ si può ridefinire $\mathbf L(t)$ esattamente come nel caso statico:
+                %
+                \begin{equation*}
+                    \mathbf L(t)\equiv\rho(\mathbf D(t)-\mathbf A(t))=\rho\boldsymbol{\mathcal L}(t),
+                    \label{eqDynamicLaplacianMatrix}
+                \end{equation*}
+                %
+                ma con $\mathbf D(t)\equiv\diag(\mathbf A(t)\boldsymbol1)$.
             \end{frame}
-
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Ridefinizione della $\mathbf L$
-            \end{frame}
-
-        \subsection{Accumulazione}
 
             \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Logica
-            \end{frame}
+                Per classificare gli elementi a valore basso/medio/alto si considerano i valori massimo $A_{\max}$, minimo $A_{\min}$ e medio$$\overline A\equiv\frac1{V^2}\sum_{i,j}^VA_{ij}$$ di $\mathbf A$, con cui si possono definire le seguenti soglie:%
+                %
+                \begin{equation*}%
+                    S_{lm}\equiv\frac{A_{\min}+\overline A}2%
+                    \quad\text{e}\quad%
+                    S_{mh}\equiv\frac{\overline A+A_{\max}}2.
+                    \label{eqDecayThresholds}%
+                \end{equation*}%
+                %
+                \setlength\topsep{0cm}%
+                \setlength\partopsep{0cm}%
+                \setlength\parskip{0pt}%
+                %
+                \begin{figure}[htb]%
+                    \centering%
+                    \resizebox{\linewidth}{!}{%
+                    \begin{tikzpicture}
+                        \pgfmathsetmacro\LowP{0}
+                        \pgfmathsetmacro\MidP{5}
+                        \pgfmathsetmacro\HighP{10}
+                        \pgfmathsetmacro\Tick{.2}
 
-        \subsection{Dipendenza dalla dimensione}
+
+                            % Linea
+                        \draw[-,thick] (\LowP,0) -- (\HighP,0);
+
+                            % Valore minimo
+                        \node[above,yshift=\Tick cm] at (\LowP,0) {$A_{\min}$};
+                        \draw[-,thick] (\LowP,-\Tick) -- (\LowP,\Tick);
+
+                            % Valore medio
+                        \node[above,yshift=\Tick cm] at (\MidP,0) {$\overline A$};
+                        \draw[-,thick] (\MidP,-\Tick) -- (\MidP,\Tick);
+
+                            % Valore massimo
+                        \node[above,yshift=\Tick cm] at (\HighP,0) {$A_{\max}$};
+                        \draw[-,thick] (\HighP,-\Tick) -- (\HighP,\Tick);
+
+
+                        \pgfmathsetmacro\Tick{{\Tick/2}}
+                        \pgfmathsetmacro\ThresholdLM{{(\LowP+\MidP)/2}}
+                        \pgfmathsetmacro\ThresholdMH{{(\MidP+\HighP)/2}}
+
+                            % Soglia corta-media
+                        \node[above,yshift=\Tick cm] at (\ThresholdLM,0) {$S_{li}$};
+                        \draw[-,thick] (\ThresholdLM,-\Tick) -- (\ThresholdLM,\Tick);
+
+                            % Soglia media-lunga
+                        \node[above,yshift=\Tick cm] at (\ThresholdMH,0) {$S_{ih}$};
+                        \draw[-,thick] (\ThresholdMH,-\Tick) -- (\ThresholdMH,\Tick);
+
+                        \pgfmathsetmacro\bracesHeight{{\Tick*2+0.2}}
+
+                        \draw[thick,decorate,
+                              decoration={calligraphic brace,
+                                          amplitude=\bracesHeight cm,
+                                          mirror,raise=0pt}
+                             ]
+                            (\LowP,0) -- (\ThresholdLM,0)
+                            node[below=\bracesHeight cm,midway]
+                            {Basso};
+
+                        \draw[thick,decorate,
+                              decoration={calligraphic brace,
+                                          amplitude=\bracesHeight cm,
+                                          mirror,raise=0pt}
+                             ]
+                            (\ThresholdLM,0) -- (\ThresholdMH,0)
+                            node[below=\bracesHeight cm,midway]
+                            {Medio};
+
+                        \draw[thick,decorate,
+                              decoration={calligraphic brace,
+                                          amplitude=\bracesHeight cm,
+                                          mirror,raise=0pt}
+                             ]
+                            (\ThresholdMH,0) -- (\HighP,0)
+                            node[below=\bracesHeight cm,midway]
+                            {Alto};
+
+                    \end{tikzpicture}}
+                    \captionsetup{width=\linewidth}%
+                    \caption{Soglie classificanti.}%
+                    \label{figDecayThresholds}%
+                \end{figure}%
+            \end{frame}
 
             \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Logica della diffusione e della depurazione
+                \vColla{.5}{.2}{cm}
+                La $\mathbf A(t)$ è dunque definita come segue
+                %
+                \begin{equation*}
+                    \newcommand\vspcR{-2pt}
+                    A_{ij}(t)\equiv
+                    \left\{
+                    \begin{alignedat}{6}
+                        &A_{ij}f_d^l(t)
+                        \quad&\text{if }&A_{\min}\le A_{ij}<S_{lm}
+                        \quad&\text{ove }&f_d^l(t)&\equiv&\;\exp\left[-\frac t2\right],\\[\vspcR]
+                        &A_{ij}f_d^m(t)
+                        \quad&\text{if }&S_{lm}\le A_{ij}<S_{mh}
+                        \quad&\text{ove }&f_d^m(t)&\equiv&\;\frac1{1+\frac t{10}},\\[\vspcR]
+                        &A_{ij}f_d^h(t)
+                        \quad&\text{if }&S_{mh}\le A_{ij}<A_{\max}
+                        \quad&\text{ove }&f_d^h(t)&\equiv&\;\frac1{1+\frac t{40}}.
+                    \end{alignedat}
+                    \right.
+                    \label{eqTimeDependentA}
+                \end{equation*}
+                %
+                % ove le tre funzioni di decadimento sono
+                % %
+                % \begin{equation*}
+                %     f_d^l(t)\equiv\exp\left[-\frac t2\right],\;\;\;
+                %     f_d^m(t)\equiv\frac1{1+\frac t{10}},
+                %     \;\;\;\text{e}\;\;\;
+                %     f_d^h(t)\equiv\frac1{1+\frac t{40}}.
+                %     \label{eqDecayingFunctions}
+                % \end{equation*}
+                %
+                \vColla{-.3}{.2}{cm}
+                \begin{figure}[h]
+                    \centering
+                    % \fbox{%
+                        \resizebox{!}{.3\textheight}{\input{../Figure/FunzioniDecadimento.tex}}%
+                    % }%
+                    \captionsetup{width=.5\linewidth}
+                    \caption{Funzioni di decadimento}
+                    \label{figDecayFunctions}
+                \end{figure}
             \end{frame}
-            
-    
+
+        \subsection{Accumulazione e dimensione}
+
+            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+                In \SMOcontinuous{} è possibile definire due complicazioni:
+
+                \begin{description}[
+                    style=unboxed,
+                    % topsep=7.5pt,	  % Spazio superiore tra testo e lista
+                    itemsep=.1cm,	  % Spazio tra gli elementi («item») della lista
+                    leftmargin=0pt,  % Spazio tra la lista e il bordo destro del testo
+                    rightmargin=0pt, % Spazio tra la lista e il bordo sinistro del testo
+                    % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
+                    % itemindent=!,
+                    % labelindent=10pt, % Spazio tra il margine sinistro e l'etichetta della lista
+                    % labelwidth=!,
+                    % labelsep=5pt,
+                ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
+                    \item[Accumulazione:] si assume che l'ultimo $L$-esimo polimero non può essere depurato e che quindi si accumuli nel tempo.
+                    \item[Dimensione:] s'ipotizza che sia la diffusione che la depurazione dipendano dalla dimensione del polimero secondo le leggi
+                    %
+                    \begin{equation*}
+                        \mathbf L_i\equiv \frac{\mathbf L}{i^\eta}
+                        \qquad\text{e}\qquad
+                        \mu_i=\frac\mu i,
+                        \label{eqSizeDependentDiffusion}
+                    \end{equation*}
+                    %
+                    in cui $\eta=0.5$.
+                \end{description}
+            \end{frame}
+
+
     % Parte saltata perché non essenziale alla presentazione
     % Se dovessero chiederla fai riferimento alla relazione
 
@@ -573,54 +728,128 @@
 
     %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
     %             Scelta della rho generale e dei nodi infetti
-    %         \end{frame}    
-        
+    %         \end{frame}
+
     %     \subsection{Modello FK}
 
     %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
     %             Parametri e CI
-    %         \end{frame}    
-        
+    %         \end{frame}
+
     %     \subsection{Modello ED}
 
     %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
     %             Parametri e CI
-    %         \end{frame}    
-        
+    %         \end{frame}
+
     %     \subsection{Modello ED}
 
     %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
     %             Parametri e CI
-    %         \end{frame}    
+    %         \end{frame}
 
     %     \subsection{Avvertenza}
 
     %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
     %             Avvertenza sulla natura teorica dei parametri e sulla difficile riproduzione
     %         \end{frame}
-    
+
 
     \section{Risultati}
 
-        \subsection{Modelli FK ed ED}
+        \subsection{Modelli \texorpdfstring{\FKdiscrete{} ed \HDdiscrete{}}{FK ed ED}}
 
             \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Immagini
-            \end{frame}    
-        
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Lunghe spiegazioni
-            \end{frame}            
+                Per mostrare in modo piú significativo i risultati, sono stati raggruppati i nodi a seconda che formino
 
-        \subsection{Modello SMO}
+                \begin{itemize}[%
+                    % topsep=7.5pt,     % Spazio superiore tra testo e lista
+                    % itemsep=0pt,	  % Spazio tra gli elementi («item») della lista
+                    leftmargin=20pt,  % Spazio tra la lista e il bordo destro del testo
+                    rightmargin=0pt,  % Spazio tra la lista e il bordo sinistro del testo
+                    % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
+                    %itemindent=!,
+                    % labelindent=30pt, 	% Spazio tra il margine sinistro e l'etichetta della lista
+                    %labelwidth=!,
+                    %labelsep=!
+                ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
+                    \item un sistema (limbico, gangli basali),
+                    \item un lobo (temporale, occipitale, parietale or frontale),
+                    \item un singolo nodo (ceppo enfalico)
+                    \item o l'intera rete.
+                \end{itemize}
+
+                Dato $\mcl G$ l'insieme di $\vert\mcl G\vert$ nodi all'interno di uno dei precedenti gruppi, allora la sua concentrazione normalizzata è
+                %
+                \begin{equation*}
+                    c_{\mcl G}\equiv\frac1{\mcl N\vert\mcl G\vert}\sum_{v\in\mcl G}c^v,
+                    \label{eqFKHDConcentrationCurveFormula}
+                \end{equation*}
+                %
+                dove $\mcl N$ è la costante di normalizzazione dall'analisi asintotica.
+            \end{frame}
 
             \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Immagini
-            \end{frame}    
-        
+                Innanzitutto, coi parametri scelti, \FKdiscrete{} ed \HDdiscrete{} sono indistinguibili e ciò giustifica il perché si analizzano contemporaneamente.
+                \vColla{-.5}{.3}{cm}
+                \begin{figure}[h!]
+                    \centering
+                    % \fbox{
+                        \resizebox{!}{.75\textheight}{\input{../Figure/ConfrontoFKEDRete.tex}}
+                    % }
+                    \vColla{0}{.25}{cm}
+                    \caption{Confronti retali tra \FKdiscrete{} e \HDdiscrete{}.}
+                    % \label{figFKHDNetComparison}
+                \end{figure}
+            \end{frame}
+
+            \input{../Figure/FKCurve.tex}
+
             \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Lunghe spiegazioni
-            \end{frame}    
+                Si potrebbe attribuire il comportamento della seconda variante al maggiore incremento della scala temporale diffusiva $\tau_d$, eppure dalla seguente figura cosí sembra non essere.
+                %
+                \vColla{-.2}{.1}{cm}
+                \begin{figure}[h!]
+                    \centering
+                    % \fbox{
+                    \resizebox{!}{.65\textheight}{\input{../Figure/TempoDiffusivo.tex}}
+                    % }
+                    \caption{Scale temporali diffusive dinamiche.}
+                    % \label{figDynamicDiffusiveTimeScales}
+                \end{figure}
+            \end{frame}
+
+
+        \subsection{Modello \texorpdfstring{\SMOdiscrete{}}{SMO}}
+
+            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+                In questo caso si considerano due quantità piú olistiche:
+
+                \begin{itemize}[%
+                    % topsep=7.5pt,     % Spazio superiore tra testo e lista
+                    % itemsep=0pt,	  % Spazio tra gli elementi («item») della lista
+                    leftmargin=20pt,  % Spazio tra la lista e il bordo destro del testo
+                    rightmargin=0pt,  % Spazio tra la lista e il bordo sinistro del testo
+                    % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
+                    %itemindent=!,
+                    % labelindent=30pt, 	% Spazio tra il margine sinistro e l'etichetta della lista
+                    %labelwidth=!,
+                    %labelsep=!
+                ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
+                    \item le masse aggregate definite come
+                          %
+                          \begin{equation*}
+                              \Mass_n\equiv\frac1{V\MInf}\sum_{v=1}^V\sum_{l=n}^L,
+                              lc_l^v,\quad2\le n\le L,
+                              \label{eqAggregateMass}
+                          \end{equation*}
+                          %
+                          normalizzate rispetto alla massa totale tossica asintotica $\MInf$, e
+                    \item la distribuzione della dimensione, ovvero la concentrazione contro la dimensione, normalizzata rispetto al numero totale asintotico di polimeri tossici $\PInf$.
+                \end{itemize}
+            \end{frame}
+
+            \input{../Figure/SMOCurve.tex}
 
 
     %%%
@@ -632,8 +861,27 @@
     \begin{frame}\partpage\end{frame}
 
         \begin{frame}\frametitle{\insertpart{}}
-            Commenti sui risultati
-        \end{frame}    
+            Tutt'i risultati sono coerenti colla teoria affrontata ma sono comunque necessario alcune osservazioni:
+
+            \begin{itemize}[%
+                % topsep=7.5pt,     % Spazio superiore tra testo e lista
+                % itemsep=0pt,	  % Spazio tra gli elementi («item») della lista
+                leftmargin=20pt,  % Spazio tra la lista e il bordo destro del testo
+                rightmargin=0pt,  % Spazio tra la lista e il bordo sinistro del testo
+                % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
+                %itemindent=!,
+                % labelindent=30pt, 	% Spazio tra il margine sinistro e l'etichetta della lista
+                %labelwidth=!,
+                %labelsep=!
+            ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
+                \item come con tutte le simulazioni, devono essere prese con cautela;
+                \item per verificare l'evoluzione della laplaciana sono necessarie misure in vivo;
+                \item sarebbe interessante trovare delle leggi sull'evoluzione della laplaciana;
+                \item un altro possibile miglioramento sono i parametri dinamici.
+            \end{itemize}
+            
+            Nel complesso, questo articolo è da considerarsi come un'esplorazione formale di modelli piú complessi e della loro fenomenologia.
+        \end{frame}
 
     \setbeamertemplate{part page}{
         \vbox to\paperheight{%
@@ -657,7 +905,7 @@
 
     \part{Grazie dell'attenzione}
     \begin{frame}\partpage\end{frame}
-        
+
     % \part{Riferimenti}
 
     % \begin{frame}[allowframebreaks,t]\frametitle{\insertpart{}}
@@ -670,4 +918,4 @@
 \end{document}
 
     % \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-    % \end{frame}    
+    % \end{frame}

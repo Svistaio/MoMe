@@ -16,18 +16,18 @@
 %%%%%%%%%
 %%%%%%%%%
 
-%     Parte I:  Introduzione  
-% 1. Introduzione generale al problema (1 pagina)  
-% 2. Osservazione fenomenologica, esigenza biomedica e relativa domanda (1 pagina) 
-% 3. Modelli in letteratura (1 pagina)  
+%     Parte I:  Introduzione
+% 1. Introduzione generale al problema (1 pagina)
+% 2. Osservazione fenomenologica, esigenza biomedica e relativa domanda (1 pagina)
+% 3. Modelli in letteratura (1 pagina)
 
-%     Parte II: Metodi  
-% 4. Deduzione del modello matematico (3 pagine)  
-% 5. Analisi qualitativa di alcune caratteristiche basilari del modello matematico (5 pagine) 
+%     Parte II: Metodi
+% 4. Deduzione del modello matematico (3 pagine)
+% 5. Analisi qualitativa di alcune caratteristiche basilari del modello matematico (5 pagine)
 
-%     Parte III: Risultati  
-% 6. Simulazioni numeriche (5 pagine)  
-% 7. Quadro riassuntivo delle simulazioni numeriche (3 pagine)  
+%     Parte III: Risultati
+% 6. Simulazioni numeriche (5 pagine)
+% 7. Quadro riassuntivo delle simulazioni numeriche (3 pagine)
 % 8. Discussione dei risultati e risposta suggerita dal modello matematico (max 1 pagina)
 
 %%%%%%%%%
@@ -66,13 +66,13 @@
         \vspace{0.5cm}
     ]
 
-    
+
 %%%
 %%%
 %%%
 
     % \begin{multicols}{2}
-        
+
     \section{Introduction} \label{secIntroduction}
 
         Alzheimer's disease (AD) is one of the most ill-famed neurodegenerative disease, whose devastating condition is associated with cognitive decline and eventually death.
@@ -92,7 +92,7 @@
             %labelwidth=!,
             %labelsep=!
             % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
-        ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem» 
+        ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
             \item AD is caused by misfolded proteins;\label{hypPrionHypothesisMisfolded}
             \item misfolded proteins act as a toxic template on which regular $\tau$ proteins can be bound and converted to misfolded ones;\label{hypPrionHypothesisTemplate}
             \item misfolded proteins can form aggregates of increasing size, which may also fragment into smaller aggregates;\label{hypPrionHypothesisAggregate}
@@ -100,7 +100,7 @@
         \end{enumerate}
 
         These mechanisms are based on prion diseases firstly observed in Bovine Spongiform Encephalopathy (BSE), more commonly known as mad cow disease, and can be applied more broadly to other neurodegenerative disease (for instance Parkinson's).
-        
+
         Bear in mind this article focuses only on the dynamic of misfolded tau proteins and not on its damage to the brain, which would require another set of equations to predict brain atrophy using the toxic protein concentrations (see \cite{Bertsch2016} as an example).
 
 
@@ -110,7 +110,7 @@
 
 
     \section{Kinetic models} \label{secKineticModels}
-    
+
         To predict the concentration of misfolded $\tau$ proteins, Three continuous models are considered, followed by spatial and temporal discretization methods. Afterwards, an asymptotic analysis is discussed to normalize the results.
 
         We assume the brain is contained in the closed region $\mathcal B\subset\mathbb R^3$ and that it's observed in a time interval $\mathcal T\equiv(0,T]$ of duration $T\in\RPlusStar$; it's also handy to define
@@ -139,17 +139,17 @@
         \end{equation}
         %
         as the positive real numbers with and without the origin.
-        
+
 
         \subsection{Continuous models}\label{secContinuousModels}
-        
+
             These models exhibit different levels of complexity depending on the subset of assumptions \ref{hypPrionHypothesisMisfolded}-\ref{hypPrionHypothesisAggregate} implemented: all three considers \ref{hypPrionHypothesisMisfolded} and \ref{hypPrionHypothesisTemplate} but only the last one takes into account \ref{hypPrionHypothesisAggregate}. \cite{Fornari2019,Goriely2019}
 
             A shared and fundamental feature is the nonlinear nature due to the quadratic reaction term necessary to model \ref{hypPrionHypothesisTemplate}.
-            
 
-            \subsubsection{The heterodimer model (HD)}\label{secContinuousModelsHD} 
-            
+
+            \subsubsection{The heterodimer model (HD)}\label{secContinuousModelsHD}
+
                 As the name suggests, it considers only two possible protein configurations: a natural healthy state with concentration $c_h\in\mathcal C_+^2(\STCyl)$ and a misfolded one with $c_m\in\mathcal C_+^2(\STCyl)$, where
                 %
                 \begin{equation*}
@@ -162,7 +162,9 @@
                 %
                 \begin{equation}
                     \newcommand\vspcR{2pt}
-                    \text{[HD]$_c$}\tag*{}
+                    \refstepcounter{equation}
+                    \label{eqHDContinuous}
+                    \text{[HD]$_c$}
                     \left\{\begin{alignedat}{2}
                         &\left.\begin{alignedat}{2}
                             \derT{c_h}t&=
@@ -179,12 +181,10 @@
                         &&\text{ on }\partial\STCyl_x,\\[\vspcR]
                         &\text{IC: }c_h=c_{h,0},\;\; c_m=c_{m,0}\neq0
                         &&\text{ on }\partial\STCyl_t,
-                    \end{alignedat}\right.
-                    \label{eqHDContinuous}
-                    \vColla{.3cm}{.2cm}
+                    \end{alignedat}\right.\notag%\tag*{\!}
                 \end{equation}
                 %
-                where $\DeltaD f\equiv\nabla\cdot(\mathbf D\cdot\nabla f)$ is the tensorial Laplacian operator\footnotemark{}, with the diffusion tensor $\mathbf D$, $\gamma$ is the production rate of healthy protein, $\mu_h$ and $\mu_m$ are the clearance rates of healthy and misfolded proteins respectively, and $\kappa$ is the misfolding conversion rate. 
+                where $\DeltaD f\equiv\nabla\cdot(\mathbf D\cdot\nabla f)$ is the tensorial Laplacian operator\footnotemark{}, with the diffusion tensor $\mathbf D$, $\gamma$ is the production rate of healthy protein, $\mu_h$ and $\mu_m$ are the clearance rates of healthy and misfolded proteins respectively, and $\kappa$ is the misfolding conversion rate.
 
                 \footnotetext{$\DeltaD$ is equal to the classical Laplacian operator iff $\mathbf D$ is isotropic: $\DeltaD f=D\Delta f$, \ie{} $\mathbf D=D\mathbf I$ with $D\in\RPlus$.}
 
@@ -192,11 +192,13 @@
             \subsubsection{The Fisher-Kolmogorov model (FK)}\label{secContinuousModelsFK}
 
                 It can be derived from \HDcontinuous{} by assuming $c_h$ is homogeneous and stationary, namely that it's already in an equilibrium point (see Appendix \ref{apxFKFromHD} for more details).
-                
+
                 It's the simplest one since it's based only on the misfolded protein concentration $c\in\mathcal C_+^2(\STCyl)$ with one nonlinear reaction-diffusion ODE:
                 %
                 \begin{equation}
                     \newcommand\vSpcR{2pt}
+                    \refstepcounter{equation}
+                    \label{eqFKContinuous}
                     \text{[FK]$_c$}
                     \left\{
                     \begin{alignedat}{2}
@@ -208,15 +210,14 @@
                         &\text{IC: }c=c_0\neq0
                         &&\text{ on }\partial\STCyl_t,
                     \end{alignedat}
-                    \right.\tag*{}
-                    \label{eqFKContinuous}
+                    \right.\notag%\tag*{\!}
                 \end{equation}
                 %
                 where $c$ is the dimensionless concentration of misfolded proteins and $\alpha$ represents the misfolding conversion rate.
 
 
             \subsubsection{The Smoluchowski model (SMO)}\label{secContinuousModelsSMO}
-            
+
                 It's the most nuanced model as it consider toxic chains: set $c_1\in\mathcal C_+^2(\STCyl)$ as the concentration of healthy monomers and $c_i\in\mathcal C_+^2(\STCyl)$ as the one of misfolded polymers of size $1<i\in\{1,2,\ldots\}\equiv\NPlus$, then \ref{hypPrionHypothesisAggregate} can be expressed with the reaction equation
                 %
                 \begin{equation*}
@@ -228,11 +229,11 @@
                 \begin{equation}
                     \begin{aligned}
                         A_i&=A^g_i-A^l_i=
-                        \frac12\sum_{j=1}^{i-1}a_{j(i-j)}c_jc_{i-j} 
+                        \frac12\sum_{j=1}^{i-1}a_{j(i-j)}c_jc_{i-j}
                         -\sum_{j=1}^\infty a_{ij}c_ic_j,
                         \\[5pt]
                         F_i&=F^l_i-F^g_i=
-                        \frac12\sum_{j=1}^{i-1}f_{j(i-j)}c_i 
+                        \frac12\sum_{j=1}^{i-1}f_{j(i-j)}c_i
                         -\sum_{j=1}^\infty f_{ij}c_{i+j},
                     \end{aligned}
                 \end{equation}
@@ -260,7 +261,7 @@
                 \end{equation}
                 %
                 where $k_{0i}$ and $\mu_i$ have the usual meaning of production and clearance rate already seen in \HDcontinuous{}.
-                
+
                 Of course, since \eqref{eqSMOContinuousInfinite} is in fact intractable, assumptions are needed to simplify the system of ODEs:
 
                 \begin{enumerate}[
@@ -275,7 +276,7 @@
                     %labelwidth=!,
                     %labelsep=!]
                 ]
-                    % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem» 
+                    % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
                     \item\label{hypSMOModelMaxLength} the largest polymer length is $L\in\NPlus$ which can neither aggregate nor fragment: $$a_{ij}=f_{ij}=0\text{ with }i=L\text{ or }j=L;$$
                     \item\label{hypSMOModelDiffusion} the diffusion tensor is size-independent, that is $$\mathbf D_i\equiv\mathbf D\text{, with }1\le i\le L;$$
                     \item\label{hypSMOModelProduction} production is only possible with healthy mo\-no\-mers: $$\gamma_i=0\;\;\forall i\in\NPlus\setminus\{1\}$$ while $\gamma\equiv\gamma_1$;
@@ -285,13 +286,23 @@
                     \item\label{hypSMOModelFragmentation} fragmentation into monomers is impossible, \ie{} $$f_{ij}=0\text{ with }i=1\text{ or }j=1,$$ whereas fragmentation into smaller polymers is size-in\-de\-pen\-dent: $$f_{ij}=f\text{ with }1<i,j<L.$$
                 \end{enumerate}
 
+                \begin{figure*}[t]
+                    \centering
+                    \resizebox{\textwidth}{!}{\input{../Figure/Matrici.tex}}
+                    % \captionsetup{width=0.5\linewidth}
+                    \caption{Matrices used the spatial discretization.}
+                    \label{figMatricesLDA}
+                \end{figure*}
+
                 These assumptions lead from \eqref{eqSMOContinuousInfinite} to
                 %
                 \newcommand\vspcESMO{-5pt}
                 \newcommand\vspcRSMO{-4pt}
                 \begin{equation}
                     \SpazMate{1}{1}{1}
-                    \vcenter{\hbox{\rotatebox{90}{\hspace{7pt}[SMO]$_c$}}}\tag*{}
+                    \refstepcounter{equation}
+                    \label{eqSMOContinuous}
+                    \vcenter{\hbox{\rotatebox{90}{\hspace{7pt}[SMO]$_c$}}}
                     \left\{\begin{alignedat}{2}
                         &\hspace{-.2cm plus .1cm minus .1cm}
                         \left.\begin{aligned}
@@ -317,9 +328,7 @@
                         &&\text{on }\partial\STCyl_x,\\
                         &\text{IC: }c_1=c_{1,0},\;\; c_i=0,\;\;\;1<i\le L,
                         &&\text{on }\partial\STCyl_t,
-                    \end{alignedat}\right.
-                    \label{eqSMOContinuous}
-                    \vColla{.3cm}{.2cm}
+                    \end{alignedat}\right.\notag%\tag*{\!}
                 \end{equation}
                 %
                 where $\boldsymbol\kappa\in L_+^\infty(\Brain)$, with
@@ -348,7 +357,6 @@
 
                 \footnotetext{In the continuous setting mollification may be necessary to preserve at least continuity of the product $\kappa c_1^2$; in the weak formulation, however, $L^\infty_+(\Brain)$ is more than sufficient. In addition, here, the graph-based spatial discretization makes $c_1$ piecewise continuous, so continuity is not required.}
 
-
         \subsection{Discrete models}\label{secDiscreteModels}
 
             For the spatial discretization graph theory is applied to take full advantage of \ref{hypPrionHypothesisAxons}; in addition, characteristic times have to be considered for a biologically sound dynamic. Instead, for the temporal discretization Euler methods are analysed.
@@ -373,7 +381,7 @@
                     \item the adjacency matrix $\mathbf A$ whose entries $$a_{ij}\in\mathbb R^+\text{, with }1\le i,j\le V,$$ indicate the edge weight connecting the $i$-th no\-de to the $j$-th one: if $a_{ij}=0$ it means the two nodes are unconnected;
                     \item the degree matrix $$\mathbf D\equiv\diag(\mathbf A\bOne),$$ where $\bOne$ is the unitary vector in $\mathbb R^V$: it's a diagonal matrix whose en\-tries $$d_{ii}\in\RPlus\text{, with }1\le i\le V,$$ are the sum of the rows of $\mathbf A$.
                 \end{itemize}
-            
+
                 The difference of the latter with the former is defined as the Laplacian matrix:
                 %
                 \begin{equation}
@@ -394,19 +402,11 @@
                 \end{equation*}
                 %
                 with $c\in\mathbb R^+$.
-                
+
                 The choice of $V$ is quite critical because it's fundamentally arbitrary as it depends on the level of accuracy necessary and computational power available; for our purposes it's sufficient to consider $V=83$ vertices corresponding to the 83 regions of interest (ROIs) in the brain. In each ROI the average concentration is assumed to be homogeneous in space and its value can thus be represented as a node.
-                
+
                 To build the Laplacian one can start from a more fine brain network representation; nonetheless, for the sake of simplicity, in this article the Laplacian used in \cite{Goriely2019,Goriely2019_L}, shown in Fig. \ref{figMatricesLDA}, is considered. %(see Appendix \ref{apxBudapestConnectome})
-                
-                \begin{figure*}[tb]
-                    \centering
-                    \resizebox{\textwidth}{!}{\input{../Figure/Matrici.tex}}
-                    % \captionsetup{width=0.5\linewidth}
-                    \caption{Matrices used the spatial discretization.}
-                    \label{figMatricesLDA}
-                \end{figure*}
-                
+
                 By collecting all ROI concentrations in the vector
                 $$
                     \mathbf c=[c^1,\ \ldots\ ,c^V]^\top,
@@ -423,6 +423,8 @@
                 is no longer in $\mathcal C_+^2(\STCyl)$ but now lies in $\tilde c\in L_+^\infty(\Brain)\cap\mathcal C^1(\mathcal T)$, the three models seen before are discretized as follows: for \FKcontinuous{}
                 %
                 \begin{equation}
+                    \refstepcounter{equation}
+                    \label{eqFKDiscrete}
                     \text{[FK]$_d$}
                     \left\{
                     \begin{alignedat}{2}
@@ -431,13 +433,14 @@
                         \text{IC:}&\;\;\mathbf c=\mathbf c_0=c_0\mathbf q\neq\boldsymbol0
                         &&\text{ in }\partial\mathcal T_-,
                     \end{alignedat}
-                    \right.\tag*{}
-                    \label{eqFKDiscrete}
+                    \right.\notag%\tag*{\!}
                 \end{equation}
                 %
                 where $\HadProd$ is the element-wise product (Hadamard product); for \HDcontinuous{}
                 %
                 \begin{equation}
+                    \refstepcounter{equation}
+                    \label{eqHDDiscrete}
                     \text{[HD]$_d$}\left\{
                     \begin{alignedat}{2}
                         &\left.\begin{alignedat}{2}
@@ -451,13 +454,14 @@
                         \mathbf c_m=c_{m,0}\mathbf q\neq\boldsymbol0
                         &&\text{ in }\partial\mathcal T_-;
                     \end{alignedat}
-                    \right.\tag*{}
-                    \label{eqHDDiscrete}
+                    \right.\notag%\tag*{\!}
                 \end{equation}
                 %
                 finally for \SMOcontinuous{}
                 %
                 \begin{equation}
+                    \refstepcounter{equation}
+                    \label{eqSMODiscrete}
                     % \newcommand{\vspcESMO}{-2pt}
                     % \newcommand{\vspcRSMO}{-4pt}
                     \SpazMate{1}{1}{1}
@@ -482,19 +486,18 @@
                             \;\;\;2<i<L\\[\vspcESMO]
                             \derT{\mathbf c_n}t=&-\mathbf L\mathbf c_n
                             -\mu\mathbf c_L+a\mathbf c_1\HadProd\mathbf c_{L-1}.
-                        \end{aligned}\hColla{-.1cm}{.05cm}\right\}
+                        \end{aligned}\hColla{-.1}{.05}{cm}\right\}
                         &&\text{in }\mathcal T,\\
                         &\text{IC:}\;\;
                         \mathbf c_1=c_{1,0}\boldsymbol1,\;\;
                         \mathbf c_i=\boldsymbol0,\;\;\;\forall i>2
                         &&\text{in }\partial\mathcal T_-,
                     \end{alignedat}
-                    \right.\tag*{}
-                    \label{eqSMODiscrete}
+                    \right.\notag%\tag*{\;}
                 \end{equation}
                 %
                 where $\mathbf c_i^2\equiv\mathbf c_i\HadProd\mathbf c_i$ and $\boldsymbol\kappa=\kappa\mathbf q$ is the infected ROI vector.
-                
+
                 In all previous models $\mathbf q\in\{0,1\}^V$ is a vector with $q$ unitary entries describing which nodes have the initial toxic mass or where nucleation takes place.
 
                 Observe how the number of unknowns is just the number of ROI values multiplied by the number of vertices: $V$, $2V$ and $LV$ respectively; indeed, thanks to the discretization in space, each function went from having an infinite amount of degrees of freedom to at most $LV$.
@@ -533,7 +536,7 @@
                 This is reasonable physically: faster diffusion is reflected in a larger Laplacian spectral norm, resulting in a smaller timescale $\tau_d$, and \textit{vice versa} for slower diffusion.
 
                 Conversely, given $\tau_g$ the growth timescale, its form is not unique since each model uses its own set of parameters; moreover the following assumptions are needed to define it:
-                
+
                 \begin{enumerate}[
                     label=G\arabic*, % Cambia l'etichetta degli elementi («item») (quella scritta si traduce in 1., 2. ecc.)
                     topsep=7.5pt,	  % Spazio superiore tra testo e lista
@@ -545,14 +548,14 @@
                     % labelindent=30pt,  % Spazio tra il margine sinistro e l'etichetta della lista
                     %labelwidth=!,
                     %labelsep=!]
-                    ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem» 
+                    ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
                     \item\label{hypGrowthTimeHypotesisUniform} diffusion is ignored, that is we consider a uniform concentration in space to focus only on the growth phenomenon;
                     \item\label{hypGrowthTimeHypotesisLinear} the nonlinear terms are neglected, namely low concentrations\footnotemark{} are studied to simplify calculations by linearization;
                     \item\label{hypGrowthTimeHypotesisLongest} the growth dynamic is dominated by the lon\-gest cha\-rac\-te\-ri\-stic time.
                 \end{enumerate}
 
                 \footnotetext{If the initial conditions allow it, this is usually only right initially.}
-                
+
                 These hypotheses give the following growth characteristic times:
 
                 \begin{description}[style=unboxed,
@@ -565,7 +568,7 @@
                                     labelindent=!, % Spazio tra il margine sinistro e l'etichetta della lista
                                     labelwidth=!,
                                     labelsep=!]
-                                    % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem» 
+                                    % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
                     \item[\textbf{FK} - ] applying \crefrange{hypGrowthTimeHypotesisUniform}{hypGrowthTimeHypotesisLongest} to \FKcontinuous{}, one has
                     %
                     \begin{equation}
@@ -576,7 +579,7 @@
                         \tau_g^{\text{FK}}\equiv\alpha^{-1}.
                         \label{eqTauGFK}
                     \end{equation}
-                    
+
                     \item[\textbf{HD} - ] applying \crefrange{hypGrowthTimeHypotesisUniform}{hypGrowthTimeHypotesisLongest} to \HDcontinuous{}, one has
                     %
                     \begin{equation*}
@@ -722,7 +725,46 @@
                     (see Tab. \ref{tabTimeScales} for the values).}
                     {figTimeScales}
 
-                \begin{table}[htb]
+                This is the reason why the Laplacian has to be multiplied by $\rho$ in \eqref{eqLaplacianMatrix}: it's necessary in order to have $\tau_d\approx\tau_g$, where $\tau_g$ can have any of the form considered in \cref{eqTauGFK,eqTauGHD,eqTauGSMO}, and thus a biologically sound dynamic.
+
+                A possible choice or $\rho$ could be one such that $\tau_d=\tau_g$, that is
+                %
+                \begin{equation}
+                    \tau_d=\frac1{\Vert\mathbf L\Vert_2}=
+                    \frac1{\rho\Vert\boldsymbol{\mathcal L}\Vert_2}=\tau_g
+                    \implies
+                    \rho=\frac1{\tau_g\Vert\boldsymbol{\mathcal L}\Vert_2}.
+                    \label{eqRhoDefinition}
+                \end{equation}
+                %
+                \begin{equation*}
+                    \lfloor\log_{10}(\tau_d)\rfloor=
+                    \lfloor\log_{10}(\tau_g)\rfloor,
+                \end{equation*}
+                %
+                More generally, the cases illustrated before, along with Fig. \ref{figTimeScales} and Tab. \ref{tabTimeScales}, actually imply the presence of a continuum: while $\tau_d\ll\tau_g$ manifests very rapidly with only a difference of two orders of magnitude (OOMs), $\tau_d\gg\tau_g$ is an extreme case needing a difference of eight OOMs; on the contrary $\tau_d\approx\tau_g$ manifests even when there is a difference of one OOM if $\tau_d>\tau_g$, whereas if $\tau_d<\tau_g$, even with the same OOM, the evolution starts to rapidly degenerate.
+
+                Therefore, the true condition for a biologically sound dynamic is $\tau_d\gtrapprox\tau_g$ or, equivalently, for the OOMs\footnotemark{}
+                %
+                \begin{equation*}
+                    \lfloor\log_{10}(\tau_d)\rfloor\ge
+                    \lfloor\log_{10}(\tau_g)\rfloor,
+                \end{equation*}
+                % https://en.wiktionary.org/wiki/order_of_magnitude
+                so \eqref{eqRhoDefinition} is only a \textit{sufficient} but not \textit{necessary} value for $\rho$.
+
+                \footnotetext{
+                    In scientific notation $a\in\RPlus$ is expressed as $a=b10^c$ with significand $b\in[1,10)$ and exponent $c\in\mathbb N$, \ie{} the order of magnitude; by then applying the logarithm base $10$ and floor function one has, since $\log_{10}(b)\in[0,1)$,
+                    %
+                    \begin{equation*}
+                        \lfloor\log_{10}(a)\rfloor=
+                        \lfloor\log_{10}(b)+c\rfloor=
+                        \lfloor\log_{10}(b)\rfloor+\lfloor c\rfloor
+                        =c.
+                    \end{equation*}
+                }
+
+                \begin{table}[h]
                     \sisetup{scientific-notation=false}
                     %
                     \newcommand\yearNote{For «\unit{\year}» see § \ref{secSettings}.}
@@ -783,48 +825,6 @@
                     \label{tabTimeScales}
                 \end{table}
 
-                This is the reason why the Laplacian has to be multiplied by $\rho$ in \eqref{eqLaplacianMatrix}: it's necessary in order to have $\tau_d\approx\tau_g$, where $\tau_g$ can have any of the form considered in \cref{eqTauGFK,eqTauGHD,eqTauGSMO}, and thus a biologically sound dynamic.
-
-                A possible choice or $\rho$ could be one such that $\tau_d=\tau_g$, that is
-                %
-                \begin{equation}
-                    \tau_d=\frac1{\Vert\mathbf L\Vert_2}=
-                    \frac1{\rho\Vert\boldsymbol{\mathcal L}\Vert_2}=\tau_g
-                    \implies
-                    \rho=\frac1{\tau_g\Vert\boldsymbol{\mathcal L}\Vert_2}.
-                    \label{eqRhoDefinition}
-                \end{equation}
-                %
-                \begin{equation*}
-                    \lfloor\log_{10}(\tau_d)\rfloor=
-                    \lfloor\log_{10}(\tau_g)\rfloor,
-                \end{equation*}
-                %
-                More generally, the cases illustrated before, along with Fig. \ref{figTimeScales} and Tab. \ref{tabTimeScales}, actually imply the presence of a continuum: while $\tau_d\ll\tau_g$ manifests very rapidly with only a difference of two orders of magnitude (OOMs), $\tau_d\gg\tau_g$ is an extreme case needing a difference of eight OOMs; on the contrary $\tau_d\approx\tau_g$ manifests even when there is a difference of one OOM if $\tau_d>\tau_g$, whereas if $\tau_d<\tau_g$, even with the same OOM, the evolution starts to rapidly degenerate.
-                
-                Therefore, the true condition for a biologically sound dynamic is $\tau_d\gtrapprox\tau_g$ or, equivalently, for the OOMs\footnotemark{}
-                %
-                \begin{equation*}
-                    \lfloor\log_{10}(\tau_d)\rfloor\ge
-                    \lfloor\log_{10}(\tau_g)\rfloor,
-                \end{equation*}
-                % https://en.wiktionary.org/wiki/order_of_magnitude
-                so \eqref{eqRhoDefinition} is only a \textit{sufficient} but not \textit{necessary} value for $\rho$.
-                
-                \footnotetext{
-                    In scientific notation $a\in\RPlus$ is expressed as $a=b10^c$ with significand $b\in[1,10)$ and exponent $c\in\mathbb N$, \ie{} the order of magnitude; by then applying the logarithm base $10$ and floor function one has, since $\log_{10}(b)\in[0,1)$,
-                    %
-                    \begin{equation*}
-                        \lfloor\log_{10}(a)\rfloor=
-                        \lfloor\log_{10}(b)+c\rfloor=
-                        \lfloor\log_{10}(b)\rfloor+\lfloor c\rfloor
-                        =c.
-                    \end{equation*}
-                }
-
-
-                
-
 
             \subsubsection{Temporal discretization}\label{secTemporalDiscretization}
 
@@ -838,7 +838,7 @@
                 for a fixed Laplacian $\mathbf L$, set of parameters in $\mathcal P$ and where, due to the quadratic terms, $\mathbf F$ is nonlinear.
 
                 Given a uniform time step size $\Delta t\in\RPlusStar$ such that $$T/\Delta t=N\in\NPlus,$$ then $\mathcal T$ is discretized with $t_n=n\Delta t$.
-                
+
                 The logic behind the Euler methods is to approximate the time derivative with a finite difference between two consecutive time steps:
                 %
                 \begin{equation*}
@@ -910,7 +910,7 @@
                         f'(1)&=-\alpha<0&\;\;\implies\;\;&\text{LAS EP},
                     \end{alignedat}
                     \right.
-                    \label{eqFKEPStability}                    
+                    \label{eqFKEPStability}
                 \end{equation}
                 %
                 where LAS stands for \textit{locally asymptotically stable} with basin of attraction $\mathcal A=\RPlusStar$ (see \cite{NLDCStrogatz2024} for more details): $1$ is the asymptotic value of all \FKcontinuous{} with IC $c_0\neq0$, with $\alpha$ only changing the time required to reach it.
@@ -992,7 +992,7 @@
             \subsubsection{SMO model}\label{secAsymptoticAnalysisSMO}
 
                 For this case it's very difficult to gain asymptotic information on the concentrations by studying the single equations as they are far too complex to handle.
-                
+
                 However, an equivalent analysis is possible regarding the moments of the toxic aggregates
                 %
                 \begin{equation}
@@ -1028,7 +1028,7 @@
                     %
                     with $m$ being the healthy monomer concentration while $\TotM$ the total mass.
                 \end{itemize}
-                
+
                 To gather the necessary equations the following assumption are made: the number of tau polymers $L$ is sufficiently large as to not affect the dynamics on intermediate time scales of disease progression. \cite{Goriely2019} In essence it means that the sum over all equations in \SMOcontinuous{} is well approximated by the sum in the $L\to\infty$ limit.
 
                 Consequently, a new system of three equations can be derived by considering the first equation in \SMOcontinuous{}, with $m\equiv c_1$, the sum over all equations with $i>2$ in \SMOcontinuous{} and likewise the third but with each equation multiplied by $i$ (see Appendix \ref{apxSystemOfMoments}):
@@ -1134,7 +1134,7 @@
                 Nevertheless, in the cases studied using the parameters given by \cite{Fornari2019,Goriely2019} we can at least numerically say the solution satisfying the positivity constraint (see Appendix \ref{apxSMOPositivityAsmptoticConstraint}) is the smallest root of \eqref{eqmInfEstimateEquation}; this result seems to be confirmed [but not proven\footnotemark{}] by \cite{Goriely2019}.
 
                 \footnotetext{Indeed, in § 5.5 on p. 10 they only give upper and lower bounds for $\mInf$ without studying the EP nature.}
-                
+
                 For \SMOdiscrete{} one has to slightly change the moment definition which becomes vectorial
                 %
                 \begin{equation*}
@@ -1208,7 +1208,7 @@
             \subsubsection{Convergence time}\label{secAsymptoticAnalysisNetwork}
 
                 One might find reasonable to find the time necessary for the three models to reach their respective asymptotic values, based on their parameters $\mathcal P$.
-                
+
                 Unfortunately this is easier said than done, in part due to the nonlinear nature of the problem at hand; nonetheless, it's natural to assume that if one does exist it must depend on the time scales found in § \ref{secCharacteristicTimes}.
 
                 We here propose one such function based empirically on the cases in \cite{Fornari2019,Goriely2019}:
@@ -1219,7 +1219,7 @@
                 \end{equation}
                 %
                 from which the following remarks can be made:
-                
+
                 \begin{enumerate}[
                     label=R\arabic*, % Cambia l'etichetta degli elementi («item») (quella scritta si traduce in 1., 2. ecc.)
                     topsep=7.5pt,	  % Spazio superiore tra testo e lista
@@ -1252,7 +1252,7 @@
                 Assumption \ref{rmkDiffusionContributionConvergenceTime} is motivated with the following reasoning: from § \cref{secAsymptoticAnalysisFK,secAsymptoticAnalysisHD,secAsymptoticAnalysisSMO} it's clear the only LAS EPs are those with a non-null toxic concentration; hence, if $$1\ll\tau_d/\tau_g<+\infty,$$ $\mathbf L\mathbf c$ can be seen as the application of small perturbations to healthy nodes until their state changes from the unstable healthy one\footnotemark{}; and since the size of the perturbation is less important than its presence, a slow growth must be considered to account for $\tau_d/\tau_g$ influence to $T_c$.
 
                 \footnotetext{That is to say that, no matter how feeble diffusion may be and as long as all nodes are connected by at least a non-null edge, the network is going to be completely infected, exactly like its continuous counterpart.}
-                
+
                 As a last note, we remark that there definitely exists a better formula for $T_c$ than \eqref{eqConvergenceTimeFunction} (for instance the constant $9/20$ can be ameliorated), though we are quite certain about the logarithmic growth inside $f(\tau_d/\tau_g)$.
 
 
@@ -1301,7 +1301,7 @@
 
                 \begin{figure}[tb]
                     \centering
-                    \resizebox{\linewidth}{!}{\input{../Figure/FunzioniDecadimento.tex}}                    
+                    \resizebox{\linewidth}{!}{\input{../Figure/FunzioniDecadimento.tex}}
                     \captionsetup{width=0.5\linewidth}
                     \caption{Decay functions.}
                     \label{figDecayFunctions}
@@ -1327,7 +1327,7 @@
                 \end{equation}
                 %
                 as illustrated in Fig. \ref{figDecayThresholds}.
-                
+
                 \begin{figure}[htb]
                     \centering
                     \resizebox{\linewidth}{!}{%
@@ -1435,23 +1435,23 @@
                 Afterwards, $\mathbf L$ is defined exactly as \eqref{eqLaplacianMatrix}:
                 %
                 \begin{equation}
-                    \mathbf L(t)=\rho(\mathbf D(t)-\mathbf A(t))=\rho\boldsymbol{\mathcal L}(t),
+                    \mathbf L(t)\equiv\rho(\mathbf D(t)-\mathbf A(t))=\rho\boldsymbol{\mathcal L}(t),
                     \label{eqDynamicLaplacianMatrix}
                 \end{equation}
                 %
                 but with $\mathbf D(t)\equiv\diag(\mathbf A(t)\boldsymbol1)$.
-                
+
                 It's noteworthy to say that the kinematics described by \eqref{eqTimeDependentA} is purely theoretical and based on the assumption that the low value edges decay very rapidly (exponential decay), whereas those medium and high value are more resistant (hyperbolic decay).
-                
+
 
             \subsubsection{Accumulation}\label{secComplicationsAccumulation}
-            
+
                 In \SMOcontinuous{} it's possible to assume the last $L$-th polymer cannot be cleared and accumulate in time, leading to brain damages; this can be taken into account by setting $\mu_L=0$ instead of $\mu_L=\mu$ in \ref{hypSMOModelClearance}.
 
             \subsubsection{Size-dependency}\label{secComplicationsSizeDependency}
 
                 Still within \SMOcontinuous{}, it's possible to assume that both diffusion and clearance rate depend on the polymer size; this is sensible as the larger a polymer is, the less is able to diffuse and the longer it takes to break it down.
-                
+
                 For diffusion, assumption \ref{hypSMOModelDiffusion} can be changed so that the diffusion coefficient $\mathbf D_i$ of the $i$-th polymer scales inversely to its molecular weight, which is proportional to its size: \cite{Goriely2019}
                 %
                 \begin{equation}
@@ -1470,7 +1470,7 @@
                     \label{eqPTotEquation}
                 \end{equation}
                 %
-                where $\TotP\equiv\sum_{i=1}^Lc_i=c_1+P$, so mass is expected to grow even if $\TotM(0)=\gamma/\mu$. The same result [but not \eqref{eqPTotEquation}] is true, to a lesser extent, with the previous complication in which only $\mu_L=0$ is different.
+                where $\TotP\equiv\sum_{i=1}^Lc_i=c_1+P=m+P$, so mass is expected to grow even if $\TotM(0)=\gamma/\mu$. The same result [but not \eqref{eqPTotEquation}] is true, to a lesser extent, with the previous complication in which only $\mu_L=0$ is different.
 
         \subsection{Settings}\label{secSettings}
 
@@ -1483,7 +1483,7 @@
             \end{figure}
 
             In this section the parameters for \FKdiscrete{}, \HDdiscrete{} and \SMOdiscrete{} are given and, in few words, they all come from \cite{Fornari2019}; further testing of the code for the SMO model has also been done with those taken from \cite{Goriely2019}. However, two settings are shared between all models:
-            
+
             \begin{itemize}[%
                 topsep=7.5pt,	  % Spazio superiore tra testo e lista
                 itemsep=-2pt,	  % Spazio tra gli elementi («item») della lista
@@ -1504,12 +1504,12 @@
                     \label{eqRhoValueCaseStudies}
                 \end{equation}
             \end{itemize}
-            
+
             In conclusion to this section, some remarks are necessary regarding all the parameters taken from \cite{Fornari2019}.
-            
+
             \subsubsection{FK model}\label{secSettingsFK}
-            
-                The \FKdiscrete{} settings are the following: 
+
+                The \FKdiscrete{} settings are the following:
 
                 \begin{itemize}[%
                     topsep=7.5pt,	  % Spazio superiore tra testo e lista
@@ -1528,7 +1528,7 @@
                         \alpha=\qty{0.5}{\per\year},
                         \label{eqFKParameters}
                     \end{equation}
-                    % 
+                    %
                     where $\unit{\year}$ stands for \textit{annus}, meaning year in Latin. Of course, [tropical] years aren't a fundamental dimension, although they can be converted in seconds, as suggested by the SI \cite{ISO80k3,GUISUThompson2008}, with
                     %
                     \begin{equation}
@@ -1579,7 +1579,7 @@
                     \end{equation}
                     %
                     where $\unit{\molarity}$ is molar concentration defined in SI units as \cite{PMCOxtoby2016} $$\unit{\molarity}=\unit{\mole/\metre\cubed};$$
-                    
+
                     \item $\tau_g$ and $T_c$ values, from \cref{eqTauGHD,eqConvergenceTimeFunction} respectively, can be found in Tab. \ref{tabTimeDataSettings};
 
                     \item the asymptotic values from \eqref{eqHDEP} are
@@ -1591,68 +1591,12 @@
                     $$
                     %
                     \item the initial healthy concentration is $c_{h,0}=\qty{2}{\molarity}$ while the initial toxic one is $c_{m,0}=\qty{0.1}{\molarity}$;
-                    
+
                     \item the Euler implicit method in \eqref{eqUpdateRuleEI} is considered with a time step size of $\Delta t=\qty{0.4}{\year}$.
                 \end{itemize}
 
             \subsubsection{SMO model}\label{secSettingsSMO}
 
-                The \SMOdiscrete{} settings are the following:
-
-                \begin{itemize}[%
-                    topsep=7.5pt,	  % Spazio superiore tra testo e lista
-                    itemsep=-2pt,	  % Spazio tra gli elementi («item») della lista
-                    leftmargin=20pt,  % Spazio tra la lista e il bordo destro del testo
-                    rightmargin=0pt,  % Spazio tra la lista e il bordo sinistro del testo
-                    %itemindent=!,
-                    % labelindent=30pt, % Spazio tra il margine sinistro e l'etichetta della lista
-                    %labelwidth=!,
-                    %labelsep=!
-                    % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
-                ]
-                    \item the parameters are
-                        %
-                        \begin{equation}
-                            \newcommand\hspcC{\qquad}
-                            \begin{alignedat}{2}
-                                \gamma&=\qty{1}{\molarity\per\year},&\hspcC
-                                \mu&=\qty{0.5}{\per\year},\\
-                                a&=\qty{10}{\per\molarity\per\year},&\hspcC
-                                f&=\qty{0.048}{\per\year};
-                                % \gamma&=1\ \Molarity\cdot\Year\PowerMinOne,&\hspcC
-                                % \mu&=0.5\ \Year\PowerMinOne,\\
-                                % a&=10\ \Molarity\PowerMinOne\cdot\Year\PowerMinOne,&\hspcC
-                                % f&=0.048\ \Year\PowerMinOne.
-                            \end{alignedat}
-                            \label{eqSMOParameters}
-                        \end{equation}
-                        %
-                    \item $\tau_g$ and $T_c$ values, from \cref{eqTauGSMO,eqConvergenceTimeFunction} respectively, can be found in Tab. \ref{tabTimeDataSettings};
-
-                    \item numerically the asymptotic values from \cref{eqMInfValue,eqPInfValue,eqmInfEstimateEquation} (with $\varphi$ from \eqref{eqDiscreteAverageNucleation}) are
-                    %
-                    %
-                    \begin{equation*}
-                        \begin{split}
-                            \mInf&=\qty{0.6708}{\molarity},\\
-                            \MInf&=\qty{1.3292}{\molarity},\\
-                            \PInf&=\qty{0.0991}{\molarity};
-                        \end{split}
-                    \end{equation*}
-                    %
-                    %
-                    \item the initial healthy concentration is $c_{1,0}=\qty2{\molarity}=\gamma/\mu$, while the nucleation rate is non-null takes value
-                    %
-                    \begin{equation}
-                        \kappa=\qty{1.6e-4}{\per\molarity\per\year};
-                        % \kappa=1.6\times10^{-4}\ 
-                        % \Molarity\PowerMinOne\cdot\Year\PowerMinOne.
-                        \label{eqSMONucleationRate}
-                    \end{equation}
-                    %
-                    \item the Euler explicit method in \eqref{eqUpdateRuleEE} is considered with a time step size of $\Delta t=\qty{0.04}{\year}$ to ensure its stability.
-                \end{itemize}
-            
                 \begin{table}[tb]
                     \sisetup{scientific-notation=false}
                     %
@@ -1703,6 +1647,62 @@
                     \label{tabTimeDataSettings}
                 \end{table}
 
+                The \SMOdiscrete{} settings are the following:
+
+                \begin{itemize}[%
+                    topsep=7.5pt,	  % Spazio superiore tra testo e lista
+                    itemsep=-2pt,	  % Spazio tra gli elementi («item») della lista
+                    leftmargin=20pt,  % Spazio tra la lista e il bordo destro del testo
+                    rightmargin=0pt,  % Spazio tra la lista e il bordo sinistro del testo
+                    %itemindent=!,
+                    % labelindent=30pt, % Spazio tra il margine sinistro e l'etichetta della lista
+                    %labelwidth=!,
+                    %labelsep=!
+                    % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
+                ]
+                    \item the parameters are
+                        %
+                        \begin{equation}
+                            \newcommand\hspcC{\qquad}
+                            \begin{alignedat}{2}
+                                \gamma&=\qty{1}{\molarity\per\year},&\hspcC
+                                \mu&=\qty{0.5}{\per\year},\\
+                                a&=\qty{10}{\per\molarity\per\year},&\hspcC
+                                f&=\qty{0.048}{\per\year};
+                                % \gamma&=1\ \Molarity\cdot\Year\PowerMinOne,&\hspcC
+                                % \mu&=0.5\ \Year\PowerMinOne,\\
+                                % a&=10\ \Molarity\PowerMinOne\cdot\Year\PowerMinOne,&\hspcC
+                                % f&=0.048\ \Year\PowerMinOne.
+                            \end{alignedat}
+                            \label{eqSMOParameters}
+                        \end{equation}
+                        %
+                    \item $\tau_g$ and $T_c$ values, from \cref{eqTauGSMO,eqConvergenceTimeFunction} respectively, can be found in Tab. \ref{tabTimeDataSettings};
+
+                    \item numerically the asymptotic values from \cref{eqMInfValue,eqPInfValue,eqmInfEstimateEquation} (with $\varphi$ from \eqref{eqDiscreteAverageNucleation}) are
+                    %
+                    %
+                    \begin{equation*}
+                        \begin{split}
+                            \mInf&=\qty{0.6708}{\molarity},\\
+                            \MInf&=\qty{1.3292}{\molarity},\\
+                            \PInf&=\qty{0.0991}{\molarity};
+                        \end{split}
+                    \end{equation*}
+                    %
+                    %
+                    \item the initial healthy concentration is $c_{1,0}=\qty2{\molarity}=\gamma/\mu$, while the nucleation rate is non-null takes value
+                    %
+                    \begin{equation}
+                        \kappa=\qty{1.6e-4}{\per\molarity\per\year};
+                        % \kappa=1.6\times10^{-4}\
+                        % \Molarity\PowerMinOne\cdot\Year\PowerMinOne.
+                        \label{eqSMONucleationRate}
+                    \end{equation}
+                    %
+                    \item the Euler explicit method in \eqref{eqUpdateRuleEE} is considered with a time step size of $\Delta t=\qty{0.04}{\year}$ to ensure its stability.
+                \end{itemize}
+
             \subsubsection{Disclaimer}\label{secDisclaimer}
 
                 The data in \cite{Fornari2019} have three majors problems:
@@ -1718,7 +1718,7 @@
                     % labelindent=30pt, 	% Spazio tra il margine sinistro e l'etichetta della lista
                     %labelwidth=!,
                     %labelsep=!
-                ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem» 
+                ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
                     \item\label{problemDimension} the authors don't mention their dimensions which from the plots we assumed to be in $\unit{\year}$;
                     \item\label{problemReference} the authors don't reference any studies from which their parameters are taken;
                     \item\label{problemLaplacian} the authors do not provide the Laplacian used.
@@ -1729,7 +1729,7 @@
                 Instead, \ref{problemReference} suggests the parameters are purely theoretical which seems to be the case even in \cite{Goriely2019}; in both papers, however, this is only implied by context and not explicitly written. For this reason we advise considering all previous parameters as merely theoretical.
 
                 It's then to no-one's surprise the results in \cite{Fornari2019} have unfortunately not been reproduced correctly:
-                
+
                 \begin{itemize}[%
                     topsep=7.5pt,     % Spazio superiore tra testo e lista
                     itemsep=-2pt,	  % Spazio tra gli elementi («item») della lista
@@ -1787,10 +1787,8 @@
             %             {\FKdiscrete{} and \HDdiscrete{} case studies}.}
             %     \label{figFKHDCurves}
             % \end{figure*}
-            
+
             \subsubsection{FK and HD model}\label{secResultsFKHD}
-            
-                \newcommand{\mcl}[1]{\mathcal #1}
 
                 Instead of showing the concentration of all nodes, it's better to visually pool some together and in both cases the group of ROIs considered form
 
@@ -1806,9 +1804,9 @@
                     %labelsep=!
                 ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
                     \item either a system (limbic, basal ganglia),
-                    \item a lobe (temporal, occipital, parietal or frontal)
-                    \item a single node (brainstem),
-                    \item or the whole network.
+                    \item a lobe (temporal, occipital, parietal or frontal),
+                    \item a single node (brainstem) or
+                    \item the whole network.
                 \end{itemize}
 
                 Given $\mcl G$ the set of $\vert\mcl G\vert$ nodes in one of the previous groups, then its normalized concentration is defined as
@@ -1821,6 +1819,8 @@
                 where $\mcl N$ is the normalization constant: \num1 for \FKdiscrete{} (§ \ref{secAsymptoticAnalysisFK}) and $c_{m,2}^\infty$ in \eqref{eqHDEP} for \HDdiscrete{} (§ \ref{secAsymptoticAnalysisHD}). The resulting concentrations are shown in Fig. \ref{figFKCurves} for \FKdiscrete{} and Fig. \ref{figHDCurves} for \HDdiscrete{}.
 
                 As can be seen qualitatively in Fig. \ref{figFKHDNetComparison} for the network, \FKdiscrete{} and \HDdiscrete{} are very similar with the former slightly underestimating the latter by an OOM of \num{e-2}. This is the reason why they are discussed together in this section.
+
+                This result is actually quite interesting: if one were to transform \HDdiscrete{} in \FKdiscrete{} (see Appendix \ref{apxFKFromHD}) then the $\alpha$ from \eqref{eqFKFromHDParameters} with \eqref{eqHDParameters} is exactly $0.5$, the same as \eqref{eqFKParameters}; it is, however, not true that $c_m^{\max}$ from \eqref{eqFKFromHDParameters} is the maximum concentration of Fig. \ref{figFKCurves} as the condition $\kappa/\mu_h\ll1$ is not satisfied. In addition, a more rigorous analytical proof\footnotemark{} is needed to truly prove this equivalence, but, since it's beyond the scope of the present paper, it is ignored; at any rate, if true, it would mean that the normalized [w.r.t. $c^\infty_{m,2}$ in \eqref{eqHDEP}] curves of \HDdiscrete{} can be calculated with the simpler \FKdiscrete{}, discarding $V$ unknowns.
 
                 \includetikzgroupplotfigure{thb}{\linewidth}
                     {\input{../Figure/ConfrontoFKEDRete.tex}}
@@ -1851,12 +1851,10 @@
                 %%%%%%%%%%%%%%%%%%%%%%%%
                 %%%%%%%%%%%%%%%%%%%%%%%%
 
-                This result is actually quite interesting: if one were to transform \HDdiscrete{} in \FKdiscrete{} (see Appendix \ref{apxFKFromHD}) then the $\alpha$ from \eqref{eqFKFromHDParameters} with \eqref{eqHDParameters} is exactly $0.5$, the same as \eqref{eqFKParameters}; it is, however, not true that $c_m^{\max}$ from \eqref{eqFKFromHDParameters} is the maximum concentration of Fig. \ref{figFKCurves} as the condition $\kappa/\mu_h\ll1$ is not satisfied. In addition, a more rigorous analytical proof\footnotemark{} is needed to truly prove this equivalence, but, since it's beyond the scope of the present paper, it is ignored; at any rate, if true, it would mean that the normalized [w.r.t. $c^\infty_{m,2}$ in \eqref{eqHDEP}] curves of \HDdiscrete{} can be calculated with the simpler \FKdiscrete{}, discarding $V$ unknowns.
-                
                 \footnotetext{The authors in \cite{Fornari2019} suggests the same conclusion but do not prove it, opting instead to discuss some parametric studies of \FKdiscrete{} and \HDdiscrete{} [unfortunately without normalizing the latter].}
 
                 The static $\mathbf L$ case is shown in Figs. \cref{figFKStaticL,figHDStaticL}; in this the \eqref{eqAntiClockwiseSpreading} spreading manifests, whereas the fact the parietal and occipital lobe have overlapping curves is a clear sign of the degeneracy onset (§ \ref{secCharacteristicTimes}) and, indeed, $\tau_d<\tau_g$.
-                
+
                 Conversely, the dynamic $\mathbf L$ case is illustrated in Figs. \cref{figFKDynamicL,figHDDynamicL} where the parietal and occipital lobes do not have overlapping curves any more. Meanwhile, from Figs. \cref{figFKNetwork,figFKTemporal,figFKFrontal,figFKParietal,figFKOccipital,figFKLimbic,figFKBasalGanglia,figFKBrainstem,figHDNetwork,figHDTemporal,figHDFrontal,figHDParietal,figHDOccipital,figHDLimbic,figHDBasalGanglia,figHDBrainstem} it's clear the presence of a slight global delay, that is to say that at one time the concentration is less than in $\mathbf L$ static case.
 
                 Nevertheless, overall the difference between the sta\-tic and dynamic $\mathbf L$ cases is very minimal considering all \num{5785} low value edges die out in about 1/3 of the dynamic: this implies their influence is small. To test this intuition we have proposed two variants: one where $f_d^l$ is swapped with $f_d^h$ and the other with $f_d^m$, represented with
@@ -1869,13 +1867,13 @@
                 \end{subequations}
                 %
                 The goal is to see how the network behaves if the medium and high value edges die out very early in the dynamic.
-                
+
                 The \eqref{eqLDVariantI} case can be seen in Figs. \cref{figFKDynamicLVariant1,figHDDynamicLVariant1}. From Figs. \cref{figFKNetwork,figFKTemporal,figFKFrontal,figFKParietal,figFKOccipital,figFKLimbic,figFKBasalGanglia,figFKBrainstem,figHDNetwork,figHDTemporal,figHDFrontal,figHDParietal,figHDOccipital,figHDLimbic,figHDBasalGanglia,figHDBrainstem} it's evidently a middle way between the static and dynamic $\mathbf L$ cases. Consequently, the few \num{10} high value edges are not really relevant for the diffusion.
-                
+
                 On the contrary, the \eqref{eqLDVariantII} case is shown in Figs. \cref{figFKDynamicLVariant2,figHDDynamicLVariant2} in which the basal ganglia grow before the brainstem, while the Limbic system slows down and is surpassed by the parietal lobe. From Figs. \cref{figFKNetwork,figFKTemporal,figFKFrontal,figFKParietal,figFKOccipital,figFKLimbic,figFKBasalGanglia,figFKBrainstem,figHDNetwork,figHDTemporal,figHDFrontal,figHDParietal,figHDOccipital,figHDLimbic,figHDBasalGanglia,figHDBrainstem}, instead, it's apparent this is by far the most delayed dynamic of all, save the temporal lobe.
 
-                Therefore, the \eqref{eqLDVariantII} case hints at the importance of the \num{1094} medium value edges for the dynamic of misfolded tau proteins. One could attribute this behaviour to the bigger increase in diffusive time $\tau_d$ but Fig. \ref{figDynamicDiffusiveTimeScales} proves this may not the case: $\tau_d$ of the \eqref{eqLDVariantII} case increases more in the first half but is then surpassed in value by the \eqref{eqLDVariantI} case one; at any rate, they still remain in the same OOM of $\tau_g$, far from the hiccup evolution described in § \ref{secCharacteristicTimes}.
-                
+                Therefore, the \eqref{eqLDVariantII} case hints at the importance of the \num{1094} medium value edges for the dynamic of misfolded tau proteins. One could attribute this behaviour to the bigger increase of the diffusive timescale $\tau_d$ but Fig. \ref{figDynamicDiffusiveTimeScales} proves this may not the case: $\tau_d$ of the \eqref{eqLDVariantII} case increases more in the first half but is then surpassed in value by the \eqref{eqLDVariantI} case one; at any rate, they still remain in the same OOM of $\tau_g$, far from the hiccup evolution described in § \ref{secCharacteristicTimes}.
+
                 \begin{figure}[htb]
                     \centering
                     \resizebox{\linewidth}{!}{\input{../Figure/TempoDiffusivo.tex}}
@@ -1906,7 +1904,7 @@
                 Contrary to before, in this case it's better to take a more holistic approach\footnotemark{} where the specific groups are ab\-an\-do\-ned in favour of the normalized aggregate masses, defined as
                 %
                 \begin{equation}
-                    \Mass_l\equiv\frac1{V\MInf}\sum_{v=1}^V\sum_{l=i}^Llc_l^v,\quad2\le l\le L,
+                    \Mass_n\equiv\frac1{V\MInf}\sum_{v=1}^V\sum_{l=n}^Llc_l^v,\quad2\le n\le L,
                     \label{eqAggregateMass}
                 \end{equation}
                 %
@@ -1928,9 +1926,9 @@
                 where $(*)$ is only valid asymptotically when all nodes have the same concentration. It's noteworthy that the average length of the asymptotic size distribution estimate is $$\lambda\approx\num{13.22}.$$
 
                 As expected, from the dynamic $\mathbf L$ case in Fig. \ref{figSMOAMDynamicL} it's clear the delayed nature compared to Fig. \ref{figSMOSDStaticL}; this is slight\-ly reflected in the size distribution in Fig. \ref{figSMOSDDynamicL} as well, since it's smaller than \ref{figSMOSDStaticL} and it has a greater average length than $\lambda$.
-                
+
                 Conversely, the absence of clearance of the last polymer shows its accumulation pretty well with both the presence of a toxic mass base in \ref{figSMOAMAccumulation}, while in \ref{figSMOSDAccumulation} the most noticeable difference is the spike in $n=50$ which shift notably the average length to a greater value w.r.t. $\lambda$, but overall the distribution remains the same as Fig. \ref{figSMOSDStaticL}. Observe the fact that this spike is present even in Figs. \cref{figSMOSDStaticL,figSMOSDDynamicL} too, but only temporarily, due to the absence of aggregation processes for the longest toxic polymer in \SMOdiscrete{}.
-                
+
                 Finally, the size dependency has the most drastic effects with an eight-fold increase of $\Mass_2$ in Fig. \ref{figSMOAMSizeDependent} and a five-fold one of the size distribution in Fig. \ref{figSMOSDSizeDependent}; furthermore, the major growth happens around \qty{10}{\year} before the static $\mathbf L$ case, certainly because of the lower clearance rate for all polymers. It's then to no-one's surprise the asymptotic distribution is completely wrong.  Nevertheless, it was expected from \eqref{eqPTotEquation} as the new EP is now in $\TotP=\gamma/\mu$; indeed, by plotting $\TotP$ in time, as shown in Fig. \ref{figSMOSizeDependentPTot}, one finds $\TotP<\gamma/\mu$, meaning $\dot M_{\text{tot}}>0$, for \qty{60}{\year}.
 
                 \includetikzgroupplotfigure{H}{\linewidth}
@@ -1949,17 +1947,17 @@
 
     \section{Conclusions}\label{secConclusions}
 
-    All results in § \ref{secResults} are coherent with the theory explained in § \ref{secKineticModels}, although, as with most simulations, they have to be considered carefully; this is true especially from a biomedical point of view since the parameters used are purely theoretical and do not come from any study (§ \ref{secDisclaimer}).
-    
+    All results in § \ref{secResults} are coherent with the theory explained in § \ref{secKineticModels}, although, as with most simulations, they have to be taken carefully; this is true especially from a biomedical point of view since the parameters used are purely theoretical and do not come from any study (§ \ref{secDisclaimer}).
+
     Furthermore, the Laplacian evolution in § \ref{secComplicationsDynamicLaplacian} has to compared with actual measures in vivo, which is understandably difficult to achieve. It would also be interesting to find some laws about its evolution either based on ageing or concentrations of tau proteins.
-    
+
     Another possible improvement can be searched in dynamic parameters, but then the problem is to find their appropiate evolution; indeed, why should the nucleation rate behave like the healthy clearance rate? One could expect the former to increase whereas the latter to decrease in time in a diseased brain.
-    
+
     All considered, this paper is better to be regarded as a formal exploration of more complex models and their phenomenology.
-   
+
     % \end{multicols}
 
-    
+
 %%%
 %%% Bibliography
 %%%
@@ -1970,12 +1968,12 @@
         % Si posson solo usare col pacchetto «biblatex»
     % \bibliographystyle{ieeetr}
     % \bibliography{Riferimento/Bibliografia}
-    
+
 
 %%%
 %%% Appendix
 %%%
-    
+
     \twocolumn
     \input{../Riferimenti/Appendice.tex}
     % \end{multicols}
