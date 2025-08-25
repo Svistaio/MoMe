@@ -21,6 +21,7 @@
     % \usepackage{multicol} % Pacchetto per gestire le colonne, specie quando si ha un documento misto
     \setlength{\columnsep}{0.75cm}%
 }{% Classe «beamer»
+    % \usepackage{showframe}
     \setlength\parskip{7.5pt} % Impone la distanza tra due capoversi uguale a «7.5pt» ove il valore di base nella classe Beamer è «0pt»
     % \setlength{\parindent}{15pt} % Impone il rientro al valore di base 15pt, poiché la classe Beamer la pone nulla se non altrimenti specificato
 }%
@@ -32,10 +33,9 @@
     \usepackage[italian]{babel}
 }%
 
-\usepackage{microtype} % Migliora la giustificazione del testo
-
 \usepackage[T1]{fontenc}
 % \usepackage[T1]{tipa}
+\usepackage{microtype} % Migliora la giustificazione del testo
 
 % Cambia il fonte usato nel documento secondo le filze .ttf salvate in «path»
 \usepackage{fontspec} % È necessario il compilatore «LuaLaTeX» o «XeLaTeX»
@@ -64,11 +64,7 @@
 % «./Percorso/della/Filza/Fonte-Bold.ttf»
 % «./Percorso/della/Filza/Fonte-BoldItalic.ttf»
 
-\controllaClasse{% Classe «article»    
-    \usepackage[backend=biber,style=numeric-comp]{biblatex}%
-}{% Classe «beamer»
-    \usepackage[backend=biber,style=ieee]{biblatex}%
-}%
+\usepackage[backend=biber,style=numeric-comp]{biblatex}%
 \addbibresource{../Riferimenti/Bibliografia.bib}
 \nocite{*} % Cite all entries inside the «.bib» file
 \usepackage{csquotes}
@@ -94,15 +90,15 @@
 
 \usepackage{tikz}
 \usetikzlibrary{
-                tikzmark,
-                positioning,
-                arrows.meta,
-                fit,
-                calc,
-                decorations.pathreplacing,
-                calligraphy,
-                spy,
-            }
+    tikzmark,
+    positioning,
+    arrows.meta,
+    fit,
+    calc,
+    decorations.pathreplacing,
+    calligraphy,
+    spy,
+}
 \usepackage{pgfplots}
 \usepgfplotslibrary{groupplots}
 \pgfplotsset{compat=1.18}
@@ -110,7 +106,7 @@
 \usepackage{caption,    % Pacchetto per le didascalie dentro le minipagine
             subcaption} % Pacchetto per avere due figure affiancate
 \usepackage{float,
-            stfloats}            
+            stfloats}
 
 \usepackage{xcolor}   % Pacchetto per colorare il testo
 \usepackage{hyperref} % Pacchetto per i collegamenti ipertestuali
