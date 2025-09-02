@@ -53,8 +53,8 @@
 
     \twocolumn[
         \begin{@twocolumnfalse}
-            \noindent\parbox{\textwidth}{\maketitle}
             \begin{center}
+                \noindent\parbox{\textwidth}{\maketitle}
                 \noindent\parbox{0.9\textwidth}{%
                     \begin{abstract}
                         \noindent The prion-like hypothesis is assumed to model Alzheimer's disease via the Fisher-Kolmogorov, hetorodymer and Smoluchowski models. These are initially defined in a continuous setting, and later discretized both in space, which requires a study on timescales, and time; afterwards, an asymptotic analysis is discussed along side the equilibrium points and an empirically proposed function to estimate the convergence time. Finally, they are complicated by considering time-varying diffusion for all models, accumulation and size dependency only for the Smoluchowski one; the results discussed are in line in line with the theory developed.
@@ -1263,9 +1263,9 @@
 %%%
 
 
-    \section{Complications and results}\label{secResultsComparisons}
+    \section{Complications, settings and results}\label{secResultsComparisons}
 
-        In this section we first introduce complications to the base models seen in § \ref{secKineticModels}, then parameters are set and finally the results are discussed comparing the base models with and without complications.
+        In this section we first introduce complications to the base models seen in § \ref{secKineticModels}, then parameters and initial conditions are set, and finally the results are discussed comparing the base models with and without complications.
 
         \subsection{Complications}\label{secComplications}
 
@@ -1777,6 +1777,8 @@
         \subsection{Results}\label{secResults}
 
             The simulation results using the parameters of the previous section are discussed first for \FKdiscrete{} and \HDdiscrete{} at once, and then for \SMOdiscrete{}.
+
+            All simulations have been carried out with MATLAB software version «24.2.0.2923080 (R2024b) Update 6».
 
             % \begin{figure*}[t]
             %     \centering
