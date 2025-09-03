@@ -57,7 +57,7 @@
                 \noindent\parbox{\textwidth}{\maketitle}
                 \noindent\parbox{0.9\textwidth}{%
                     \begin{abstract}
-                        \noindent The prion-like hypothesis is assumed to model Alzheimer's disease via the Fisher-Kolmogorov, hetorodymer and Smoluchowski models. These are initially defined in a continuous setting, and later discretized both in space, which requires a study on timescales, and time; afterwards, an asymptotic analysis is discussed along side the equilibrium points and an empirically proposed function to estimate the convergence time. Finally, they are complicated by considering time-varying diffusion for all models, accumulation and size dependency only for the Smoluchowski one; the results discussed are in line in line with the theory developed.
+                        \noindent In this article we study the onset and progression of Alzheimer's disease via three models of increasing complexity and all based on the prion-like hypothesis: Fisher-Kolmogorov (FK), hetorodymer (HD) and Smoluchowski (SMO) models. These are initially defined in a continuous setting, and later discretized both in space with graph theory and time with standard Euler methods; the former also requires a study on timescales to balance the different phenomena at play. Afterwards, an asymptotic analysis is discussed for plot normalization and a function to estimate the convergence time is empirically proposed. Finally, all models are complicated by considering time-varying diffusion, whereas for the SMO one the accumulation and size dependency are considered as well; all results found, save some for the FK and HD models, are in line with our expectations based on the theory developed.
                     \end{abstract}
                 }
             \end{center}
@@ -70,8 +70,6 @@
 %%%
 %%%
 %%%
-
-    % \begin{multicols}{2}
 
     \section{Introduction} \label{secIntroduction}
 
@@ -1949,15 +1947,15 @@
 
     \section{Conclusions}\label{secConclusions}
 
-    All results in § \ref{secResults} are coherent with the theory explained in § \ref{secKineticModels}, although, as with most simulations, they have to be taken carefully; this is true especially from a biomedical point of view since the parameters used are purely theoretical and do not come from any study (§ \ref{secDisclaimer}).
+        All results in § \ref{secResults} are coherent with the theory explained in § \ref{secKineticModels}, except for the $f_d^l\leftrightarrow f_d^m$ variant in the \FKdiscrete{} and \HDdiscrete{} models in which it's not clear why the medium value edge are so impactful on the dynamic, even though they are not the majority. A possible motivation comes from how the graph topology changes: it's reasonable to assume it's unaffected in the other cases, while in the $f_d^l\leftrightarrow f_d^m$ variant it varies significantly.
+        
+        As with most simulations, they have to be taken carefully; this is true especially from a biomedical point of view since the parameters used are purely theoretical and do not come from any study (§ \ref{secDisclaimer}).
 
-    Furthermore, the Laplacian evolution in § \ref{secComplicationsDynamicLaplacian} has to compared with actual measures in vivo, which is understandably difficult to achieve. It would also be interesting to find some laws about its evolution either based on ageing or concentrations of tau proteins.
+        Furthermore, to confirm the results given with a dynamical Laplacian, its evolution in § \ref{secComplicationsDynamicLaplacian} has to be compared with actual measures in vivo, which is understandably difficult to achieve. It would also be interesting to find some laws about its evolution either based on ageing or concentrations of tau proteins, and hence their damage done to the brain.
 
-    Another possible improvement can be searched in dynamic parameters, but then the problem is to find their appropiate evolution; indeed, why should the nucleation rate behave like the healthy clearance rate? One could expect the former to increase whereas the latter to decrease in time in a diseased brain.
+        Another possible improvement can be searched in dynamic parameters, but once again the problem is to find their appropriate evolution; indeed, one could for instance expect in a diseased brain to have an increasing nucleation rate alongside a decreasing healthy clearance rate. Moreover, perhaps, their evolution is slow enough to justify their current constant value with an average.
 
-    All considered, this paper is better to be regarded as a formal exploration of more complex models and their phenomenology.
-
-    % \end{multicols}
+        All considered, this paper is better to be regarded as a formal exploration of more complex models and their phenomenology.
 
 
 %%%
@@ -1978,6 +1976,5 @@
 
     \twocolumn
     \input{../Riferimenti/Appendice.tex}
-    % \end{multicols}
 
 \end{document}
