@@ -534,233 +534,233 @@
     %%% 3° Parte - Risultati e confronti
     %%%
 
-    \part{\texorpdfstring{Complicazioni\\\&\\Risultati}{Complicazioni \& Risultati}}
+    % \part{\texorpdfstring{Complicazioni\\\&\\Risultati}{Complicazioni \& Risultati}}
     % \begin{frame}\partpage\end{frame}
 
 
-    \section{Complicazioni}
+    % \section{Complicazioni}
 
-        \subsection{\texorpdfstring{$\mathbf L$}{L} dinamica}
-
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Per modellare l'invecchiamento del cervello si può rendere la $\mathbf L$ dipendente dal tempo scegliendo [arbitrariamente] di far decadere i lati a seconda del loro rispettivo valore in $\mathbf A$.
-
-                A prescindere dall'evoluzione scelta, una volta definita la $\mathbf A(t)$ si può ridefinire $\mathbf L(t)$ esattamente come nel caso statico:
-                %
-                \begin{equation*}
-                    \mathbf L(t)\equiv\rho(\mathbf D(t)-\mathbf A(t))=\rho\boldsymbol{\mathcal L}(t),
-                    \label{eqDynamicLaplacianMatrix}
-                \end{equation*}
-                %
-                ma con $\mathbf D(t)\equiv\diag(\mathbf A(t)\boldsymbol1)$.
-            \end{frame}
-
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Per classificare gli elementi a valore basso/medio/alto si considerano i valori massimo $A_{\max}$, minimo $A_{\min}$ e medio$$\overline A\equiv\frac1{V^2}\sum_{i,j}^VA_{ij}$$ di $\mathbf A$, con cui si possono definire le seguenti soglie:%
-                %
-                \begin{equation*}%
-                    S_{lm}\equiv\frac{A_{\min}+\overline A}2%
-                    \quad\text{e}\quad%
-                    S_{mh}\equiv\frac{\overline A+A_{\max}}2.
-                    \label{eqDecayThresholds}%
-                \end{equation*}%
-                %
-                \setlength\topsep{0cm}%
-                \setlength\partopsep{0cm}%
-                \setlength\parskip{0pt}%
-                %
-                \begin{figure}[htb]%
-                    \centering%
-                    \resizebox{\linewidth}{!}{%
-                    \begin{tikzpicture}
-                        \pgfmathsetmacro\LowP{0}
-                        \pgfmathsetmacro\MidP{5}
-                        \pgfmathsetmacro\HighP{10}
-                        \pgfmathsetmacro\Tick{.2}
-
-
-                            % Linea
-                        \draw[-,thick] (\LowP,0) -- (\HighP,0);
-
-                            % Valore minimo
-                        \node[above,yshift=\Tick cm] at (\LowP,0) {$A_{\min}$};
-                        \draw[-,thick] (\LowP,-\Tick) -- (\LowP,\Tick);
-
-                            % Valore medio
-                        \node[above,yshift=\Tick cm] at (\MidP,0) {$\overline A$};
-                        \draw[-,thick] (\MidP,-\Tick) -- (\MidP,\Tick);
-
-                            % Valore massimo
-                        \node[above,yshift=\Tick cm] at (\HighP,0) {$A_{\max}$};
-                        \draw[-,thick] (\HighP,-\Tick) -- (\HighP,\Tick);
-
-
-                        \pgfmathsetmacro\Tick{{\Tick/2}}
-                        \pgfmathsetmacro\ThresholdLM{{(\LowP+\MidP)/2}}
-                        \pgfmathsetmacro\ThresholdMH{{(\MidP+\HighP)/2}}
-
-                            % Soglia corta-media
-                        \node[above,yshift=\Tick cm] at (\ThresholdLM,0) {$S_{li}$};
-                        \draw[-,thick] (\ThresholdLM,-\Tick) -- (\ThresholdLM,\Tick);
-
-                            % Soglia media-lunga
-                        \node[above,yshift=\Tick cm] at (\ThresholdMH,0) {$S_{ih}$};
-                        \draw[-,thick] (\ThresholdMH,-\Tick) -- (\ThresholdMH,\Tick);
-
-                        \pgfmathsetmacro\bracesHeight{{\Tick*2+0.2}}
-
-                        \draw[thick,decorate,
-                              decoration={calligraphic brace,
-                                          amplitude=\bracesHeight cm,
-                                          mirror,raise=0pt}
-                             ]
-                            (\LowP,0) -- (\ThresholdLM,0)
-                            node[below=\bracesHeight cm,midway]
-                            {Basso};
-
-                        \draw[thick,decorate,
-                              decoration={calligraphic brace,
-                                          amplitude=\bracesHeight cm,
-                                          mirror,raise=0pt}
-                             ]
-                            (\ThresholdLM,0) -- (\ThresholdMH,0)
-                            node[below=\bracesHeight cm,midway]
-                            {Medio};
-
-                        \draw[thick,decorate,
-                              decoration={calligraphic brace,
-                                          amplitude=\bracesHeight cm,
-                                          mirror,raise=0pt}
-                             ]
-                            (\ThresholdMH,0) -- (\HighP,0)
-                            node[below=\bracesHeight cm,midway]
-                            {Alto};
-
-                    \end{tikzpicture}}
-                    \captionsetup{width=\linewidth}%
-                    \caption{Soglie classificanti.}%
-                    \label{figDecayThresholds}%
-                \end{figure}%
-            \end{frame}
-
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                \vColla{.5}{.2}{cm}
-                La $\mathbf A(t)$ è dunque definita come segue
-                %
-                \begin{equation*}
-                    \newcommand\vspcR{-2pt}
-                    A_{ij}(t)\equiv
-                    \left\{
-                    \begin{alignedat}{6}
-                        &A_{ij}f_d^l(t)
-                        \quad&\text{if }&A_{\min}\le A_{ij}<S_{lm}
-                        \quad&\text{ove }&f_d^l(t)&\equiv&\;\exp\left[-\frac t2\right],\\[\vspcR]
-                        &A_{ij}f_d^m(t)
-                        \quad&\text{if }&S_{lm}\le A_{ij}<S_{mh}
-                        \quad&\text{ove }&f_d^m(t)&\equiv&\;\frac1{1+\frac t{10}},\\[\vspcR]
-                        &A_{ij}f_d^h(t)
-                        \quad&\text{if }&S_{mh}\le A_{ij}<A_{\max}
-                        \quad&\text{ove }&f_d^h(t)&\equiv&\;\frac1{1+\frac t{40}}.
-                    \end{alignedat}
-                    \right.
-                    \label{eqTimeDependentA}
-                \end{equation*}
-                %
-                % ove le tre funzioni di decadimento sono
-                % %
-                % \begin{equation*}
-                %     f_d^l(t)\equiv\exp\left[-\frac t2\right],\;\;\;
-                %     f_d^m(t)\equiv\frac1{1+\frac t{10}},
-                %     \;\;\;\text{e}\;\;\;
-                %     f_d^h(t)\equiv\frac1{1+\frac t{40}}.
-                %     \label{eqDecayingFunctions}
-                % \end{equation*}
-                %
-                \vColla{-.3}{.2}{cm}
-                \begin{figure}[h]
-                    \centering
-                    % \fbox{%
-                        \resizebox{!}{.3\textheight}{\input{../Figure/FunzioniDecadimento.tex}}%
-                    % }%
-                    \captionsetup{width=.5\linewidth}
-                    \caption{Funzioni di decadimento}
-                    \label{figDecayFunctions}
-                \end{figure}
-            \end{frame}
-
-        \subsection{Accumulazione e dimensione}
-
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                In \SMOcontinuous{} è possibile definire due complicazioni:
-
-                \begin{description}[
-                    style=unboxed,
-                    % topsep=7.5pt,	  % Spazio superiore tra testo e lista
-                    itemsep=.1cm,	  % Spazio tra gli elementi («item») della lista
-                    leftmargin=0pt,  % Spazio tra la lista e il bordo destro del testo
-                    rightmargin=0pt, % Spazio tra la lista e il bordo sinistro del testo
-                    % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
-                    % itemindent=!,
-                    % labelindent=10pt, % Spazio tra il margine sinistro e l'etichetta della lista
-                    % labelwidth=!,
-                    % labelsep=5pt,
-                ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
-                    \item[Accumulazione:] si assume che l'ultimo $L$-esimo polimero non può essere depurato e che quindi si accumuli nel tempo.
-                    \item[Dimensione:] s'ipotizza che sia la diffusione che la depurazione dipendano dalla dimensione del polimero secondo le leggi
-                    %
-                    \begin{equation*}
-                        \mathbf L_i\equiv \frac{\mathbf L}{i^\eta}
-                        \qquad\text{e}\qquad
-                        \mu_i=\frac\mu i,
-                        \label{eqSizeDependentDiffusion}
-                    \end{equation*}
-                    %
-                    in cui $\eta=0.5$.
-                \end{description}
-            \end{frame}
-
-
-    % Parte saltata perché non essenziale alla presentazione
-    % Se dovessero chiederla fai riferimento alla relazione
-
-    % \section{Impostazioni}
-
-    %     \subsection{Premessa}
+    %     \subsection{\texorpdfstring{$\mathbf L$}{L} dinamica}
 
     %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-    %             Scelta della rho generale e dei nodi infetti
+    %             Per modellare l'invecchiamento del cervello si può rendere la $\mathbf L$ dipendente dal tempo scegliendo [arbitrariamente] di far decadere i lati a seconda del loro rispettivo valore in $\mathbf A$.
+
+    %             A prescindere dall'evoluzione scelta, una volta definita la $\mathbf A(t)$ si può ridefinire $\mathbf L(t)$ esattamente come nel caso statico:
+    %             %
+    %             \begin{equation*}
+    %                 \mathbf L(t)\equiv\rho(\mathbf D(t)-\mathbf A(t))=\rho\boldsymbol{\mathcal L}(t),
+    %                 \label{eqDynamicLaplacianMatrix}
+    %             \end{equation*}
+    %             %
+    %             ma con $\mathbf D(t)\equiv\diag(\mathbf A(t)\boldsymbol1)$.
     %         \end{frame}
 
-    %     \subsection{Modello FK}
-
     %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-    %             Parametri e CI
+    %             Per classificare gli elementi a valore basso/medio/alto si considerano i valori massimo $A_{\max}$, minimo $A_{\min}$ e medio$$\overline A\equiv\frac1{V^2}\sum_{i,j}^VA_{ij}$$ di $\mathbf A$, con cui si possono definire le seguenti soglie:%
+    %             %
+    %             \begin{equation*}%
+    %                 S_{lm}\equiv\frac{A_{\min}+\overline A}2%
+    %                 \quad\text{e}\quad%
+    %                 S_{mh}\equiv\frac{\overline A+A_{\max}}2.
+    %                 \label{eqDecayThresholds}%
+    %             \end{equation*}%
+    %             %
+    %             \setlength\topsep{0cm}%
+    %             \setlength\partopsep{0cm}%
+    %             \setlength\parskip{0pt}%
+    %             %
+    %             \begin{figure}[htb]%
+    %                 \centering%
+    %                 \resizebox{\linewidth}{!}{%
+    %                 \begin{tikzpicture}
+    %                     \pgfmathsetmacro\LowP{0}
+    %                     \pgfmathsetmacro\MidP{5}
+    %                     \pgfmathsetmacro\HighP{10}
+    %                     \pgfmathsetmacro\Tick{.2}
+
+
+    %                         % Linea
+    %                     \draw[-,thick] (\LowP,0) -- (\HighP,0);
+
+    %                         % Valore minimo
+    %                     \node[above,yshift=\Tick cm] at (\LowP,0) {$A_{\min}$};
+    %                     \draw[-,thick] (\LowP,-\Tick) -- (\LowP,\Tick);
+
+    %                         % Valore medio
+    %                     \node[above,yshift=\Tick cm] at (\MidP,0) {$\overline A$};
+    %                     \draw[-,thick] (\MidP,-\Tick) -- (\MidP,\Tick);
+
+    %                         % Valore massimo
+    %                     \node[above,yshift=\Tick cm] at (\HighP,0) {$A_{\max}$};
+    %                     \draw[-,thick] (\HighP,-\Tick) -- (\HighP,\Tick);
+
+
+    %                     \pgfmathsetmacro\Tick{{\Tick/2}}
+    %                     \pgfmathsetmacro\ThresholdLM{{(\LowP+\MidP)/2}}
+    %                     \pgfmathsetmacro\ThresholdMH{{(\MidP+\HighP)/2}}
+
+    %                         % Soglia corta-media
+    %                     \node[above,yshift=\Tick cm] at (\ThresholdLM,0) {$S_{li}$};
+    %                     \draw[-,thick] (\ThresholdLM,-\Tick) -- (\ThresholdLM,\Tick);
+
+    %                         % Soglia media-lunga
+    %                     \node[above,yshift=\Tick cm] at (\ThresholdMH,0) {$S_{ih}$};
+    %                     \draw[-,thick] (\ThresholdMH,-\Tick) -- (\ThresholdMH,\Tick);
+
+    %                     \pgfmathsetmacro\bracesHeight{{\Tick*2+0.2}}
+
+    %                     \draw[thick,decorate,
+    %                           decoration={calligraphic brace,
+    %                                       amplitude=\bracesHeight cm,
+    %                                       mirror,raise=0pt}
+    %                          ]
+    %                         (\LowP,0) -- (\ThresholdLM,0)
+    %                         node[below=\bracesHeight cm,midway]
+    %                         {Basso};
+
+    %                     \draw[thick,decorate,
+    %                           decoration={calligraphic brace,
+    %                                       amplitude=\bracesHeight cm,
+    %                                       mirror,raise=0pt}
+    %                          ]
+    %                         (\ThresholdLM,0) -- (\ThresholdMH,0)
+    %                         node[below=\bracesHeight cm,midway]
+    %                         {Medio};
+
+    %                     \draw[thick,decorate,
+    %                           decoration={calligraphic brace,
+    %                                       amplitude=\bracesHeight cm,
+    %                                       mirror,raise=0pt}
+    %                          ]
+    %                         (\ThresholdMH,0) -- (\HighP,0)
+    %                         node[below=\bracesHeight cm,midway]
+    %                         {Alto};
+
+    %                 \end{tikzpicture}}
+    %                 \captionsetup{width=\linewidth}%
+    %                 \caption{Soglie classificanti.}%
+    %                 \label{figDecayThresholds}%
+    %             \end{figure}%
     %         \end{frame}
 
-    %     \subsection{Modello ED}
-
     %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-    %             Parametri e CI
+    %             \vColla{.5}{.2}{cm}
+    %             La $\mathbf A(t)$ è dunque definita come segue
+    %             %
+    %             \begin{equation*}
+    %                 \newcommand\vspcR{-2pt}
+    %                 A_{ij}(t)\equiv
+    %                 \left\{
+    %                 \begin{alignedat}{6}
+    %                     &A_{ij}f_d^l(t)
+    %                     \quad&\text{if }&A_{\min}\le A_{ij}<S_{lm}
+    %                     \quad&\text{ove }&f_d^l(t)&\equiv&\;\exp\left[-\frac t2\right],\\[\vspcR]
+    %                     &A_{ij}f_d^m(t)
+    %                     \quad&\text{if }&S_{lm}\le A_{ij}<S_{mh}
+    %                     \quad&\text{ove }&f_d^m(t)&\equiv&\;\frac1{1+\frac t{10}},\\[\vspcR]
+    %                     &A_{ij}f_d^h(t)
+    %                     \quad&\text{if }&S_{mh}\le A_{ij}<A_{\max}
+    %                     \quad&\text{ove }&f_d^h(t)&\equiv&\;\frac1{1+\frac t{40}}.
+    %                 \end{alignedat}
+    %                 \right.
+    %                 \label{eqTimeDependentA}
+    %             \end{equation*}
+    %             %
+    %             % ove le tre funzioni di decadimento sono
+    %             % %
+    %             % \begin{equation*}
+    %             %     f_d^l(t)\equiv\exp\left[-\frac t2\right],\;\;\;
+    %             %     f_d^m(t)\equiv\frac1{1+\frac t{10}},
+    %             %     \;\;\;\text{e}\;\;\;
+    %             %     f_d^h(t)\equiv\frac1{1+\frac t{40}}.
+    %             %     \label{eqDecayingFunctions}
+    %             % \end{equation*}
+    %             %
+    %             \vColla{-.3}{.2}{cm}
+    %             \begin{figure}[h]
+    %                 \centering
+    %                 % \fbox{%
+    %                     \resizebox{!}{.3\textheight}{\input{../Figure/FunzioniDecadimento.tex}}%
+    %                 % }%
+    %                 \captionsetup{width=.5\linewidth}
+    %                 \caption{Funzioni di decadimento}
+    %                 \label{figDecayFunctions}
+    %             \end{figure}
     %         \end{frame}
 
-    %     \subsection{Modello ED}
+    %     \subsection{Accumulazione e dimensione}
 
     %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-    %             Parametri e CI
-    %         \end{frame}
+    %             In \SMOcontinuous{} è possibile definire due complicazioni:
 
-    %     \subsection{Avvertenza}
-
-    %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-    %             Avvertenza sulla natura teorica dei parametri e sulla difficile riproduzione
+    %             \begin{description}[
+    %                 style=unboxed,
+    %                 % topsep=7.5pt,	  % Spazio superiore tra testo e lista
+    %                 itemsep=.1cm,	  % Spazio tra gli elementi («item») della lista
+    %                 leftmargin=0pt,  % Spazio tra la lista e il bordo destro del testo
+    %                 rightmargin=0pt, % Spazio tra la lista e il bordo sinistro del testo
+    %                 % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
+    %                 % itemindent=!,
+    %                 % labelindent=10pt, % Spazio tra il margine sinistro e l'etichetta della lista
+    %                 % labelwidth=!,
+    %                 % labelsep=5pt,
+    %             ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
+    %                 \item[Accumulazione:] si assume che l'ultimo $L$-esimo polimero non può essere depurato e che quindi si accumuli nel tempo.
+    %                 \item[Dimensione:] s'ipotizza che sia la diffusione che la depurazione dipendano dalla dimensione del polimero secondo le leggi
+    %                 %
+    %                 \begin{equation*}
+    %                     \mathbf L_i\equiv \frac{\mathbf L}{i^\eta}
+    %                     \qquad\text{e}\qquad
+    %                     \mu_i=\frac\mu i,
+    %                     \label{eqSizeDependentDiffusion}
+    %                 \end{equation*}
+    %                 %
+    %                 in cui $\eta=0.5$.
+    %             \end{description}
     %         \end{frame}
 
 
-    \section{Risultati}
+    % % Parte saltata perché non essenziale alla presentazione
+    % % Se dovessero chiederla fai riferimento alla relazione
 
-        \subsection{Modelli \texorpdfstring{\FKdiscrete{} ed \HDdiscrete{}}{FK ed ED}}
+    % % \section{Impostazioni}
 
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    % %     \subsection{Premessa}
+
+    % %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    % %             Scelta della rho generale e dei nodi infetti
+    % %         \end{frame}
+
+    % %     \subsection{Modello FK}
+
+    % %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    % %             Parametri e CI
+    % %         \end{frame}
+
+    % %     \subsection{Modello ED}
+
+    % %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    % %             Parametri e CI
+    % %         \end{frame}
+
+    % %     \subsection{Modello ED}
+
+    % %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    % %             Parametri e CI
+    % %         \end{frame}
+
+    % %     \subsection{Avvertenza}
+
+    % %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    % %             Avvertenza sulla natura teorica dei parametri e sulla difficile riproduzione
+    % %         \end{frame}
+
+
+    \part{Risultati}
+
+        \section{Modelli \texorpdfstring{\FKdiscrete{} ed \HDdiscrete{}}{FK ed ED}}
+
+            \begin{frame}\frametitle{\insertpart{} - \insertsection{}}
                 Per mostrare in modo piú significativo i risultati, sono stati raggruppati i nodi a seconda che formino
 
                 \begin{itemize}[%
@@ -790,7 +790,7 @@
                 dove $\mcl N$ è la costante di normalizzazione dall'analisi asintotica.
             \end{frame}
 
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+            \begin{frame}\frametitle{\insertpart{} - \insertsection{}}
                 Innanzitutto, coi parametri scelti, \FKdiscrete{} ed \HDdiscrete{} sono indistinguibili e ciò giustifica il perché si analizzano contemporaneamente.
                 \vColla{-.5}{.3}{cm}
                 \begin{figure}[h!]
@@ -806,7 +806,7 @@
 
             \input{../Figure/FKCurve.tex}
 
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+            \begin{frame}\frametitle{\insertpart{} - \insertsection{}}
                 Si potrebbe attribuire il comportamento della seconda variante al maggiore incremento della scala temporale diffusiva $\tau_d$, eppure dalla seguente figura cosí sembra non essere.
                 %
                 \vColla{-.2}{.1}{cm}
@@ -821,9 +821,9 @@
             \end{frame}
 
 
-        \subsection{Modello \texorpdfstring{\SMOdiscrete{}}{SMO}}
+        \section{Modello \texorpdfstring{\SMOdiscrete{}}{SMO}}
 
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+            \begin{frame}\frametitle{\insertpart{} - \insertsection{}}
                 In questo caso si considerano due quantità piú olistiche:
 
                 \begin{itemize}[%
