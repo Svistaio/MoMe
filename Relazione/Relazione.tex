@@ -1295,11 +1295,12 @@
 
                 As the control quantity one might propose the distance, but due to the high anisotropy of the brain this is a poor choice. A better one are the entries of the adjacency matrix $\mathbf A$ (Fig. \ref{figMatricesLDA}), which are defined as the ratio of the number of fibres over the average fibre length: $n/l$ \cite{BRCI,BRCII,BRCIII}; therefore, one can arbitrarily assume that the larger $a_{ij}$ is, the greater the brain will try to maintain its associated edge.
 
-                To classify the entries as low/medium/high value the maximum $A_{\max}=0.2147$, minimum $A_{\min}=0$ and average
+                To classify the entries as low/medium/high value the maximum $A_{\max}\approx9.816$, minimum $A_{\min}=0$ and average
                 %
                 \begin{equation*}
                     \overline A\equiv\frac1{V^2}\sum_{i,j}^Va_{ij}
-                    =\num[scientific-notation=true]{0.0029}
+                    % =\num[scientific-notation=true]{0.1343}
+                    \approx0.134
                 \end{equation*}
                 %
                 values of $\mathbf A$ are considered; then the midpoints between $\overline A$-$A_{\max}$ and $\overline A$-$A_{\min}$ defines the thresholds needed to classify the entries:
@@ -1307,9 +1308,9 @@
                 \begin{equation}
                     \begin{split}
                         S_{lm}&\equiv\frac{A_{\min}+\overline A}2
-                        =\num[scientific-notation=true]{0.0015},\\
+                        =\num[scientific-notation=true]{0.0672},\\
                         S_{mh}&\equiv\frac{\overline A+A_{\max}}2
-                        =0.1088,
+                        \approx4.975,
                     \end{split}
                     \label{eqDecayThresholds}
                 \end{equation}
