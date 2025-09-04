@@ -28,6 +28,7 @@
         {\large Corso di Modelli Matematici per la Biomedicina}
     }%
 
+    \part{Titolo}
     \maketitle
 
     %%%
@@ -60,35 +61,35 @@
     %%% 1° Parte - Introduzione
     %%%
 
-    \part{Introduzione}
-    \begin{frame}\partpage\end{frame}
+    % \part{Introduzione}
+    % \begin{frame}\partpage\end{frame}
 
 
-    \section{Fenomenologia}
+    % \section{Fenomenologia}
 
-        \subsection{Ipotesi prioniche}
+    %     \subsection{Ipotesi prioniche}
 
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Alla base dei modelli neurodegenerativi per la malattia di Alzheimer (\textit{AD}) studiati in questo articolo è le ipotesi prioniche:
+    %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    %             Alla base dei modelli neurodegenerativi per la malattia di Alzheimer (\textit{AD}) studiati in questo articolo è le ipotesi prioniche:
 
-                \begin{enumerate}[
-                    label=H\arabic*,  % Cambia l'etichetta degli elementi («item») (quella scritta si traduce in 1., 2. ecc.)
-                    topsep=7.5pt,     % Spazio superiore tra testo e lista
-                    itemsep=1pt,     % Spazio tra gli elementi («item») della lista
-                    leftmargin=30pt,  % Spazio tra la lista e il bordo destro del testo
-                    rightmargin=20pt, % Spazio tra la lista e il bordo sinistro del testo
-                    %itemindent=!,
-                    % labelindent=30pt, % Spazio tra il margine sinistro e l'etichetta della lista
-                    %labelwidth=!,
-                    %labelsep=!
-                    % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
-                ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
-                    \item\label{hypPrionHypothesisMisfolded} l'\textit{AD} è causata dalle proteine $\tau$ malripiegate;
-                    \item\label{hypPrionHypothesisTemplate} le proteine malripiegate inducono quelle sane a malripiegarsi;
-                    \item\label{hypPrionHypothesisAggregate} le proteine malripiegate possono formare aggregati di varie dimensioni, i quali possono anche frammentarsi in piú piccoli aggregati;
-                    \item\label{hypPrionHypothesisAxons} le proteine malripiegate e i suoi aggregati propagano primariamente all'interno del cervello tramite la rete neurale formata dagli assoni.
-                \end{enumerate}
-            \end{frame}
+    %             \begin{enumerate}[
+    %                 label=H\arabic*,  % Cambia l'etichetta degli elementi («item») (quella scritta si traduce in 1., 2. ecc.)
+    %                 topsep=7.5pt,     % Spazio superiore tra testo e lista
+    %                 itemsep=1pt,     % Spazio tra gli elementi («item») della lista
+    %                 leftmargin=30pt,  % Spazio tra la lista e il bordo destro del testo
+    %                 rightmargin=20pt, % Spazio tra la lista e il bordo sinistro del testo
+    %                 %itemindent=!,
+    %                 % labelindent=30pt, % Spazio tra il margine sinistro e l'etichetta della lista
+    %                 %labelwidth=!,
+    %                 %labelsep=!
+    %                 % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
+    %             ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
+    %                 \item\label{hypPrionHypothesisMisfolded} l'\textit{AD} è causata dalle proteine $\tau$ malripiegate;
+    %                 \item\label{hypPrionHypothesisTemplate} le proteine malripiegate inducono quelle sane a malripiegarsi;
+    %                 \item\label{hypPrionHypothesisAggregate} le proteine malripiegate possono formare aggregati di varie dimensioni, i quali possono anche frammentarsi in piú piccoli aggregati;
+    %                 \item\label{hypPrionHypothesisAxons} le proteine malripiegate e i suoi aggregati propagano primariamente all'interno del cervello tramite la rete neurale formata dagli assoni.
+    %             \end{enumerate}
+    %         \end{frame}
 
 
 
@@ -96,436 +97,436 @@
     %%% 2° Parte - Modelli cinetici
     %%%
 
-    \part{Modelli cinetici}
-    \begin{frame}\partpage\end{frame}
+    % \part{Modelli cinetici}
+    % \begin{frame}\partpage\end{frame}
 
 
-    % Parte saltata perché non essenziale alla presentazione
-    % Se dovessero chiederla dillo a voce riferendoti alla relazione
+    % % Parte saltata perché non essenziale alla presentazione
+    % % Se dovessero chiederla dillo a voce riferendoti alla relazione
 
-    % \section{Premessa}
+    % % \section{Premessa}
 
-    %     \subsection{Notazione}
+    % %     \subsection{Notazione}
+
+    % %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    % %             Cilindro spazio-temporale
+
+    % %             Rpiú ed RpiúStella
+    % %         \end{frame}
+
+
+    % \section{Modelli continui}
+
+    %     \subsection{Eterodimero\texorpdfstring{}{ (FK)} e Fisher-Kolmogorov\texorpdfstring{}{ (ED)}}
 
     %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-    %             Cilindro spazio-temporale
+    %             Presentano forma (\cref{hypPrionHypothesisMisfolded,hypPrionHypothesisTemplate}):
+    %             %
+    %             \begin{equation}
+    %                 \refstepcounter{equation}
+    %                 \newcommand\vspcR{2pt}
+    %                 \text{[HD]$_c$}
+    %                 \left\{\begin{alignedat}{2}
+    %                     &\left.\begin{alignedat}{2}
+    %                         \derT{c_h}t&=
+    %                         %\nabla\cdot(\mathbf D\cdot\nabla c_h)
+    %                         \DeltaD c_h+\gamma&&
+    %                         -\mu_hc_h-\kappa c_hc_m\\[\vspcR]
+    %                         \derT{c_m}t&=
+    %                         %\nabla\cdot(\mathbf D\cdot\nablac_m)
+    %                         \DeltaD c_m&&
+    %                         -\mu_mc_m+\kappa c_hc_m
+    %                     \end{alignedat}\right\}
+    %                     &&\text{ in }\STCyl,\\[\vspcR]
+    %                     &\text{BC: }c_h=c_m=0,
+    %                     &&\text{ su }\partial\STCyl_x,\\[\vspcR]
+    %                     &\text{IC: }c_h=c_{h,0},\;\; c_m=c_{m,0}\neq0
+    %                     &&\text{ su }\partial\STCyl_t,
+    %                 \end{alignedat}\right.\notag%\tag*{}
+    %                 \label{eqHDContinuous}
+    %             \end{equation}
+    %     %     \end{frame}
+    %     %
+    %     % \subsection{Fisher-Kolmogorov}
+    %     %
+    %     %     \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    %             % Presenta forma (\cref{hypPrionHypothesisMisfolded,hypPrionHypothesisTemplate,hypPrionHypothesisAggregate}):
+    %             ove $\DeltaD f\equiv\nabla\cdot(\mathbf D\cdot\nabla f)$, e
+    %             %
+    %             \begin{equation}
+    %                 \newcommand\vSpcR{2pt}
+    %                 \refstepcounter{equation}
+    %                 \label{eqFKContinuous}
+    %                 \text{[FK]$_c$}
+    %                 \left\{
+    %                 \begin{alignedat}{2}
+    %                     &\derT ct=\DeltaD c+\alpha c\left(1-c\right)
+    %                     &&\text{ in }\STCyl,\\[\vSpcR]
+    %                     % \nabla\cdot(\mathbf D\cdot\nabla c)
+    %                     &\text{BC: }c=0
+    %                     &&\text{ su }\partial\STCyl_x,\\[\vSpcR]
+    %                     &\text{IC: }c=c_0\neq0
+    %                     &&\text{ su }\partial\STCyl_t.
+    %                 \end{alignedat}
+    %                 \right.\notag%\tag*{}
+    %             \end{equation}
+    %             %
+    %             Si osserva che l'\FKcontinuous{} si può ricavare dall\HDcontinuous{}.
+    %         \end{frame}
 
-    %             Rpiú ed RpiúStella
+    %     \subsection{Smoluchowski\texorpdfstring{}{ (SMO)}}
+
+    %         % Parte saltata perché non essenziale alla presentazione
+    %         % Se dovessero chiederla fai riferimento alla relazione
+
+    %         % \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    %         %     Forma originale
+    %         % \end{frame}
+
+    %         % \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    %         %     Ipotesi semplificative
+    %         % \end{frame}
+
+    %         \newcommand\vspcESMO{-5pt}
+    %         \newcommand\vspcRSMO{-4pt}
+    %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    %             Presenta forma (\cref{hypPrionHypothesisMisfolded,hypPrionHypothesisTemplate,hypPrionHypothesisAggregate}):
+    %             %
+    %             \begin{equation}
+    %                 \SpazMate{1}{1}{1}
+    %                 \refstepcounter{equation}
+    %                 \label{eqSMOContinuous}
+    %                 \vcenter{\hbox{\rotatebox{90}{\hspace{7pt}[SMO]$_c$}}}
+    %                 \left\{\begin{alignedat}{2}
+    %                     &\hspace{-.2cm plus .1cm minus .1cm}
+    %                     \left.\begin{aligned}
+    %                         \derT{c_1}t=&\DeltaD c_1
+    %                         % \nabla\cdot(\mathbf D\cdot\nabla c_1)
+    %                         +\gamma-\mu c_1-2\boldsymbol\kappa c_1^2-
+    %                         ac_1\!\!\sum_{j=2}^{L-1}c_j\\[\vspcESMO]
+    %                         \derT{c_2}t=&\DeltaD c_2
+    %                         % \nabla\cdot(\mathbf D\cdot\nabla c_1)
+    %                         -\mu c_2+\boldsymbol\kappa c_1^2-ac_1c_2+
+    %                         f\!\!\sum_{j=2}^{L-3}c_{2+j}\\[\vspcESMO]
+    %                         \derT{c_i}t=&\DeltaD c_i
+    %                         % \nabla\cdot(\mathbf D\cdot\nabla c_i)
+    %                         -\mu c_i+ac_1c_{i-1}-ac_1c_i\\[\vspcRSMO]
+    %                         &-\frac{(i-3)}2fc_i+
+    %                         f\!\!\sum_{j=2}^{L-i-1}c_{i+j},
+    %                         \;\;2<i<L\\[\vspcESMO]
+    %                         \derT{c_L}t=&\DeltaD c_L-\mu c_L+ac_1c_{L-1}
+    %                         % \nabla\cdot(\mathbf D\cdot\nabla c_n)
+    %                     \end{aligned}\right\}
+    %                     &&\text{in }\STCyl,\\
+    %                     &\text{BC: }c_i=0,\;\;\; 1\le i\le L,
+    %                     &&\text{su }\partial\STCyl_x,\\
+    %                     &\text{IC: }c_1=c_{1,0},\;\; c_i=0,\;\;\;1<i\le L,
+    %                     &&\text{su }\partial\STCyl_t,
+    %                 \end{alignedat}\right.\notag%\tag*{}
+    %             \end{equation}
+    %             %
+    %             ove $\boldsymbol\kappa(\mathbf x)\equiv\kappa\mathbb1_{\mathcal K}(\mathbf x)$ con $\kappa\in\RPlus$ and $\mathcal K\subseteq\Brain$.
     %         \end{frame}
 
 
-    \section{Modelli continui}
+    % \section{Modelli discreti}
 
-        \subsection{Eterodimero\texorpdfstring{}{ (FK)} e Fisher-Kolmogorov\texorpdfstring{}{ (ED)}}
-
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Presentano forma (\cref{hypPrionHypothesisMisfolded,hypPrionHypothesisTemplate}):
-                %
-                \begin{equation}
-                    \refstepcounter{equation}
-                    \newcommand\vspcR{2pt}
-                    \text{[HD]$_c$}
-                    \left\{\begin{alignedat}{2}
-                        &\left.\begin{alignedat}{2}
-                            \derT{c_h}t&=
-                            %\nabla\cdot(\mathbf D\cdot\nabla c_h)
-                            \DeltaD c_h+\gamma&&
-                            -\mu_hc_h-\kappa c_hc_m\\[\vspcR]
-                            \derT{c_m}t&=
-                            %\nabla\cdot(\mathbf D\cdot\nablac_m)
-                            \DeltaD c_m&&
-                            -\mu_mc_m+\kappa c_hc_m
-                        \end{alignedat}\right\}
-                        &&\text{ in }\STCyl,\\[\vspcR]
-                        &\text{BC: }c_h=c_m=0,
-                        &&\text{ su }\partial\STCyl_x,\\[\vspcR]
-                        &\text{IC: }c_h=c_{h,0},\;\; c_m=c_{m,0}\neq0
-                        &&\text{ su }\partial\STCyl_t,
-                    \end{alignedat}\right.\notag%\tag*{}
-                    \label{eqHDContinuous}
-                \end{equation}
-        %     \end{frame}
-        %
-        % \subsection{Fisher-Kolmogorov}
-        %
-        %     \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                % Presenta forma (\cref{hypPrionHypothesisMisfolded,hypPrionHypothesisTemplate,hypPrionHypothesisAggregate}):
-                ove $\DeltaD f\equiv\nabla\cdot(\mathbf D\cdot\nabla f)$, e
-                %
-                \begin{equation}
-                    \newcommand\vSpcR{2pt}
-                    \refstepcounter{equation}
-                    \label{eqFKContinuous}
-                    \text{[FK]$_c$}
-                    \left\{
-                    \begin{alignedat}{2}
-                        &\derT ct=\DeltaD c+\alpha c\left(1-c\right)
-                        &&\text{ in }\STCyl,\\[\vSpcR]
-                        % \nabla\cdot(\mathbf D\cdot\nabla c)
-                        &\text{BC: }c=0
-                        &&\text{ su }\partial\STCyl_x,\\[\vSpcR]
-                        &\text{IC: }c=c_0\neq0
-                        &&\text{ su }\partial\STCyl_t.
-                    \end{alignedat}
-                    \right.\notag%\tag*{}
-                \end{equation}
-                %
-                Si osserva che l'\FKcontinuous{} si può ricavare dall\HDcontinuous{}.
-            \end{frame}
-
-        \subsection{Smoluchowski\texorpdfstring{}{ (SMO)}}
-
-            % Parte saltata perché non essenziale alla presentazione
-            % Se dovessero chiederla fai riferimento alla relazione
-
-            % \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-            %     Forma originale
-            % \end{frame}
-
-            % \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-            %     Ipotesi semplificative
-            % \end{frame}
-
-            \newcommand\vspcESMO{-5pt}
-            \newcommand\vspcRSMO{-4pt}
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Presenta forma (\cref{hypPrionHypothesisMisfolded,hypPrionHypothesisTemplate,hypPrionHypothesisAggregate}):
-                %
-                \begin{equation}
-                    \SpazMate{1}{1}{1}
-                    \refstepcounter{equation}
-                    \label{eqSMOContinuous}
-                    \vcenter{\hbox{\rotatebox{90}{\hspace{7pt}[SMO]$_c$}}}
-                    \left\{\begin{alignedat}{2}
-                        &\hspace{-.2cm plus .1cm minus .1cm}
-                        \left.\begin{aligned}
-                            \derT{c_1}t=&\DeltaD c_1
-                            % \nabla\cdot(\mathbf D\cdot\nabla c_1)
-                            +\gamma-\mu c_1-2\boldsymbol\kappa c_1^2-
-                            ac_1\!\!\sum_{j=2}^{L-1}c_j\\[\vspcESMO]
-                            \derT{c_2}t=&\DeltaD c_2
-                            % \nabla\cdot(\mathbf D\cdot\nabla c_1)
-                            -\mu c_2+\boldsymbol\kappa c_1^2-ac_1c_2+
-                            f\!\!\sum_{j=2}^{L-3}c_{2+j}\\[\vspcESMO]
-                            \derT{c_i}t=&\DeltaD c_i
-                            % \nabla\cdot(\mathbf D\cdot\nabla c_i)
-                            -\mu c_i+ac_1c_{i-1}-ac_1c_i\\[\vspcRSMO]
-                            &-\frac{(i-3)}2fc_i+
-                            f\!\!\sum_{j=2}^{L-i-1}c_{i+j},
-                            \;\;2<i<L\\[\vspcESMO]
-                            \derT{c_L}t=&\DeltaD c_L-\mu c_L+ac_1c_{L-1}
-                            % \nabla\cdot(\mathbf D\cdot\nabla c_n)
-                        \end{aligned}\right\}
-                        &&\text{in }\STCyl,\\
-                        &\text{BC: }c_i=0,\;\;\; 1\le i\le L,
-                        &&\text{su }\partial\STCyl_x,\\
-                        &\text{IC: }c_1=c_{1,0},\;\; c_i=0,\;\;\;1<i\le L,
-                        &&\text{su }\partial\STCyl_t,
-                    \end{alignedat}\right.\notag%\tag*{}
-                \end{equation}
-                %
-                ove $\boldsymbol\kappa(\mathbf x)\equiv\kappa\mathbb1_{\mathcal K}(\mathbf x)$ con $\kappa\in\RPlus$ and $\mathcal K\subseteq\Brain$.
-            \end{frame}
-
-
-    \section{Modelli discreti}
-
-        \subsection{Discretizzazione spaziale}
-
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Il cervello è naturalmente rappresentabile tramite una rete indiretta senza cappi, dove i nodi corrispondono ai neuroni e i lati agli assoni. Dunque, dati $V$ vertici, si possono definire due matrici:
-
-                \begin{itemize}[%
-                    topsep=2.5pt,     % Spazio superiore tra testo e lista
-                    itemsep=1pt,	  % Spazio tra gli elementi («item») della lista
-                    leftmargin=20pt,  % Spazio tra la lista e il bordo destro del testo
-                    rightmargin=30pt,  % Spazio tra la lista e il bordo sinistro del testo
-                    % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
-                    %itemindent=!,
-                    % labelindent=30pt, % Spazio tra il margine sinistro e l'etichetta della lista
-                    %labelwidth=!,
-                    %labelsep=!,
-                ]
-                    \item la matrice d'adiacenza $\mathbf A$ i cui elementi indicano il peso dell'assone $(i,j)$-esimo;
-                    \item la matrice dei gradi $\mathbf D=\diag(\mathbf A\bOne),$ ove $\bOne\in\mathbb R^V$.
-                \end{itemize}
-
-                La loro differenza definisce la matrice laplaciana:
-                %
-                \begin{equation*}
-                    \mathbf L\equiv\rho(\mathbf D-\mathbf A)=\rho\boldsymbol{\mathcal L},
-                    \label{eqLaplacianMatrix}
-                \end{equation*}
-                %
-                che modella \ref{hypPrionHypothesisAxons} e discretizza l'operatore laplaciano: $-\mathbf L\longleftrightarrow\DeltaD$.
-            \end{frame}
-
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Si scelgie $V=83$ nodi corrispondenti alle 83 regioni d'interesse (\textit{ROI}) nel cervello, nelle quali si assume che la concentrazione media sia omogenea in spazio.
-
-                \FKcontinuous{} diventa dunque
-                %
-                \begin{equation}
-                    \refstepcounter{equation}
-                    \label{eqFKDiscrete}
-                    \text{[FK]$_d$}
-                    \left\{
-                    \begin{alignedat}{2}
-                        \derT{\mathbf c}t&=-\mathbf L\mathbf c+\alpha\mathbf c\HadProd(1-\mathbf c)
-                        &&\text{ in }\mathcal T,\\[2pt]
-                        \text{IC:}&\;\;\mathbf c=\mathbf c_0=c_0\mathbf q\neq\boldsymbol0
-                        &&\text{ in }\partial\mathcal T_-;
-                    \end{alignedat}
-                    \right.\notag%\tag*{}
-                \end{equation}
-                % \end{frame}
-                \HDcontinuous{} invece
-                % \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                \begin{equation}
-                    \refstepcounter{equation}
-                    \label{eqHDDiscrete}
-                    \text{[HD]$_d$}\left\{
-                    \begin{alignedat}{2}
-                        &\left.\begin{alignedat}{2}
-                            \derT{\mathbf c_h}t&=-\mathbf L\mathbf c_h+\gamma\bOne&&
-                            -\mu_h\mathbf c_h-\kappa\mathbf c_h\HadProd\mathbf c_m\\
-                            \derT{\mathbf c_m}t&=-\mathbf L\mathbf c_m&&
-                            -\mu_m\mathbf c_m+\kappa\mathbf c_h\HadProd\mathbf c_m
-                        \end{alignedat}\right\}
-                        &&\text{ in }\mathcal T,\\
-                        &\text{IC: }\mathbf c_h=c_{h,0}\boldsymbol1,\;\;
-                        \mathbf c_m=c_{m,0}\mathbf q\neq\boldsymbol0
-                        &&\text{ in }\partial\mathcal T_-;
-                    \end{alignedat}
-                    \right.\notag%\tag*{}
-                \end{equation}
-            \end{frame}
-
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                Infine \SMOcontinuous{}
-                %
-                \begin{equation}
-                    \SpazMate{1}{1}{1}
-                    \refstepcounter{equation}
-                    \label{eqSMODiscrete}
-                    \vcenter{\hbox{\rotatebox{90}{\hspace{7.5pt}[SMO]$_d$}}}
-                    \left\{
-                    \begin{alignedat}{2}
-                        &\hspace{-.2cm plus .1cm minus .1cm}
-                        \left.\begin{aligned}
-                            \derT{\mathbf c_1}t=&-\mathbf L\mathbf c_1
-                            +\gamma\bOne-\mu\mathbf c_1%\\[\vspcRSMO]&
-                            -2\boldsymbol\kappa\HadProd\mathbf c_1^2
-                            -a\mathbf c_1\HadProd\!\!\sum_{j=2}^{L-1}\mathbf c_j\\[\vspcESMO]
-                            \derT{\mathbf c_2}t=&-\mathbf L\mathbf c_2
-                            -\mu\mathbf c_2+\boldsymbol\kappa\HadProd\mathbf c_1^2%\\[\vspcRSMO]&
-                            -a\mathbf c_1\HadProd\mathbf c_2+
-                            f\!\!\sum_{j=2}^{L-3}\mathbf c_{2+j}\\[\vspcESMO]
-                            \derT{\mathbf c_i}t=&-\mathbf L\mathbf c_i
-                            -\mu\mathbf c_i+a\mathbf c_1\HadProd\mathbf c_{i-1}
-                            -a\mathbf c_1\HadProd\mathbf c_i\\[\vspcRSMO]&
-                            -\frac{(i-3)}2f\mathbf c_i+
-                            f\!\!\sum_{j=2}^{L-i-1}\mathbf c_{i+j},
-                            \;\;\;2<i<L\\[\vspcESMO]
-                            \derT{\mathbf c_n}t=&-\mathbf L\mathbf c_n
-                            -\mu\mathbf c_L+a\mathbf c_1\HadProd\mathbf c_{L-1}.
-                        \end{aligned}\hColla{-.1}{.05}{cm}\right\}
-                        &&\text{in }\mathcal T,\\
-                        &\text{IC:}\;\;
-                        \mathbf c_1=c_{1,0}\boldsymbol1,\;\;
-                        \mathbf c_i=\boldsymbol0,\;\;\;\forall i>2
-                        &&\text{in }\partial\mathcal T_-,
-                    \end{alignedat}
-                    \right.\notag%\tag*{}
-                \end{equation}
-                %
-                ove $\boldsymbol\kappa=\kappa\mathbf q$.
-            \end{frame}
-
-
-        \subsection{Tempi caratteristici}
-
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                \setlength\parskip{0cm}
-                In tutt'i modelli visti vi sono due importanti fenomeni in gioco:
-
-                \begin{itemize}[%
-                    % topsep=2.5pt,	  % Spazio superiore tra testo e lista
-                    % itemsep=1pt,	  % Spazio tra gli elementi («item») della lista
-                    leftmargin=20pt,  % Spazio tra la lista e il bordo destro del testo
-                    rightmargin=0pt,  % Spazio tra la lista e il bordo sinistro del testo
-                    %itemindent=!,
-                    % labelindent=30pt, % Spazio tra il margine sinistro e l'etichetta della lista
-                    %labelwidth=!,
-                    %labelsep=!
-                    % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
-                ]
-                    \item diffusione dipendente dalla laplaciana e
-                    \item crescita legata ai valori dei parametri.
-                \end{itemize}
-
-                Ambo sono caratterizzati da scale temporali, ossia scale lungo la quale il fenomeno è osservato in modo significativo.
-
-                Le loro definizioni sono
-                %
-                \begin{equation*}
-                    \newcommand\spazV{2.5pt}
-                    \tau_d\equiv\Vert\mathbf L\Vert^{-1}_2
-                    \qquad\text{e}\qquad
-                    \tau_g\equiv\left\{
-                    \begin{alignedat}{2}
-                        &\alpha^{-1}&\quad&\text{per \FKdiscrete{}},\\[\spazV]
-                        &\min\{\mu_h,\mu_m\}^{-1}&\quad&\text{per \HDdiscrete{}},\\[\spazV]
-                        &\min\{\mu,\vert\lambda^{\text{min}}_{\mathbf A}\vert\}^{-1}
-                        &\quad&\text{per \SMOdiscrete{}}.
-                    \end{alignedat}\right.
-                \end{equation*}
-            \end{frame}
-
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                \vfill
-                \setlength\topsep{0cm}%
-                \setlength\partopsep{0cm}%
-                \setlength\parskip{0pt}%
-                Le scale temporali $\tau_d$ e $\tau_g$ classificano le dinamiche:
-
-                \pgfmathsetmacro\dimColonne{.9}
-                \pgfmathsetmacro\sepColonne{\dimColonne*.05}
-                \pgfmathsetmacro\dimColonnaI{\dimColonne*.7}
-                \pgfmathsetmacro\dimColonnaII{\dimColonne-\sepColonne-\dimColonnaI}
-                \pgfmathsetmacro\dimTab{\dimColonnaII}
-                %
-                \makebox[\textwidth][c]{%
-                \setlength\parskip{0pt}
-                \begin{minipage}{\textwidth}
-                    \setlength\columnsep{\sepColonne\paperwidth}
-                    \begin{columns}[c,totalwidth=\dimColonne\paperwidth]
-                        \begin{column}{\dimColonnaI\paperwidth}
-                            \justifying
-                            \begin{description}[
-                                style=unboxed,
-                                % topsep=7.5pt,	  % Spazio superiore tra testo e lista
-                                % itemsep=0pt,	  % Spazio tra gli elementi («item») della lista
-                                leftmargin=0pt,  % Spazio tra la lista e il bordo destro del testo
-                                rightmargin=0pt, % Spazio tra la lista e il bordo sinistro del testo
-                                % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
-                                % itemindent=!,
-                                % labelindent=10pt, % Spazio tra il margine sinistro e l'etichetta della lista
-                                % labelwidth=!,
-                                % labelsep=5pt,
-                            ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
-                                \item[$\tau_d\ll\tau_g$:] la dinamica è dominata dalla diffusione ed è quindi uniforme in spazio.
-                                \item[$\tau_d\approx\tau_g$:] la dinamica è non triviale e i due fenomeni di diffusione e crescita sono simultanei.
-                                \item[$\tau_d\gg\tau_g$:] la dinamica è dominata dalla crescita portando a un'evoluzione a singhiozzo.
-                            \end{description}
-                        \end{column}
-                        \begin{column}{\dimColonnaII\paperwidth}
-                            \begin{table}[htb]
-                                \sisetup{scientific-notation=false}
-                                %
-                                \newcommand\halfHeight{.1cm}
-                                \newcommand\wCol{1cm}
-                                \newcommand\hRow{\halfHeight}
-                                \setlength\extrarowheight{\halfHeight}
-                                \newcommand\sepCol{\hspace{1cm}}
-                                %
-                                \centering
-                                \resizebox{\dimTab\paperwidth}{!}{%
-                                \begin{NiceTabular}{
-                                S[
-                                    table-format={$\approx$}1e1,
-                                    exponent-mode=scientific,
-                                    % table-column-width=\wCol
-                                ]
-                                S
-                                }[rounded-corners]
-                                \CodeBefore
-                                    \rowcolors{1}{black!5!white}{black!15!white}
-                                \Body
-                                    {$\tau_d$ [\unit{\year}]}&
-                                    {$\tau_g$ [\unit{\year}]}\\[\hRow]\hline
-                                    {$\approx$}2e-2&2e0\\[\hRow]
-                                    {$\approx$}2e1 &2e0\\[\hRow]
-                                    {$\approx$}2e8 &2e0\\[\hRow]
-                                \end{NiceTabular}}
-                                % \caption{Data of Fig. \ref{figTimeScales}.}
-                                % \label{tabTimeScales}
-                            \end{table}
-                        \end{column}
-                    \end{columns}
-                \end{minipage}}
-                %
-                \vColla{0.4}{0.3}{cm}%
-                \begin{figure}[h!]
-                    \centering
-                    \makebox[\textwidth][c]{%
-                    \resizebox{1.1\linewidth}{!}{%
-                        \input{../Figure/ScaleTemporaliFK.tex}
-                    }}
-                    \caption{Le tre dinamiche principali a seconda delle scale temporali.}
-                    % \label{figTimeScales}
-                \end{figure}
-            \end{frame}
-
-        \subsection{Discretizzazione temporale}
-
-            \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-                \FKdiscrete{}, \HDdiscrete{} e \SMOdiscrete{} si possono rappresentare in generale come
-                %
-                \begin{equation*}
-                    \derT{\mathbf c}t=\mathbf F(\mathbf c(t),t;\mathbf L,\mathcal P),
-                    \label{eqGenericSystemODE}
-                \end{equation*}
-                %
-                e approssimando la derivata temporale mediante differenze finite si ha il metodo di Eulero esplicito, con regola d'aggiornamento
-                %
-                \begin{equation*}
-                    \mathbf c(t_{n+1})=\mathbf c(t_n)
-                    +\Delta t\mathbf F(\mathbf c(t_n),t_n;\mathbf L,\mathcal P),
-                    \label{eqUpdateRuleEE}
-                \end{equation*}
-                %
-                o il metodo d'Eulero implicito, con regola d'aggiornamento
-                %
-                \begin{equation*}
-                    \mathbf c(t_{n+1})=\mathbf c(t_n)
-                    +\Delta t\mathbf F(\mathbf c(t_{n+1}),t_{n+1};\mathbf L,\mathcal P).
-                    \label{eqUpdateRuleEI}
-                \end{equation*}
-            \end{frame}
-
-    % Parte saltata perché non essenziale alla presentazione
-    % Se dovessero chiederla fai riferimento alla relazione
-
-    % \section{Analisi asintotica}
-
-    %     \subsection{Modello FK}
+    %     \subsection{Discretizzazione spaziale}
 
     %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-    %             Logica molto veloce
-    %         \end{frame}
+    %             Il cervello è naturalmente rappresentabile tramite una rete indiretta senza cappi, dove i nodi corrispondono ai neuroni e i lati agli assoni. Dunque, dati $V$ vertici, si possono definire due matrici:
 
-    %     \subsection{Modello ED}
+    %             \begin{itemize}[%
+    %                 topsep=2.5pt,     % Spazio superiore tra testo e lista
+    %                 itemsep=1pt,	  % Spazio tra gli elementi («item») della lista
+    %                 leftmargin=20pt,  % Spazio tra la lista e il bordo destro del testo
+    %                 rightmargin=30pt,  % Spazio tra la lista e il bordo sinistro del testo
+    %                 % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
+    %                 %itemindent=!,
+    %                 % labelindent=30pt, % Spazio tra il margine sinistro e l'etichetta della lista
+    %                 %labelwidth=!,
+    %                 %labelsep=!,
+    %             ]
+    %                 \item la matrice d'adiacenza $\mathbf A$ i cui elementi indicano il peso dell'assone $(i,j)$-esimo;
+    %                 \item la matrice dei gradi $\mathbf D=\diag(\mathbf A\bOne),$ ove $\bOne\in\mathbb R^V$.
+    %             \end{itemize}
 
-    %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-    %             EP con analisi (senza dimostrazione, specie perché nell'appendice)
-    %         \end{frame}
-
-    %     \subsection{Modello SMO}
-
-    %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-    %             Tre equazioni principali (senza dimostrazione, però magari accenna alla somma)
-    %         \end{frame}
-
-    %     \subsection{Tempo di convergenza}
-
-    %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-    %             Formula empirica
+    %             La loro differenza definisce la matrice laplaciana:
+    %             %
+    %             \begin{equation*}
+    %                 \mathbf L\equiv\rho(\mathbf D-\mathbf A)=\rho\boldsymbol{\mathcal L},
+    %                 \label{eqLaplacianMatrix}
+    %             \end{equation*}
+    %             %
+    %             che modella \ref{hypPrionHypothesisAxons} e discretizza l'operatore laplaciano: $-\mathbf L\longleftrightarrow\DeltaD$.
     %         \end{frame}
 
     %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
-    %             Osservazioni piú immagine (potrebbe occupare piú diapo)
+    %             Si scelgie $V=83$ nodi corrispondenti alle 83 regioni d'interesse (\textit{ROI}) nel cervello, nelle quali si assume che la concentrazione media sia omogenea in spazio.
+
+    %             \FKcontinuous{} diventa dunque
+    %             %
+    %             \begin{equation}
+    %                 \refstepcounter{equation}
+    %                 \label{eqFKDiscrete}
+    %                 \text{[FK]$_d$}
+    %                 \left\{
+    %                 \begin{alignedat}{2}
+    %                     \derT{\mathbf c}t&=-\mathbf L\mathbf c+\alpha\mathbf c\HadProd(1-\mathbf c)
+    %                     &&\text{ in }\mathcal T,\\[2pt]
+    %                     \text{IC:}&\;\;\mathbf c=\mathbf c_0=c_0\mathbf q\neq\boldsymbol0
+    %                     &&\text{ in }\partial\mathcal T_-;
+    %                 \end{alignedat}
+    %                 \right.\notag%\tag*{}
+    %             \end{equation}
+    %             % \end{frame}
+    %             \HDcontinuous{} invece
+    %             % \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    %             \begin{equation}
+    %                 \refstepcounter{equation}
+    %                 \label{eqHDDiscrete}
+    %                 \text{[HD]$_d$}\left\{
+    %                 \begin{alignedat}{2}
+    %                     &\left.\begin{alignedat}{2}
+    %                         \derT{\mathbf c_h}t&=-\mathbf L\mathbf c_h+\gamma\bOne&&
+    %                         -\mu_h\mathbf c_h-\kappa\mathbf c_h\HadProd\mathbf c_m\\
+    %                         \derT{\mathbf c_m}t&=-\mathbf L\mathbf c_m&&
+    %                         -\mu_m\mathbf c_m+\kappa\mathbf c_h\HadProd\mathbf c_m
+    %                     \end{alignedat}\right\}
+    %                     &&\text{ in }\mathcal T,\\
+    %                     &\text{IC: }\mathbf c_h=c_{h,0}\boldsymbol1,\;\;
+    %                     \mathbf c_m=c_{m,0}\mathbf q\neq\boldsymbol0
+    %                     &&\text{ in }\partial\mathcal T_-;
+    %                 \end{alignedat}
+    %                 \right.\notag%\tag*{}
+    %             \end{equation}
     %         \end{frame}
+
+    %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    %             Infine \SMOcontinuous{}
+    %             %
+    %             \begin{equation}
+    %                 \SpazMate{1}{1}{1}
+    %                 \refstepcounter{equation}
+    %                 \label{eqSMODiscrete}
+    %                 \vcenter{\hbox{\rotatebox{90}{\hspace{7.5pt}[SMO]$_d$}}}
+    %                 \left\{
+    %                 \begin{alignedat}{2}
+    %                     &\hspace{-.2cm plus .1cm minus .1cm}
+    %                     \left.\begin{aligned}
+    %                         \derT{\mathbf c_1}t=&-\mathbf L\mathbf c_1
+    %                         +\gamma\bOne-\mu\mathbf c_1%\\[\vspcRSMO]&
+    %                         -2\boldsymbol\kappa\HadProd\mathbf c_1^2
+    %                         -a\mathbf c_1\HadProd\!\!\sum_{j=2}^{L-1}\mathbf c_j\\[\vspcESMO]
+    %                         \derT{\mathbf c_2}t=&-\mathbf L\mathbf c_2
+    %                         -\mu\mathbf c_2+\boldsymbol\kappa\HadProd\mathbf c_1^2%\\[\vspcRSMO]&
+    %                         -a\mathbf c_1\HadProd\mathbf c_2+
+    %                         f\!\!\sum_{j=2}^{L-3}\mathbf c_{2+j}\\[\vspcESMO]
+    %                         \derT{\mathbf c_i}t=&-\mathbf L\mathbf c_i
+    %                         -\mu\mathbf c_i+a\mathbf c_1\HadProd\mathbf c_{i-1}
+    %                         -a\mathbf c_1\HadProd\mathbf c_i\\[\vspcRSMO]&
+    %                         -\frac{(i-3)}2f\mathbf c_i+
+    %                         f\!\!\sum_{j=2}^{L-i-1}\mathbf c_{i+j},
+    %                         \;\;\;2<i<L\\[\vspcESMO]
+    %                         \derT{\mathbf c_n}t=&-\mathbf L\mathbf c_n
+    %                         -\mu\mathbf c_L+a\mathbf c_1\HadProd\mathbf c_{L-1}.
+    %                     \end{aligned}\hColla{-.1}{.05}{cm}\right\}
+    %                     &&\text{in }\mathcal T,\\
+    %                     &\text{IC:}\;\;
+    %                     \mathbf c_1=c_{1,0}\boldsymbol1,\;\;
+    %                     \mathbf c_i=\boldsymbol0,\;\;\;\forall i>2
+    %                     &&\text{in }\partial\mathcal T_-,
+    %                 \end{alignedat}
+    %                 \right.\notag%\tag*{}
+    %             \end{equation}
+    %             %
+    %             ove $\boldsymbol\kappa=\kappa\mathbf q$.
+    %         \end{frame}
+
+
+    %     \subsection{Tempi caratteristici}
+
+    %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    %             \setlength\parskip{0cm}
+    %             In tutt'i modelli visti vi sono due importanti fenomeni in gioco:
+
+    %             \begin{itemize}[%
+    %                 % topsep=2.5pt,	  % Spazio superiore tra testo e lista
+    %                 % itemsep=1pt,	  % Spazio tra gli elementi («item») della lista
+    %                 leftmargin=20pt,  % Spazio tra la lista e il bordo destro del testo
+    %                 rightmargin=0pt,  % Spazio tra la lista e il bordo sinistro del testo
+    %                 %itemindent=!,
+    %                 % labelindent=30pt, % Spazio tra il margine sinistro e l'etichetta della lista
+    %                 %labelwidth=!,
+    %                 %labelsep=!
+    %                 % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
+    %             ]
+    %                 \item diffusione dipendente dalla laplaciana e
+    %                 \item crescita legata ai valori dei parametri.
+    %             \end{itemize}
+
+    %             Ambo sono caratterizzati da scale temporali, ossia scale lungo la quale il fenomeno è osservato in modo significativo.
+
+    %             Le loro definizioni sono
+    %             %
+    %             \begin{equation*}
+    %                 \newcommand\spazV{2.5pt}
+    %                 \tau_d\equiv\Vert\mathbf L\Vert^{-1}_2
+    %                 \qquad\text{e}\qquad
+    %                 \tau_g\equiv\left\{
+    %                 \begin{alignedat}{2}
+    %                     &\alpha^{-1}&\quad&\text{per \FKdiscrete{}},\\[\spazV]
+    %                     &\min\{\mu_h,\mu_m\}^{-1}&\quad&\text{per \HDdiscrete{}},\\[\spazV]
+    %                     &\min\{\mu,\vert\lambda^{\text{min}}_{\mathbf A}\vert\}^{-1}
+    %                     &\quad&\text{per \SMOdiscrete{}}.
+    %                 \end{alignedat}\right.
+    %             \end{equation*}
+    %         \end{frame}
+
+    %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    %             \vfill
+    %             \setlength\topsep{0cm}%
+    %             \setlength\partopsep{0cm}%
+    %             \setlength\parskip{0pt}%
+    %             Le scale temporali $\tau_d$ e $\tau_g$ classificano le dinamiche:
+
+    %             \pgfmathsetmacro\dimColonne{.9}
+    %             \pgfmathsetmacro\sepColonne{\dimColonne*.05}
+    %             \pgfmathsetmacro\dimColonnaI{\dimColonne*.7}
+    %             \pgfmathsetmacro\dimColonnaII{\dimColonne-\sepColonne-\dimColonnaI}
+    %             \pgfmathsetmacro\dimTab{\dimColonnaII}
+    %             %
+    %             \makebox[\textwidth][c]{%
+    %             \setlength\parskip{0pt}
+    %             \begin{minipage}{\textwidth}
+    %                 \setlength\columnsep{\sepColonne\paperwidth}
+    %                 \begin{columns}[c,totalwidth=\dimColonne\paperwidth]
+    %                     \begin{column}{\dimColonnaI\paperwidth}
+    %                         \justifying
+    %                         \begin{description}[
+    %                             style=unboxed,
+    %                             % topsep=7.5pt,	  % Spazio superiore tra testo e lista
+    %                             % itemsep=0pt,	  % Spazio tra gli elementi («item») della lista
+    %                             leftmargin=0pt,  % Spazio tra la lista e il bordo destro del testo
+    %                             rightmargin=0pt, % Spazio tra la lista e il bordo sinistro del testo
+    %                             % \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
+    %                             % itemindent=!,
+    %                             % labelindent=10pt, % Spazio tra il margine sinistro e l'etichetta della lista
+    %                             % labelwidth=!,
+    %                             % labelsep=5pt,
+    %                         ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
+    %                             \item[$\tau_d\ll\tau_g$:] la dinamica è dominata dalla diffusione ed è quindi uniforme in spazio.
+    %                             \item[$\tau_d\approx\tau_g$:] la dinamica è non triviale e i due fenomeni di diffusione e crescita sono simultanei.
+    %                             \item[$\tau_d\gg\tau_g$:] la dinamica è dominata dalla crescita portando a un'evoluzione a singhiozzo.
+    %                         \end{description}
+    %                     \end{column}
+    %                     \begin{column}{\dimColonnaII\paperwidth}
+    %                         \begin{table}[htb]
+    %                             \sisetup{scientific-notation=false}
+    %                             %
+    %                             \newcommand\halfHeight{.1cm}
+    %                             \newcommand\wCol{1cm}
+    %                             \newcommand\hRow{\halfHeight}
+    %                             \setlength\extrarowheight{\halfHeight}
+    %                             \newcommand\sepCol{\hspace{1cm}}
+    %                             %
+    %                             \centering
+    %                             \resizebox{\dimTab\paperwidth}{!}{%
+    %                             \begin{NiceTabular}{
+    %                             S[
+    %                                 table-format={$\approx$}1e1,
+    %                                 exponent-mode=scientific,
+    %                                 % table-column-width=\wCol
+    %                             ]
+    %                             S
+    %                             }[rounded-corners]
+    %                             \CodeBefore
+    %                                 \rowcolors{1}{black!5!white}{black!15!white}
+    %                             \Body
+    %                                 {$\tau_d$ [\unit{\year}]}&
+    %                                 {$\tau_g$ [\unit{\year}]}\\[\hRow]\hline
+    %                                 {$\approx$}2e-2&2e0\\[\hRow]
+    %                                 {$\approx$}2e1 &2e0\\[\hRow]
+    %                                 {$\approx$}2e8 &2e0\\[\hRow]
+    %                             \end{NiceTabular}}
+    %                             % \caption{Data of Fig. \ref{figTimeScales}.}
+    %                             % \label{tabTimeScales}
+    %                         \end{table}
+    %                     \end{column}
+    %                 \end{columns}
+    %             \end{minipage}}
+    %             %
+    %             \vColla{0.4}{0.3}{cm}%
+    %             \begin{figure}[h!]
+    %                 \centering
+    %                 \makebox[\textwidth][c]{%
+    %                 \resizebox{1.1\linewidth}{!}{%
+    %                     \input{../Figure/ScaleTemporaliFK.tex}
+    %                 }}
+    %                 \caption{Le tre dinamiche principali a seconda delle scale temporali.}
+    %                 % \label{figTimeScales}
+    %             \end{figure}
+    %         \end{frame}
+
+    %     \subsection{Discretizzazione temporale}
+
+    %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    %             \FKdiscrete{}, \HDdiscrete{} e \SMOdiscrete{} si possono rappresentare in generale come
+    %             %
+    %             \begin{equation*}
+    %                 \derT{\mathbf c}t=\mathbf F(\mathbf c(t),t;\mathbf L,\mathcal P),
+    %                 \label{eqGenericSystemODE}
+    %             \end{equation*}
+    %             %
+    %             e approssimando la derivata temporale mediante differenze finite si ha il metodo di Eulero esplicito, con regola d'aggiornamento
+    %             %
+    %             \begin{equation*}
+    %                 \mathbf c(t_{n+1})=\mathbf c(t_n)
+    %                 +\Delta t\mathbf F(\mathbf c(t_n),t_n;\mathbf L,\mathcal P),
+    %                 \label{eqUpdateRuleEE}
+    %             \end{equation*}
+    %             %
+    %             o il metodo d'Eulero implicito, con regola d'aggiornamento
+    %             %
+    %             \begin{equation*}
+    %                 \mathbf c(t_{n+1})=\mathbf c(t_n)
+    %                 +\Delta t\mathbf F(\mathbf c(t_{n+1}),t_{n+1};\mathbf L,\mathcal P).
+    %                 \label{eqUpdateRuleEI}
+    %             \end{equation*}
+    %         \end{frame}
+
+    % % Parte saltata perché non essenziale alla presentazione
+    % % Se dovessero chiederla fai riferimento alla relazione
+
+    % % \section{Analisi asintotica}
+
+    % %     \subsection{Modello FK}
+
+    % %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    % %             Logica molto veloce
+    % %         \end{frame}
+
+    % %     \subsection{Modello ED}
+
+    % %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    % %             EP con analisi (senza dimostrazione, specie perché nell'appendice)
+    % %         \end{frame}
+
+    % %     \subsection{Modello SMO}
+
+    % %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    % %             Tre equazioni principali (senza dimostrazione, però magari accenna alla somma)
+    % %         \end{frame}
+
+    % %     \subsection{Tempo di convergenza}
+
+    % %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    % %             Formula empirica
+    % %         \end{frame}
+
+    % %         \begin{frame}\frametitle{\insertsection{} - \insertsubsection{}}
+    % %             Osservazioni piú immagine (potrebbe occupare piú diapo)
+    % %         \end{frame}
 
 
 
@@ -534,7 +535,7 @@
     %%%
 
     \part{\texorpdfstring{Complicazioni\\\&\\Risultati}{Complicazioni \& Risultati}}
-    \begin{frame}\partpage\end{frame}
+    % \begin{frame}\partpage\end{frame}
 
 
     \section{Complicazioni}
@@ -858,7 +859,7 @@
 
 
     \part{Conclusioni}
-    \begin{frame}\partpage\end{frame}
+    % \begin{frame}\partpage\end{frame}
 
         \begin{frame}\frametitle{\insertpart{}}
             Tutt'i risultati sono coerenti colla teoria affrontata ma sono comunque necessario alcune osservazioni:
