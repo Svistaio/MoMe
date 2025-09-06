@@ -328,7 +328,7 @@
     %                         -\frac{(i-3)}2f\mathbf c_i+
     %                         f\!\!\sum_{j=2}^{L-i-1}\mathbf c_{i+j},
     %                         \;\;\;2<i<L\\[\vspcESMO]
-    %                         \derT{\mathbf c_n}t=&-\mathbf L\mathbf c_n
+    %                         \derT{\mathbf c_L}t=&-\mathbf L\mathbf c_L
     %                         -\mu\mathbf c_L+a\mathbf c_1\HadProd\mathbf c_{L-1}.
     %                     \end{aligned}\hColla{-.1}{.05}{cm}\right\}
     %                     &&\text{in }\mathcal T,\\
@@ -862,7 +862,7 @@
     % \begin{frame}\partpage\end{frame}
 
         \begin{frame}\frametitle{\insertpart{}}
-            Tutt'i risultati sono coerenti colla teoria affrontata ma sono comunque necessario alcune osservazioni:
+            Quasi tutt'i risultati sono coerenti colla teoria affrontata ma sono comunque necessario alcune osservazioni:
 
             \begin{itemize}[%
                 % topsep=7.5pt,     % Spazio superiore tra testo e lista
@@ -875,9 +875,20 @@
                 %labelwidth=!,
                 %labelsep=!
             ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
-                \item come con tutte le simulazioni, devono essere prese con cautela;
-                \item per verificare l'evoluzione della laplaciana sono necessarie misure in vivo;
-                \item sarebbe interessante trovare delle leggi sull'evoluzione della laplaciana.
+                \item nella variante $f_d^l\leftrightarrow f_d^m$ non è chiaro come mai i lati a valor medio siano cosí influenti sulla dinamica.
+                      % in the $f_d^l\leftrightarrow f_d^m$ variant for \FKdiscrete{} and \HDdiscrete{}, it's not clear why the medium value edges are so impactful on the dynamic, even though they are not the majority; a possible motivation comes from how the graph topology changes: it's reasonable to assume it's basically unaffected in the other cases, whereas in the $f_d^l\leftrightarrow f_d^m$ variant it varies significantly.
+                \item nel caso dipendente dalla dimensione la formula
+                      \setlength\abovedisplayskip{\dimColla{2}{1}{mm}}%
+                      \setlength\abovedisplayshortskip{\dimColla{2}{1}{mm}}%
+                      \setlength\belowdisplayskip{\dimColla{2}{1}{mm}}%
+                      \setlength\belowdisplayshortskip{\dimColla{2}{1}{mm}}%
+                      \[
+                        \derT\TotM t=\gamma-\mu\TotP
+                      \]
+                      permette che la massa continui a crescere mediante un accumulo di catene di dimensione sempre piú grandi;
+                      %In the size dependent case for \SMOdiscrete{}, one could expect the toxic mass to increase indefinitely, particularly due to the null-value clearance rate for large enough polymers: indeed, if the toxic polymers keep growing in size, $\TotP$ can remain under $\gamma/\mu$ while $\TotM$ increases; still, a more rigorous proof is needed to verify why this is not the case, maybe akin to the moment analysis discussed in § \ref{secAsymptoticAnalysisSMO}.
+                \item per verificare l'evoluzione della laplaciana è necessario confrontarla con delle misurazioni in vivo;
+                \item come tutte le simulazioni, devono essere prese con cautela.
             \end{itemize}
             
             Nel complesso, questo articolo è da considerarsi come un'esplorazione formale di modelli piú complessi e della loro fenomenologia.

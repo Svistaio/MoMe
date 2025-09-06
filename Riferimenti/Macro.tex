@@ -23,21 +23,25 @@
 \newcommand\RPlusStar{\mathbb R_*^+}
 \newcommand\NPlus{\mathbb N^+}
 
-\newcommand\FKdiscrete{\teqref{eqFKDiscrete}{[FK]$_d$}}
 \controllaClasse{% Classe «article»    
-    \newcommand\HDdiscrete{\teqref{eqHDDiscrete}{[HD]$_d$}}
-}{% Classe «beamer»
-    \newcommand\HDdiscrete{\teqref{eqHDDiscrete}{[ED]$_d$}}
-}%
-\newcommand\SMOdiscrete{\teqref{eqSMODiscrete}{[SMO]$_d$}}
-
-\newcommand\FKcontinuous{\teqref{eqFKContinuous}{[FK]$_c$}}
-\controllaClasse{% Classe «article»    
+    \newcommand\FKcontinuous{\teqref{eqFKContinuous}{[FK]$_c$}}
     \newcommand\HDcontinuous{\teqref{eqHDContinuous}{[HD]$_c$}}
+    \newcommand\SMOcontinuous{\teqref{eqSMOContinuous}{[SMO]$_c$}}
 }{% Classe «beamer»
-    \newcommand\HDcontinuous{\teqref{eqHDContinuous}{[ED]$_c$}}
+    \newcommand\FKcontinuous{[FK]$_c$}   %\teqref{eqFKContinuous}{[FK]$_c$}}
+    \newcommand\HDcontinuous{[ED]$_c$}   %\teqref{eqHDContinuous}{[ED]$_c$}}
+    \newcommand\SMOcontinuous{[SMO]$_c$} %\teqref{eqSMOContinuous}{[SMO]$_c$}}
 }%
-\newcommand\SMOcontinuous{\teqref{eqSMOContinuous}{[SMO]$_c$}}
+
+\controllaClasse{% Classe «article»    
+    \newcommand\FKdiscrete{\teqref{eqFKDiscrete}{[FK]$_d$}}
+    \newcommand\HDdiscrete{\teqref{eqHDDiscrete}{[HD]$_d$}}
+    \newcommand\SMOdiscrete{\teqref{eqSMODiscrete}{[SMO]$_d$}}
+}{% Classe «beamer»
+    \newcommand\FKdiscrete{[FK]$_d$}   %\teqref{eqFKDiscrete}{[FK]$_d$}}
+    \newcommand\HDdiscrete{[ED]$_d$}   %\teqref{eqHDDiscrete}{[ED]$_d$}}
+    \newcommand\SMOdiscrete{[SMO]$_d$} %\teqref{eqSMODiscrete}{[SMO]$_d$}}
+}%
 
 \newcommand\TotM{M_{\text{tot}}}
 \newcommand\TotP{P_{\text{tot}}}
@@ -111,8 +115,9 @@
 \newcommand\Brain{\mathcal B}
 \newcommand\STCyl{\mathcal Q} % Space-time cylinder
 
-\newcommand\vColla[3]{\vspace{#1#3 plus #2#3 minus #2#3}}
-\newcommand\hColla[3]{\hspace{#1#3 plus #2#3 minus #2#3}}
+\newcommand\dimColla[3]{#1#3 plus #2#3 minus #2#3}
+\newcommand\vColla[3]{\vspace{\dimColla{#1}{#2}{#3}}}
+\newcommand\hColla[3]{\hspace{\dimColla{#1}{#2}{#3}}}
 
 % Hadamard product symbol
 \newcommand\HadProd{\smash{\vcenter{\hbox{\scalebox{0.7}{$\odot$}}}}}
