@@ -276,13 +276,13 @@
                     %labelsep=!]
                 ]
                     % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
-                    \item\label{hypSMOModelMaxLength} the largest polymer length is $L\in\NPlus$ which can neither aggregate nor fragment: $$a_{ij}=f_{ij}=0\text{ with }i=L\text{ or }j=L;$$
-                    \item\label{hypSMOModelDiffusion} the diffusion tensor is size-independent, that is $$\mathbf D_i\equiv\mathbf D\text{, with }1\le i\le L;$$
-                    \item\label{hypSMOModelProduction} production is only possible with healthy mo\-no\-mers: $$\gamma_i=0\;\;\forall i\in\NPlus\setminus\{1\}$$ while $\gamma_1=\gamma\in\RPlus$;
-                    \item\label{hypSMOModelClearance} clearance is size-independent with rate $$\mu_i=\mu\in\RPlus\text{, with }1\le i\le L;$$
+                    \item\label{hypSMOModelMaxLength} the largest polymer length is $L\in\NPlus$ which can neither aggregate nor fragment: \[a_{ij}=f_{ij}=0\text{ with }i=L\text{ or }j=L;\]
+                    \item\label{hypSMOModelDiffusion} the diffusion tensor is size-independent, that is \[\mathbf D_i\equiv\mathbf D\text{, with }1\le i\le L;\]
+                    \item\label{hypSMOModelProduction} production is only possible with healthy mo\-no\-mers: \[\gamma_i=0\;\;\forall i\in\NPlus\setminus\{1\}\]while $\gamma_1=\gamma\in\RPlus$;
+                    \item\label{hypSMOModelClearance} clearance is size-independent with rate \[\mu_i=\mu\in\RPlus\text{, with }1\le i\le L;\]
                     \item\label{hypSMOModelNucleation} nucleation takes place at a rate $\kappa\equiv a_{11}$ and is irreversible, namely dimers are stable;
-                    \item\label{hypSMOModelAggregation} aggregation is size-independent, that is $$a_{ij}=a\in\RPlus\text{, with }1\le i,j<L,$$ but can only occur by adding single monomers: $$a_{ij}=0\text{, with }1<i,j<L;$$
-                    \item\label{hypSMOModelFragmentation} fragmentation into monomers is impossible, \ie{} $$f_{ij}=0\text{, with }i=1\text{ or }j=1,$$ whereas fragmentation into smaller polymers is size-in\-de\-pen\-dent: $$f_{ij}=f\in\RPlus\text{, with }1<i,j<L.$$
+                    \item\label{hypSMOModelAggregation} aggregation is size-independent, that is \[a_{ij}=a\in\RPlus\text{, with }1\le i,j<L,\]but can only occur by adding single monomers: \[a_{ij}=0\text{, with }1<i,j<L;\]
+                    \item\label{hypSMOModelFragmentation} fragmentation into monomers is impossible, \ie{} \[f_{ij}=0\text{, with }i=1\text{ or }j=1,\]whereas fragmentation into smaller polymers is size-in\-de\-pen\-dent: \[f_{ij}=f\in\RPlus\text{, with }1<i,j<L.\]
                 \end{enumerate}
 
                 These assumptions lead from \eqref{eqSMOContinuousInfinite} to
@@ -323,9 +323,9 @@
                 \end{equation}
                 %
                 where the summation $\sum_{j=2}^{L-i-1}$ is valid iff
-                $$
+                \[
                 L-i-1\ge2\;\;\implies\;\;i\le L-3,
-                $$
+                \]
                 hence it's not present in the $c_{L-2}$ and $c_{L-1}$ equations; more\-over we assume $\boldsymbol\kappa\in L_+^\infty(\Brain)$, with
                 %
                 \begin{equation*}
@@ -383,8 +383,8 @@
                     %labelwidth=!,
                     %labelsep=!,
                 ]
-                    \item the adjacency matrix $\mathbf A$ whose entries $$A_{ij}\in\mathbb R^+\text{, with }1\le i,j\le V,$$ indicate the edge weight connecting the $i$-th no\-de to the $j$-th one: if $A_{ij}=0$ it means the two nodes are unconnected;
-                    \item the degree matrix $$\mathbf D\equiv\diag(\mathbf A\bOne),$$ where $\bOne$ is the unitary vector in $\mathbb R^V$: it's a diagonal matrix whose en\-tries $$D_{ii}\in\RPlus\text{, with }1\le i\le V,$$ are the sum of the rows of $\mathbf A$.
+                    \item the adjacency matrix $\mathbf A$ whose entries \[A_{ij}\in\mathbb R^+\text{, with }1\le i,j\le V,\]indicate the edge weight connecting the $i$-th no\-de to the $j$-th one: if $A_{ij}=0$ it means the two nodes are unconnected;
+                    \item the degree matrix \[\mathbf D\equiv\diag(\mathbf A\bOne),\]where $\bOne$ is the unitary vector in $\mathbb R^V$: it's a diagonal matrix whose en\-tries \[D_{ii}\in\RPlus\text{, with }1\le i\le V,\]are the sum of the rows of $\mathbf A$.
                 \end{itemize}
 
                 The difference of the latter with the former is defined as the Laplacian matrix:
@@ -396,7 +396,7 @@
                     \label{eqLaplacianMatrix}
                 \end{equation}
                 %
-                where $\rho$ is a constant to balance the diffusion and growth phenomena, as is going to be explained shortly in § \ref{secCharacteristicTimes}. The Laplacian matrix is the discretization of the ten\-so\-rial Laplacian operator: $-\mathbf L\longleftrightarrow\DeltaD$; indeed, as an example, remember that $$\DeltaD c=0\ \iff\ c(\mathbf x,t)=c\;\;\forall\mathbf x\in\mathbb R^3,\ t\text{ fixed},$$ and this behaviour is perfectly reproduced with $\mathbf L$ if applied to a uniform vector $\mathbf c=c\bOne$:
+                where $\rho$ is a constant to balance the diffusion and growth phenomena, as is going to be explained shortly in § \ref{secCharacteristicTimes}. The Laplacian matrix is the discretization of the ten\-so\-rial Laplacian operator: $-\mathbf L\longleftrightarrow\DeltaD$; indeed, as an example, remember that \[\DeltaD c=0\ \iff\ c(\mathbf x,t)=c\;\;\forall\mathbf x\in\mathbb R^3,\ t\text{ fixed},\]and this behaviour is perfectly reproduced with $\mathbf L$ if applied to a uniform vector $\mathbf c=c\bOne$:
                 %
                 \begin{equation*}
                     \mathbf L\mathbf c=
@@ -413,9 +413,9 @@
                 To build the Laplacian one can start from a more fine brain network representation \cite{BRCI,BRCII,BRCIII}; nonetheless, for the sake of simplicity, in this article the Laplacian used in \cite{Goriely2019,Goriely2019_L}, shown in Fig. \ref{figMatricesLDA}, is considered. %(see Appendix \ref{apxBudapestConnectome})
 
                 By collecting all ROI concentrations in the vector
-                $$
+                \[
                     \mathbf c=[c^1,\ \ldots\ ,c^V]^\top,
-                $$
+                \]
                 whose reconstructed piecewise continuous function
                 %
                 \begin{equation}
@@ -720,7 +720,7 @@
                     labelwidth=!,
                     labelsep=5pt,
                 ] % Per il significato di queste impostazioni si veda p. 3 della documentazione «enumitem»
-                    \item[$\tau_d\ll\tau_g$:] the dynamic is dominated by diffusion (Fig. \ref{figTimeScaledllg}) and it's thus uniform in space, \ie{} $$\DeltaD c=0\;\;\forall x\in\mathbb R^3\;\;\text{or}\;\;\mathbf L\mathbf c=0\;\;\text{(see § \ref{secSpatialDiscretization})},$$ so the network behaves like a single node.
+                    \item[$\tau_d\ll\tau_g$:] the dynamic is dominated by diffusion (Fig. \ref{figTimeScaledllg}) and it's thus uniform in space, \ie{} \[\DeltaD c=0\;\;\forall x\in\mathbb R^3\;\;\text{or}\;\;\mathbf L\mathbf c=0\;\;\text{(see § \ref{secSpatialDiscretization})},\]so the network behaves like a single node.
                     \item[$\tau_d\approx\tau_g$:] the dynamic is non-trivial (Fig. \ref{figTimeScaledppg}), more specifically both diffusion and growth are concurrent phenomena showing biologically sound results.
                     \item[$\tau_d\gg\tau_g$:] the dynamic is dominated by growth (Fig. \ref{figTimeScaledggg}) leading to a hiccup evolution in which groups of vertices are infected at different times.
                 \end{description}
@@ -757,12 +757,15 @@
                 \footnotetext{
                     In scientific notation $a\in\RPlus$ is expressed as $a=b10^c$ with significand $b\in[1,10)$ and exponent $c\in\mathbb N$, \ie{} the order of magnitude; by then applying the logarithm base $10$ and floor function one has, since $\log_{10}(b)\in[0,1)$,
                     %
-                    \begin{equation*}
+                    {\setlength\belowdisplayskip{0pt}%
+                    \setlength\belowdisplayshortskip{0pt}%
+                    \[
+                        % \boxed{
                         \lfloor\log_{10}(a)\rfloor=
                         \lfloor\log_{10}(b)+c\rfloor=
                         \lfloor\log_{10}(b)\rfloor+\lfloor c\rfloor
-                        =c.
-                    \end{equation*}
+                        =c.%}
+                    \]}%
                     %
                     % \begin{equation*}
                     %     \lfloor\log_{10}(\tau_d)\rfloor=
@@ -843,7 +846,7 @@
                 %
                 for a fixed Laplacian $\mathbf L$ and a set of parameters $\mathcal P$; of course, due to the quadratic terms, $\mathbf F$ is nonlinear.
 
-                Given a uniform time step size $\Delta t\in\RPlusStar$ such that $$T/\Delta t=N\in\NPlus,$$ then $\mathcal T$ is discretized by times steps $$t_n=n\Delta t\text{, with }1\le n\le N.$$
+                Given a uniform time step size $\Delta t\in\RPlusStar$ such that \[T/\Delta t=N\in\NPlus,\]then $\mathcal T$ is discretized by times steps \[t_n=n\Delta t\text{, with }1\le n\le N.\]
 
                 The logic behind the Euler methods is to approximate the time derivative with a finite difference between two consecutive time steps:
                 %
@@ -1249,7 +1252,7 @@
 
                 \footnotetext{For instance, if $\tau_d/\tau_g$ goes from $10^{10}$ to $10^{20}$, doub\-ling $\log_{10}(\tau_d/\tau_g+1)$, then  $f(\tau_d/\tau_g)$ almost doubles from $5.5$ to $10$.}
 
-                Assumption \ref{rmkDiffusionContributionConvergenceTime} is motivated with the following reasoning: from § \cref{secAsymptoticAnalysisFK,secAsymptoticAnalysisHD,secAsymptoticAnalysisSMO} it's clear the only LAS EPs are those with a non-null toxic concentration; hence, if $$1\ll\tau_d/\tau_g<+\infty,$$ $\mathbf L\mathbf c$ can be seen as the application of small perturbations to healthy nodes until their state changes from the unstable healthy one\footnotemark{}; and since the size of the perturbation is less important than its presence, a slow growth must be considered to account for $\tau_d/\tau_g$ influence to $T_c$.
+                Assumption \ref{rmkDiffusionContributionConvergenceTime} is motivated with the following reasoning: from § \cref{secAsymptoticAnalysisFK,secAsymptoticAnalysisHD,secAsymptoticAnalysisSMO} it's clear the only LAS EPs are those with a non-null toxic concentration; hence, if \[1\ll\tau_d/\tau_g<+\infty,\]$\mathbf L\mathbf c$ can be seen as the application of small perturbations to healthy nodes until their state changes from the unstable healthy one\footnotemark{}; and since the size of the perturbation is less important than its presence, a slow growth must be considered to account for $\tau_d/\tau_g$ influence to $T_c$.
 
                 \footnotetext{That is to say that, no matter how feeble diffusion may be and as long as all nodes are connected by at least a non-null edge, the network is going to be completely infected, exactly like its continuous counterpart.}
 
@@ -1458,7 +1461,7 @@
                 %
                 where $\eta=0.5$.
 
-                For clearance, \ref{hypSMOModelClearance} can be modified by setting $\mu_i=\mu/i$; in this way, the larger the polymer is, the slower it will diffuse. This last change actually breaks mass conservation in \eqref{eqMassConservation} which becomes \cite[(47) on p. 8]{Goriely2019}
+                For clearance, \ref{hypSMOModelClearance} can be modified by setting $\mu_i=\mu/i$; in this way, the larger the polymer is, the slower it's clear\-ed. This last change actually breaks mass conservation in \eqref{eqMassConservation} which becomes \cite[(47) on p. 8]{Goriely2019}
                 %
                 \begin{equation}
                     \derT\TotM t=\gamma-\mu\TotP,
@@ -1581,17 +1584,17 @@
                         \label{eqHDParameters}
                     \end{equation}
                     %
-                    where $\unit{\molarity}$ is molar concentration defined in SI units as \cite{PMCOxtoby2016} $$\unit{\molarity}=\unit{\mole/\metre\cubed};$$
+                    where $\unit{\molarity}$ is molar concentration defined in SI units as \cite{PMCOxtoby2016} \[\unit{\molarity}=\unit{\mole/\metre\cubed};\]
 
                     \item $\tau_g$ and $T_c$ values, from \cref{eqTauGHD,eqConvergenceTimeFunction} respectively, can be found in Tab. \ref{tabTimeDataSettings};
 
                     \item the asymptotic values from \eqref{eqHDEP} are
                     %
-                    $$
+                    \[
                         c_{h,2}^\infty=\qty1{\molarity},
                         \quad\text{and}\quad
                         c_{m,2}^\infty=\qty1{\molarity};
-                    $$
+                    \]
                     %
                     \item the initial healthy concentration is $c_{h,0}=\qty{2}{\molarity}$ while the initial toxic one is $c_{m,0}=\qty{0.1}{\molarity}$;
 
@@ -1928,7 +1931,7 @@
                     \label{eqAverageLength}
                 \end{equation}
                 %
-                where $(*)$ is only valid asymptotically when all nodes have the same concentration. It's noteworthy that the average length of the asymptotic size distribution estimate is $$\lambda\approx\num{13.22}.$$
+                where $(*)$ is only valid asymptotically when all nodes have the same concentration. It's noteworthy that the average length of the asymptotic size distribution estimate is \[\lambda\approx\num{13.22}.\]
                 
                 As expected, in the dynamic $\mathbf L$ case from Fig. \ref{figSMOAMDynamicL} it's clear the delayed nature of the aggregate masses compared to Fig. \ref{figSMOAMStaticL}; this is very slight\-ly reflected in the size distribution in Fig. \ref{figSMOSDDynamicL} as well, since it's smaller than Fig. \ref{figSMOSDStaticL} and it has a greater average length than $\lambda$.
                 
