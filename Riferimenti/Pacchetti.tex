@@ -65,10 +65,12 @@
 % «./Percorso/della/Filza/Fonte-Bold.ttf»
 % «./Percorso/della/Filza/Fonte-BoldItalic.ttf»
 
-\usepackage[backend=biber,style=numeric-comp]{biblatex}%
-\addbibresource{../Riferimenti/Bibliografia.bib}
-\nocite{*} % Cite all entries inside the «.bib» file
-\usepackage{csquotes}
+\controllaClasse{% Classe «article»
+    \usepackage[backend=biber,style=numeric-comp]{biblatex}%
+    \addbibresource{../Riferimenti/Bibliografia.bib}
+    \nocite{*} % Cite all entries inside the «.bib» file
+    \usepackage{csquotes}
+}{}%
 
 % Pacchetti per vari comandi matematici
 \usepackage{amsmath,
