@@ -1881,17 +1881,28 @@
 
                 Therefore, the \eqref{eqLDVariantII} case hints at the importance of the \num{1094} medium value edges for the dynamic of misfolded $\tau$ proteins. One could attribute this behaviour to the bigger increase of the diffusive timescale $\tau_d$, but Fig. \ref{figDynamicDiffusiveTimeScales} proves this may not the case: the \eqref{eqLDVariantII} $\tau_d$ increases more in the first half but is then surpassed in value by the \eqref{eqLDVariantI} $\tau_d$; at any rate, they still remain in the same OOM of $\tau_g$, far from the hiccup evolution described in § \ref{secCharacteristicTimes}.
 
-                \begin{figure}[htb]
+                Lastly, it's noteworthy that the convergence time increases only slightly in all cases, confirming \ref{rmkDiffusionContributionConvergenceTime}.
+
+            \subsubsection{SMO model}\label{secResultsSMO}
+
+                Contrary to before, in this case it's better to take a more holistic approach\footnotemark{} where the specific groups are ab\-an\-do\-ned in favour of the normalized aggregate masses, defined as
+                %
+                \begin{equation}
+                    \Mass_n\equiv\frac1{V\MInf}\sum_{v=1}^V\sum_{l=n}^Llc_l^v,\quad2\le n\le L,
+                    \label{eqAggregateMass}
+                \end{equation}
+                %
+                and the normalized [w.r.t. $\PInf$] size distribution, \ie{} the concentration against the polymer size. The resulting plots are shown in Fig. \ref{figSMOCurves}.
+
+                \footnotetext{For this reason the variants discussed for the FK and HD models are omitted in this section.}
+
+                \begin{figure}[tb]
                     \centering
                     \resizebox{\linewidth}{!}{\input{../Figure/TempoDiffusivo.tex}}
                     % \captionsetup{width=0.5\linewidth}
                     \caption{Dynamic diffusive timescale.}
                     \label{figDynamicDiffusiveTimeScales}
                 \end{figure}
-
-                Lastly, it's noteworthy that the convergence time increases only slightly in all cases, confirming \ref{rmkDiffusionContributionConvergenceTime}.
-
-            \subsubsection{SMO model}\label{secResultsSMO}
 
                 %%%%%%%%%%%%%%%%%%%%%%
                 %%% Infopagina SMO %%%
@@ -1908,17 +1919,6 @@
                 %%%%%%%%%%%%%%%%%%%%%%
                 %%%%%%%%%%%%%%%%%%%%%%
                 %%%%%%%%%%%%%%%%%%%%%%
-
-                Contrary to before, in this case it's better to take a more holistic approach\footnotemark{} where the specific groups are ab\-an\-do\-ned in favour of the normalized aggregate masses, defined as
-                %
-                \begin{equation}
-                    \Mass_n\equiv\frac1{V\MInf}\sum_{v=1}^V\sum_{l=n}^Llc_l^v,\quad2\le n\le L,
-                    \label{eqAggregateMass}
-                \end{equation}
-                %
-                and the normalized [w.r.t. $\PInf$] size distribution, \ie{} the concentration against the polymer size. The resulting plots are shown in Fig. \ref{figSMOCurves}.
-
-                \footnotetext{For this reason the variants discussed for the FK and HD models are omitted in this section.}
 
                 The static $\mathbf L$ case is illustrated in Figs. \cref{figSMOAMStaticL,figSMOSDStaticL}. The only thing to note is that the size distribution is pretty close to the asymptotic estimate, and this is true even for the average polymer length defined as the weighted mean of the sizes w.r.t. their concentrations:
                 %
